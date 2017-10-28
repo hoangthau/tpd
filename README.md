@@ -1,2 +1,0 @@
-# tpd
-The personal development
