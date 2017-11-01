@@ -7,36 +7,30 @@
     <div class="form-group form-group-lg">
       <label class="control-label" for="email">Full Name</label>
       <div class="">
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" name="fullname" [(ngModel)]="fullName">
       </div>
-    </div>
-    <div class="form-group form-group-lg">
-      <label class="control-label" for="email">Phone Number</label>
-      <div class="">
-        <input type="text" class="form-control">
-      </div>
-    </div>
+    </div>    
     <div class="form-group form-group-lg">
       <label class="control-label" for="pwd">Email</label>
       <div class=""> 
-        <input type="email" class="form-control">
+        <input type="email" class="form-control" name="email" [(ngModel)]="email">
       </div>
     </div>
     <div class="form-group form-group-lg">
       <label class="control-label " for="pwd">Username</label>
       <div class=""> 
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" name="username" [(ngModel)]="username">
       </div>
     </div>
     <div class="form-group form-group-lg">
       <label class="control-label " for="pwd">Password</label>
       <div class=""> 
-        <input type="password" class="form-control">
+        <input type="password" class="form-control" name="password" [(ngModel)]="password">
       </div>
     </div>
     <div class="form-group form-group-lg"> 
       <div class="">
-        <button type="submit" class="btn btn-primary btn-lg submit">Submit</button>
+        <button type="submit" class="btn btn-primary btn-lg submit" (click)="register()">Submit</button>
       </div>
     </div>
   </form>

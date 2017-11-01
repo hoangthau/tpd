@@ -21,9 +21,4 @@ export class HomePageService {
         const url = 'api/task/' + id;
         return this.httpConnector.delete(url);
     }
-
-    getUserList() {
-        const url = 'api/users';
-        return this.httpConnector.get(url);
-    }
 }
