@@ -13,6 +13,7 @@ import { ListComponent } from './list/list.component';
 import { HttpConnector } from './shared/httpConnector';
 import { HomePageService } from './shared/home-page.service';
 import { LoginService } from './shared/login.service';
+import { SignupService } from './shared/sign-up.service';
 import { AuthGuard } from './shared/auth-guard.service';
 
 @NgModule({
@@ -29,7 +30,7 @@ import { AuthGuard } from './shared/auth-guard.service';
     HttpModule,
     AppRoutes
   ],
-  providers: [HttpConnector, HomePageService, LoginService, AuthGuard],
+  providers: [HttpConnector, HomePageService, LoginService, SignupService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

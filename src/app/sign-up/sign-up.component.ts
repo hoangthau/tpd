@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { SignupService } from '../shared/sign-up.service';
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -11,13 +13,22 @@ export class SignUpComponent implements OnInit {
   username: string = '';
   password: string = '';
 
-  constructor() { }
+  constructor(private signupService: SignupService) { }
 
   ngOnInit() {
   }
 
   register() {
+    const data = {
+      fullName: this.fullName,
+      email: this.email,
+      username: this.username,
+      password: this.password
+    };
 
+    this.signupService.register(data).subscribe(() => {
+      console.log('create user');
+    });
   }
 
 }

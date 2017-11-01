@@ -27,7 +27,7 @@ router.route('/tasks')
       if(err)
         res.send(err);
 
-      res.json({message: 'Task created!', req: req.body});
+      res.json({message: 'Task created!'});
     })
   });
 
@@ -77,6 +77,20 @@ router.route('/users')
       res.json(tasks);
     })    
   })
+  .post(function(req, res){
+    var user = new User();
+    user.fullName = req.body.fullName;
+    user.email = req.body.email;
+    user.username = req.body.username;
+    user.password = req.body.password;
+
+    user.save(function(err){
+      if(err)
+        res.send(err);
+
+      res.json({message: 'User created!'});
+    })
+  });
 
 
 module.exports = router;
