@@ -310,7 +310,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/list/list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"list-group\">\r\n  <li class=\"list-group-item\" *ngFor=\"let item of items; let i = index\" [ngClass]=\"{'text-success': item.done}\">\r\n    <span>{{ i + 1}}.</span>\r\n    <span>{{ item.title}}</span>\r\n    <a class=\"pull-right action\" href=\"javascript:;\" (click)=\"complete(item)\">Done</a>\r\n    <a class=\"pull-right action\" href=\"javascript:;\" (click)=\"delete(item)\">Delete</a>    \r\n  </li> \r\n</ul>\r\n"
+module.exports = "<ul class=\"list-group\">\n  <li class=\"list-group-item\" *ngFor=\"let item of items; let i = index\" [ngClass]=\"{'text-success': item.done}\">\n    <span>{{ i + 1}}.</span>\n    <span>{{ item.title}}</span>\n    <a class=\"pull-right action\" href=\"javascript:;\" (click)=\"complete(item)\">Done</a>\n    <a class=\"pull-right action\" href=\"javascript:;\" (click)=\"delete(item)\">Delete</a>    \n  </li> \n</ul>\n"
 
 /***/ }),
 
@@ -386,7 +386,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-wrapper container\">\r\n  <h1 class=\"green text-center\">TPD</h1>\r\n  <p class=\"text-center\"><strong>Log in</strong></p>\r\n  <hr/>\r\n  <form class=\"form-horizontal\">\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\"><i class=\"fa fa-envelope\"></i></span>\r\n          <input type=\"text\" class=\"form-control\" name=\"usernmae\" [(ngModel)]=\"username\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\"><i class=\"fa fa-lock\"></i></span>\r\n          <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"password\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\">Remember me</label></div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\"> \r\n      <div class=\"col-sm-12\">\r\n        <button type=\"submit\" class=\"btn btn-primary submit\" (click)=\"login()\">Submit</button>\r\n      </div>\r\n    </div>\r\n  </form>\r\n  <hr/>\r\n  <p class=\"text-center\"><a>Forgot your password ?</a></p>\r\n  <p class=\"text-center\">Don't have an account ? <a href=\"sign-up\">Sign up</a></p>\r\n</div>"
+module.exports = "<div class=\"login-wrapper container\">\r\n  <h1 class=\"green text-center\">TPD</h1>\r\n  <p class=\"text-center\"><strong>Log in</strong></p>\r\n  <hr/>\r\n  <form class=\"form-horizontal\">\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\"><i class=\"fa fa-user\"></i></span>\r\n          <input type=\"text\" class=\"form-control\" name=\"usernmae\" [(ngModel)]=\"username\" placeholder=\"Username\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\"><i class=\"fa fa-lock\"></i></span>\r\n          <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"password\" placeholder=\"Password\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\">Remember me</label></div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\"> \r\n      <div class=\"col-sm-12\">\r\n        <button type=\"submit\" class=\"btn btn-primary submit\" (click)=\"login()\">Submit</button>\r\n      </div>\r\n    </div>\r\n  </form>\r\n  <hr/>\r\n  <p class=\"text-center\"><a>Forgot your password ?</a></p>\r\n  <p class=\"text-center\">Don't have an account ? <a href=\"sign-up\">Sign up</a></p>\r\n</div>"
 
 /***/ }),
 
@@ -726,7 +726,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/sign-up/sign-up.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"signup-wrapper container\">\r\n  <h3 class=\"green text-center\">Fill information to become member</h3>\r\n  <p class=\"text-center\"><b>Give it a try. Always free</b>.</p>  \r\n  <p class=\"text-center\">We absolutely provide free and insight tools which help you create a stunning and desirable lifestyle.</p> \r\n  <hr/>\r\n  <form class=\"\">\r\n    <div class=\"form-group form-group-lg\">\r\n      <label class=\"control-label\" for=\"email\">Full Name</label>\r\n      <div class=\"\">\r\n        <input type=\"text\" class=\"form-control\" name=\"fullname\" [(ngModel)]=\"fullName\">\r\n      </div>\r\n    </div>    \r\n    <div class=\"form-group form-group-lg\">\r\n      <label class=\"control-label\" for=\"pwd\">Email</label>\r\n      <div class=\"\"> \r\n        <input type=\"email\" class=\"form-control\" name=\"email\" [(ngModel)]=\"email\">\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group form-group-lg\">\r\n      <label class=\"control-label \" for=\"pwd\">Username</label>\r\n      <div class=\"\"> \r\n        <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"username\">\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group form-group-lg\">\r\n      <label class=\"control-label \" for=\"pwd\">Password</label>\r\n      <div class=\"\"> \r\n        <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"password\">\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group form-group-lg\"> \r\n      <div class=\"\">\r\n        <button type=\"submit\" class=\"btn btn-primary btn-lg submit\" (click)=\"register()\">Submit</button>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</div>\r\n\r\n"
+module.exports = "<div class=\"signup-wrapper container\">\r\n  <div *ngIf=\"!signupSuccess\">\r\n      <h3 class=\"green text-center\">Fill information to become member</h3>\r\n      <p class=\"text-center\"><b>Give it a try. Always free</b>.</p>  \r\n      <p class=\"text-center\">We absolutely provide free and insight tools which help you create a stunning and desirable lifestyle.</p> \r\n      <hr/>\r\n      <form class=\"\">\r\n        <div class=\"form-group form-group-lg\">\r\n          <label class=\"control-label\" for=\"email\">Full Name*</label>\r\n          <div class=\"\">\r\n            <input type=\"text\" class=\"form-control\" name=\"fullname\" [(ngModel)]=\"fullName\" placeholder=\"Full Name\">\r\n          </div>\r\n        </div>    \r\n        <div class=\"form-group form-group-lg\">\r\n          <label class=\"control-label\" for=\"pwd\">Email*</label>\r\n          <div class=\"\"> \r\n            <input type=\"email\" class=\"form-control\" name=\"email\" [(ngModel)]=\"email\" placeholder=\"Email\">\r\n          </div>\r\n        </div>\r\n        <div class=\"form-group form-group-lg\">\r\n          <label class=\"control-label \" for=\"pwd\">Username*</label>\r\n          <div class=\"\"> \r\n            <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"username\" placeholder=\"Username\">\r\n          </div>\r\n        </div>\r\n        <div class=\"form-group form-group-lg\">\r\n          <label class=\"control-label \" for=\"pwd\">Password*</label>\r\n          <div class=\"\"> \r\n            <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"password\" placeholder=\"Password\">\r\n          </div>\r\n        </div>\r\n        <div class=\"form-group form-group-lg\">\r\n          <label class=\"control-label \" for=\"pwd\">Confirm Password*</label>\r\n          <div class=\"\"> \r\n            <input type=\"password\" class=\"form-control\" name=\"confirmPassword\" [(ngModel)]=\"confirmPassword\" placeholder=\"Confirm Password\">\r\n          </div>\r\n        </div>\r\n        <div class=\"form-group form-group-lg\">\r\n          <span>(*) Required field</span>      \r\n        </div>\r\n        <div class=\"form-group form-group-lg\"> \r\n          <div class=\"\">\r\n            <button type=\"submit\" class=\"btn btn-primary btn-lg submit\" [disabled]=\"!isValid()\" (click)=\"register()\">Submit</button>\r\n          </div>\r\n        </div>\r\n      </form>\r\n  </div>\r\n  \r\n  <div *ngIf=\"signupSuccess\">\r\n    <h2 class=\"text-success\">Congratulation!</h2>\r\n    <a href=\"login\">Please login</a>\r\n  </div>  \r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -755,10 +755,13 @@ var SignUpComponent = (function () {
         this.email = '';
         this.username = '';
         this.password = '';
+        this.confirmPassword = '';
+        this.signupSuccess = false;
     }
     SignUpComponent.prototype.ngOnInit = function () {
     };
     SignUpComponent.prototype.register = function () {
+        var _this = this;
         var data = {
             fullName: this.fullName,
             email: this.email,
@@ -766,8 +769,12 @@ var SignUpComponent = (function () {
             password: this.password
         };
         this.signupService.register(data).subscribe(function () {
-            console.log('create user');
+            _this.signupSuccess = true;
         });
+    };
+    SignUpComponent.prototype.isValid = function () {
+        return this.fullName && this.email && this.username &&
+            this.password && this.password === this.confirmPassword;
     };
     return SignUpComponent;
 }());

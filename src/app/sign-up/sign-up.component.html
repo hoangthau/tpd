@@ -1,47 +1,54 @@
 <div class="signup-wrapper container">
-  <h3 class="green text-center">Fill information to become member</h3>
-  <p class="text-center"><b>Give it a try. Always free</b>.</p>  
-  <p class="text-center">We absolutely provide free and insight tools which help you create a stunning and desirable lifestyle.</p> 
-  <hr/>
-  <form class="">
-    <div class="form-group form-group-lg">
-      <label class="control-label" for="email">Full Name*</label>
-      <div class="">
-        <input type="text" class="form-control" name="fullname" [(ngModel)]="fullName" placeholder="Full Name">
-      </div>
-    </div>    
-    <div class="form-group form-group-lg">
-      <label class="control-label" for="pwd">Email*</label>
-      <div class=""> 
-        <input type="email" class="form-control" name="email" [(ngModel)]="email" placeholder="Email">
-      </div>
-    </div>
-    <div class="form-group form-group-lg">
-      <label class="control-label " for="pwd">Username*</label>
-      <div class=""> 
-        <input type="text" class="form-control" name="username" [(ngModel)]="username" placeholder="Username">
-      </div>
-    </div>
-    <div class="form-group form-group-lg">
-      <label class="control-label " for="pwd">Password*</label>
-      <div class=""> 
-        <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Password">
-      </div>
-    </div>
-    <div class="form-group form-group-lg">
-      <label class="control-label " for="pwd">Confirm Password*</label>
-      <div class=""> 
-        <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Confirm Password">
-      </div>
-    </div>
-    <div class="form-group form-group-lg">
-      <span>(*) Required field</span>      
-    </div>
-    <div class="form-group form-group-lg"> 
-      <div class="">
-        <button type="submit" class="btn btn-primary btn-lg submit" [disabled]="!isValid()" (click)="register()">Submit</button>
-      </div>
-    </div>
-  </form>
+  <div *ngIf="!signupSuccess">
+      <h3 class="green text-center">Fill information to become member</h3>
+      <p class="text-center"><b>Give it a try. Always free</b>.</p>  
+      <p class="text-center">We absolutely provide free and insight tools which help you create a stunning and desirable lifestyle.</p> 
+      <hr/>
+      <form class="">
+        <div class="form-group form-group-lg">
+          <label class="control-label" for="email">Full Name*</label>
+          <div class="">
+            <input type="text" class="form-control" name="fullname" [(ngModel)]="fullName" placeholder="Full Name">
+          </div>
+        </div>    
+        <div class="form-group form-group-lg">
+          <label class="control-label" for="pwd">Email*</label>
+          <div class=""> 
+            <input type="email" class="form-control" name="email" [(ngModel)]="email" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group form-group-lg">
+          <label class="control-label " for="pwd">Username*</label>
+          <div class=""> 
+            <input type="text" class="form-control" name="username" [(ngModel)]="username" placeholder="Username">
+          </div>
+        </div>
+        <div class="form-group form-group-lg">
+          <label class="control-label " for="pwd">Password*</label>
+          <div class=""> 
+            <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Password">
+          </div>
+        </div>
+        <div class="form-group form-group-lg">
+          <label class="control-label " for="pwd">Confirm Password*</label>
+          <div class=""> 
+            <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Confirm Password">
+          </div>
+        </div>
+        <div class="form-group form-group-lg">
+          <span>(*) Required field</span>      
+        </div>
+        <div class="form-group form-group-lg"> 
+          <div class="">
+            <button type="submit" class="btn btn-primary btn-lg submit" [disabled]="!isValid()" (click)="register()">Submit</button>
+          </div>
+        </div>
+      </form>
+  </div>
+  
+  <div *ngIf="signupSuccess">
+    <h2 class="text-success">Congratulation!</h2>
+    <a href="login">Please login</a>
+  </div>  
 </div>
 
