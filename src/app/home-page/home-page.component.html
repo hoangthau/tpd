@@ -16,7 +16,20 @@
 
   <h5>Your simple tasks today</h5>
   <hr/>
-  <app-list [items]="_taskList"></app-list>
+
+  <button *ngIf="!showCreateInput" class="btn btn-primary btn-create" (click)="createTask()">Create</button>
+  
+  <form *ngIf="showCreateInput" class="form-create">
+    <div class="form-group row">
+      <div class="col-sm-6">
+          <input class="form-control" type="text" [(ngModel)]="taskTitle" name="taskTitle" />  
+      </div>
+    </div> 
+    <button class="btn btn-primary" (click)="saveTask()">Save</button> or 
+    <a href="javascript:;" (click)="cancelTask()">cancel</a>
+  </form> 
+
+  <app-list [items]="taskList" (clickDelete)="deleteTask($event)"></app-list>
 </main>
 <footer>
   

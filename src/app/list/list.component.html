@@ -1,6 +1,8 @@
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let item of items; let i = index">
+  <li class="list-group-item" *ngFor="let item of items; let i = index" [ngClass]="{'text-success': item.done}">
     <span>{{ i + 1}}.</span>
     <span>{{ item.title}}</span>
-  </li>  
+    <a class="pull-right action" href="javascript:;" (click)="complete(item)">Done</a>
+    <a class="pull-right action" href="javascript:;" (click)="delete(item)">Delete</a>    
+  </li> 
 </ul>

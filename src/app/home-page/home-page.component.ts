@@ -8,12 +8,44 @@ import { HomePageService } from '../shared/home-page.service';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  private _taskList: Array<any>;
+  showCreateInput = false;
+  taskList: Array<any>;
+  taskTitle: string;
+
   constructor(private homePageService: HomePageService) { }
 
   ngOnInit() {
+    this.getTaskList();
+  }
+
+  getTaskList(){
     this.homePageService.getTaskList().subscribe((data) => {
-      this._taskList = data;
+      this.taskList = data;
+    });
+  }
+
+  createTask(){
+    this.taskTitle = '';
+    this.showCreateInput = true;
+  }
+
+  saveTask(){
+    this.showCreateInput = false;
+    let data = {
+      title: this.taskTitle
+    };
+    this.homePageService.saveTask(data).subscribe((data) => {
+      this.getTaskList();
+    });
+  }
+
+  cancelTask(){
+    this.showCreateInput = false;
+  }
+
+  deleteTask(item: any){
+    this.homePageService.deleteTask(item._id).subscribe((data) => {
+      this.getTaskList();
     });
   }
 
