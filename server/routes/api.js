@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const Task = require('../models/task');
+const User = require('../models/user');
 
 /* GET api listing. */
 router.get('/', (req, res) => {
   res.send('api works');
 });
 
-
+//for task
 router.route('/tasks')
   .get(function(req, res){
     Task.find(function(err, tasks){
@@ -64,6 +65,18 @@ router.route('/task/:task_id')
       res.json({message: 'Successfully deletected'});
     })
   });
+
+
+//for user
+router.route('/users')
+  .get(function(req, res){
+    User.find(function(err, tasks){
+      if(err)
+        res.send(err);
+
+      res.json(tasks);
+    })    
+  })
 
 
 module.exports = router;

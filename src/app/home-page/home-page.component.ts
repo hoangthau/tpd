@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HomePageService } from '../shared/home-page.service';
+import { LoginService } from '../shared/login.service';
+
 
 @Component({
   selector: 'app-home-page',
@@ -11,42 +13,54 @@ export class HomePageComponent implements OnInit {
   showCreateInput = false;
   taskList: Array<any>;
   taskTitle: string;
+  userList: Array<any>;
 
-  constructor(private homePageService: HomePageService) { }
+  constructor(private homePageService: HomePageService, private loginService: LoginService) { }
 
   ngOnInit() {
     this.getTaskList();
+    this.getUserList();
   }
 
-  getTaskList(){
+  getTaskList() {
     this.homePageService.getTaskList().subscribe((data) => {
       this.taskList = data;
     });
   }
 
-  createTask(){
+  getUserList() {
+    this.homePageService.getUserList().subscribe((data) => {
+      this.userList = data;
+    });
+  }
+
+  createTask() {
     this.taskTitle = '';
     this.showCreateInput = true;
   }
 
-  saveTask(){
+  saveTask() {
     this.showCreateInput = false;
-    let data = {
+    const data = {
       title: this.taskTitle
     };
-    this.homePageService.saveTask(data).subscribe((data) => {
+    this.homePageService.saveTask(data).subscribe(() => {
       this.getTaskList();
     });
   }
 
-  cancelTask(){
+  cancelTask() {
     this.showCreateInput = false;
   }
 
-  deleteTask(item: any){
+  deleteTask(item: any) {
     this.homePageService.deleteTask(item._id).subscribe((data) => {
       this.getTaskList();
     });
+  }
+
+  signout() {
+    this.loginService.logout();
   }
 
 }
