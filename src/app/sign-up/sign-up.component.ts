@@ -12,6 +12,7 @@ export class SignUpComponent implements OnInit {
   email: string = '';
   username: string = '';
   password: string = '';
+  confirmPassword: string = '';
 
   constructor(private signupService: SignupService) { }
 
@@ -29,6 +30,11 @@ export class SignUpComponent implements OnInit {
     this.signupService.register(data).subscribe(() => {
       console.log('create user');
     });
+  }
+
+  isValid(){
+    return this.fullName && this.email && this.username &&
+    this.password && this.password === this.confirmPassword;
   }
 
 }
