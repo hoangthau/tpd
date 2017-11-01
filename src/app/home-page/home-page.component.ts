@@ -19,18 +19,11 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
     this.getTaskList();
-    this.getUserList();
   }
 
   getTaskList() {
     this.homePageService.getTaskList().subscribe((data) => {
       this.taskList = data;
-    });
-  }
-
-  getUserList() {
-    this.homePageService.getUserList().subscribe((data) => {
-      this.userList = data;
     });
   }
 
