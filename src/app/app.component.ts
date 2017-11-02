@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
         if (event instanceof NavigationEnd) {
           console.log(event);
           self.showNavbar = true;
-          if (event.url === '/login') {
+          if (event.url === '/login' || event.url === '/sign-up' ) {
             self.showNavbar = false;
           } else if (event.url.indexOf('/user/') >= 0 && localStorage.getItem('currentUser')) {
             self.isLogined = true;
