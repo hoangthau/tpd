@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page-content\">\r\n    <header>\r\n        <app-navbar></app-navbar>\r\n    </header>\r\n    <router-outlet></router-outlet>\r\n</div>\r\n"
+module.exports = "<div class=\"page-content\">\r\n    <header>\r\n        <app-navbar [show]=\"showNavbar\"></app-navbar>\r\n    </header>\r\n    <router-outlet></router-outlet>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -48,17 +48,36 @@ module.exports = "<div class=\"page-content\">\r\n    <header>\r\n        <app-n
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(router) {
+        this.router = router;
         this.title = 'app works!';
+        this.showNavbar = true;
     }
+    AppComponent.prototype.ngOnInit = function () {
+        var self = this;
+        self.router.events
+            .subscribe(function (event) {
+            if (event instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* NavigationEnd */]) {
+                self.showNavbar = true;
+                if (event.url === '/login') {
+                    self.showNavbar = false;
+                }
+            }
+        });
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -66,9 +85,11 @@ AppComponent = __decorate([
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
-    })
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object])
 ], AppComponent);
 
+var _a;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -189,8 +210,8 @@ var AppRoutes = (function () {
 }());
 AppRoutes = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
-        imports: [__WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* RouterModule */].forRoot(routes, { useHash: false })],
-        exports: [__WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* RouterModule */]]
+        imports: [__WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* RouterModule */].forRoot(routes, { useHash: false })],
+        exports: [__WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* RouterModule */]]
     })
 ], AppRoutes);
 
@@ -430,7 +451,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-light bg-light justify-content-between\">\n  <a href=\"#\" class=\"navbar-brand\">TPD</a>\n  <div>\n    <a class=\"text-secondary\" href=\"login\">Sign in</a>\n    <span class=\"text-muted\">or</span>\n    <a class=\"text-secondary\" href=\"sign-up\">Sign up</a>\n    <a href=\"javascript:;\" (click)=\"signout()\">Sign out</a>      \n  </div>\n</nav>\n"
+module.exports = "<nav *ngIf=\"show\" class=\"navbar navbar-light bg-light justify-content-between\">\n  <a href=\"#\" class=\"navbar-brand\">TPD</a>\n  <div>\n    <a class=\"text-secondary\" href=\"login\">Sign in</a>\n    <span class=\"text-muted\">or</span>\n    <a class=\"text-secondary\" href=\"sign-up\">Sign up</a>\n    <a href=\"javascript:;\" (click)=\"signout()\">Sign out</a>      \n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -455,14 +476,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var NavbarComponent = (function () {
     function NavbarComponent(loginService) {
         this.loginService = loginService;
+        this.show = true;
     }
     NavbarComponent.prototype.ngOnInit = function () {
+    };
+    NavbarComponent.prototype.ngOnChanges = function (changes) {
     };
     NavbarComponent.prototype.signout = function () {
         this.loginService.logout();
     };
     return NavbarComponent;
 }());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Boolean)
+], NavbarComponent.prototype, "show", void 0);
 NavbarComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-navbar',
@@ -511,7 +539,7 @@ var AuthGuard = (function () {
 }());
 AuthGuard = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object])
 ], AuthGuard);
 
 var _a;
@@ -686,7 +714,7 @@ var LoginService = (function () {
 }());
 LoginService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__httpConnector__["a" /* HttpConnector */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__httpConnector__["a" /* HttpConnector */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__httpConnector__["a" /* HttpConnector */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__httpConnector__["a" /* HttpConnector */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object])
 ], LoginService);
 
 var _a, _b;

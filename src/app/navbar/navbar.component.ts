@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 import { LoginService } from '../shared/login.service';
 
@@ -7,12 +7,16 @@ import { LoginService } from '../shared/login.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnChanges {
+  @Input() show: boolean = true;
 
   constructor(private loginService: LoginService) { }
-  
+
   ngOnInit() {
-  }  
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+  }
 
   signout() {
     this.loginService.logout();
