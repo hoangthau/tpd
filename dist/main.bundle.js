@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page-content\">\r\n    <header>\r\n        <app-navbar [show]=\"showNavbar\"></app-navbar>\r\n    </header>\r\n    <router-outlet></router-outlet>\r\n</div>\r\n"
+module.exports = "<div class=\"page-content\">\r\n    <header>\r\n        <app-navbar [show]=\"showNavbar\" [logined]=\"isLogined\"></app-navbar>\r\n    </header>\r\n    <router-outlet></router-outlet>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -65,15 +65,23 @@ var AppComponent = (function () {
         this.router = router;
         this.title = 'app works!';
         this.showNavbar = true;
+        this.isLogined = false;
     }
     AppComponent.prototype.ngOnInit = function () {
         var self = this;
         self.router.events
             .subscribe(function (event) {
             if (event instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* NavigationEnd */]) {
+                console.log(event);
                 self.showNavbar = true;
                 if (event.url === '/login') {
                     self.showNavbar = false;
+                }
+                else if (event.url.indexOf('/user/') >= 0 && localStorage.getItem('currentUser')) {
+                    self.isLogined = true;
+                }
+                else {
+                    self.isLogined = false;
                 }
             }
         });
@@ -451,7 +459,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav *ngIf=\"show\" class=\"navbar navbar-light bg-light justify-content-between\">\n  <a href=\"#\" class=\"navbar-brand\">TPD</a>\n  <div>\n    <a class=\"text-secondary\" href=\"login\">Sign in</a>\n    <span class=\"text-muted\">or</span>\n    <a class=\"text-secondary\" href=\"sign-up\">Sign up</a>\n    <a href=\"javascript:;\" (click)=\"signout()\">Sign out</a>      \n  </div>\n</nav>\n"
+module.exports = "<nav *ngIf=\"show\" class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <a class=\"navbar-brand\" href=\"#\">TPD</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\"\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"#\">Home\n          <span class=\"sr-only\">(current)</span>\n        </a>\n      </li>\n    </ul>\n    <ul *ngIf=\"!logined\" class=\"navbar-nav my-2 my-lg-0\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"login\">Sign in</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"sign-up\">Sign up</a>\n      </li>\n    </ul>\n    <ul *ngIf=\"logined\" class=\"navbar-nav my-2 my-lg-0\">      \n      <li class=\"nav-item dropdown\">\n        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n          aria-expanded=\"false\">\n          Thau Nguyen\n        </a>\n        <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdown\">\n          <a class=\"dropdown-item\" href=\"#\">Settings</a>\n          <div class=\"dropdown-divider\"></div>\n          <a class=\"dropdown-item\" href=\"#\" (click)=\"signout()\">Logout</a>\n        </div>\n      </li>\n    </ul>\n  </div>\n</nav>"
 
 /***/ }),
 
@@ -477,6 +485,8 @@ var NavbarComponent = (function () {
     function NavbarComponent(loginService) {
         this.loginService = loginService;
         this.show = true;
+        this.logined = false;
+        this.fullName = '';
     }
     NavbarComponent.prototype.ngOnInit = function () {
     };
@@ -491,6 +501,14 @@ __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
     __metadata("design:type", Boolean)
 ], NavbarComponent.prototype, "show", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Boolean)
+], NavbarComponent.prototype, "logined", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", String)
+], NavbarComponent.prototype, "fullName", void 0);
 NavbarComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-navbar',

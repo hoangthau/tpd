@@ -1,9 +1,38 @@
-<nav *ngIf="show" class="navbar navbar-light bg-light justify-content-between">
-  <a href="#" class="navbar-brand">TPD</a>
-  <div>
-    <a class="text-secondary" href="login">Sign in</a>
-    <span class="text-muted">or</span>
-    <a class="text-secondary" href="sign-up">Sign up</a>
-    <a href="javascript:;" (click)="signout()">Sign out</a>      
+<nav *ngIf="show" class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">TPD</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+    </ul>
+    <ul *ngIf="!logined" class="navbar-nav my-2 my-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="login">Sign in</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="sign-up">Sign up</a>
+      </li>
+    </ul>
+    <ul *ngIf="logined" class="navbar-nav my-2 my-lg-0">      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Thau Nguyen
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Settings</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" (click)="signout()">Logout</a>
+        </div>
+      </li>
+    </ul>
   </div>
 </nav>

@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "ng build && node server.js",    
+    "build": "ng build && node server.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -27,7 +27,9 @@
     "core-js": "^2.4.1",
     "express": "^4.16.2",
     "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1",
     "mongoose": "^4.12.4",
+    "popper.js": "^1.12.6",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },

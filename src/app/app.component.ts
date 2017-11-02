@@ -9,6 +9,7 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'app works!';
   showNavbar: boolean = true;
+  isLogined: boolean = false;
 
   constructor(private router: Router) { }
 
@@ -17,9 +18,14 @@ export class AppComponent implements OnInit {
     self.router.events
       .subscribe((event) => {
         if (event instanceof NavigationEnd) {
+          console.log(event);
           self.showNavbar = true;
           if (event.url === '/login') {
             self.showNavbar = false;
+          } else if (event.url.indexOf('/user/') >= 0 && localStorage.getItem('currentUser')) {
+            self.isLogined = true;
+          } else {
+            self.isLogined = false;
           }
         }
       });

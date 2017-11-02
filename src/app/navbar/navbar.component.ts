@@ -9,6 +9,8 @@ import { LoginService } from '../shared/login.service';
 })
 export class NavbarComponent implements OnInit, OnChanges {
   @Input() show: boolean = true;
+  @Input() logined: boolean = false;
+  @Input() fullName: string = '';
 
   constructor(private loginService: LoginService) { }
 
