@@ -13,8 +13,9 @@ export class LoginService {
             const user = this.getUserByUserName(userList, data.username);
             console.log(user);
             if (user && user.password === data.password) {
+                const link = '/user/' + user.username;
                 localStorage.setItem('currentUser', JSON.stringify({ username: user.username, id: user._id }));
-                this.router.navigate(['/']);
+                this.router.navigate([link]);
             }
         });
     }

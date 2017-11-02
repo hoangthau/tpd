@@ -689,8 +689,9 @@ var LoginService = (function () {
             var user = _this.getUserByUserName(userList, data.username);
             console.log(user);
             if (user && user.password === data.password) {
+                var link = '/user/' + user.username;
                 localStorage.setItem('currentUser', JSON.stringify({ username: user.username, id: user._id }));
-                _this.router.navigate(['/']);
+                _this.router.navigate([link]);
             }
         });
     };
