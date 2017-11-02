@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('tpd App', () => {
+describe('ripple App', () => {
   let page: AppPage;
 
   beforeEach(() => {

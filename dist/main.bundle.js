@@ -25,7 +25,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "footer {\r\n    margin-top: 10px;\r\n}", ""]);
 
 // exports
 
@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page-content\">\r\n    <header>\r\n        <app-navbar [show]=\"showNavbar\" [logined]=\"isLogined\"></app-navbar>\r\n    </header>\r\n    <router-outlet></router-outlet>\r\n</div>\r\n"
+module.exports = "<div class=\"page-content\">\r\n    <header>\r\n        <app-navbar [show]=\"showNavbar\" [logined]=\"isLogined\"></app-navbar>\r\n    </header>\r\n    <router-outlet></router-outlet>\r\n    <footer class=\"container\">\r\n        <hr />\r\n        <p>@2017 - Ripple</p>\r\n    </footer>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -235,7 +235,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".btn-create, .form-create {\r\n    margin-bottom: 10px;\r\n}", ""]);
+exports.push([module.i, ".container {\r\n    margin-top: 20px;\r\n}\r\n\r\n.btn-create, .form-create {\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.img-intro {\r\n    height: 300px;\r\n    background-image: url(" + __webpack_require__("../../../../../src/assets/homepage.jpg") + ");\r\n    background-position: top center;\r\n    background-repeat: no-repeat;\r\n    background-size: contain;\r\n}\r\n\r\n.divider {\r\n    margin: 30px 0;\r\n    height: 1px;\r\n}\r\n\r\n.header {\r\n    border-bottom: 1px solid rgba(0,0,0,.15)!important;\r\n    padding-bottom: 18px;\r\n}\r\n\r\n.title { \r\n    padding-bottom: 20px;\r\n    border-bottom: 1px solid rgba(0,0,0,.54);\r\n    font-size: 22px;\r\n    font-size: 500;\r\n}\r\n\r\n.text {\r\n    margin-top: 20px;\r\n}\r\n\r\n.more-info {\r\n    margin-top: 70px;\r\n}", ""]);
 
 // exports
 
@@ -248,7 +248,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home-page/home-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<main class=\"container\">\r\n  <p>This is Home Page</p>\r\n</main>\r\n<footer>\r\n  \r\n</footer>"
+module.exports = "<main class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6\">\r\n      <h2>As you live your days, so you LIVE YOUR LIFE</h2>\r\n      <p>The only reason we've made the transformation from there to here is that, somewhere along the way, we've had the good\r\n        fortune of being exposed to the slight edge.\r\n      </p>\r\n      <p>\r\n        The transformation from beach bum to millionaire did not happen overnight. It was a long, slow, at times painful roller-coaster\r\n        process.\r\n      </p>\r\n      <button type=\"button\" class=\"btn btn-primary\">Get started</button>\r\n      <button type=\"button\" class=\"btn btn-outline-secondary\">Learn more</button>\r\n    </div>\r\n    <div class=\"col-md-6 img-intro\">\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"more-info\">\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>We have to stop procrastinating and start living</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      And it's all because of what I've learned about beating FEAR, conquering PROCRASTINATION and doing impossible things.\r\n    </p>\r\n\r\n    <div class=\"divider\"></div>\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>Master your day, design your life</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      Do anything LONG ENOUGH and you will get deppth of INSIGHT and UNDERSTANNDING about it. They'll call you a GURU.\r\n    </p>\r\n\r\n    <div class=\"divider\"></div>\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>Discovery your destiny</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      Be so KNOWLEDGEABLE, COMPETENT and BRILLIANT at what yo do, that firm can not run WITHOUT you.\r\n      Become INDISPENSABLE.\r\n    </p>\r\n  </div>\r\n\r\n</main>"
 
 /***/ }),
 
@@ -309,7 +309,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/list/list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"list-group\">\r\n  <li class=\"list-group-item\" *ngFor=\"let item of items; let i = index\" [ngClass]=\"{'text-success': item.done}\">\r\n    <span>{{ i + 1}}.</span>\r\n    <span>{{ item.title}}</span>\r\n    <a class=\"pull-right action\" href=\"javascript:;\" (click)=\"complete(item)\">Done</a>\r\n    <a class=\"pull-right action\" href=\"javascript:;\" (click)=\"delete(item)\">Delete</a>    \r\n  </li> \r\n</ul>\r\n"
+module.exports = "<ul class=\"list-group\">\n  <li class=\"list-group-item\" *ngFor=\"let item of items; let i = index\" [ngClass]=\"{'text-success': item.done}\">\n    <span>{{ i + 1}}.</span>\n    <span>{{ item.title}}</span>\n    <a class=\"pull-right action\" href=\"javascript:;\" (click)=\"complete(item)\"><span class=\"fa fa-check\"></span></a>\n    <a class=\"pull-right action\" href=\"javascript:;\" (click)=\"delete(item)\"><span class=\"fa fa-trash\"></span></a>    \n  </li> \n</ul>\n"
 
 /***/ }),
 
@@ -385,7 +385,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-wrapper container\">\r\n  <h1 class=\"green text-center\">TPD</h1>\r\n  <p class=\"text-center\"><strong>Log in</strong></p>\r\n  <hr/>\r\n  <form class=\"form-horizontal\">\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\"><i class=\"fa fa-user\"></i></span>\r\n          <input type=\"text\" class=\"form-control\" name=\"usernmae\" [(ngModel)]=\"username\" placeholder=\"Username\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\"><i class=\"fa fa-lock\"></i></span>\r\n          <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"password\" placeholder=\"Password\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\">Remember me</label></div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\"> \r\n      <div class=\"col-sm-12\">\r\n        <button type=\"submit\" class=\"btn btn-primary submit\" (click)=\"login()\">Submit</button>\r\n      </div>\r\n    </div>\r\n  </form>\r\n  <hr/>\r\n  <p class=\"text-center\"><a>Forgot your password ?</a></p>\r\n  <p class=\"text-center\">Don't have an account ? <a href=\"sign-up\">Sign up</a></p>\r\n</div>"
+module.exports = "<div class=\"login-wrapper container\">\r\n  <h1 class=\"green text-center\">Ripple</h1>\r\n  <p class=\"text-center\"><strong>Log in</strong></p>\r\n  <hr/>\r\n  <form class=\"form-horizontal\">\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\"><i class=\"fa fa-user\"></i></span>\r\n          <input type=\"text\" class=\"form-control\" name=\"usernmae\" [(ngModel)]=\"username\" placeholder=\"Username\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\"><i class=\"fa fa-lock\"></i></span>\r\n          <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"password\" placeholder=\"Password\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\">Remember me</label></div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\"> \r\n      <div class=\"col-sm-12\">\r\n        <button type=\"submit\" class=\"btn btn-primary submit\" (click)=\"login()\">Submit</button>\r\n      </div>\r\n    </div>\r\n  </form>\r\n  <hr/>\r\n  <p class=\"text-center\"><a>Forgot your password ?</a></p>\r\n  <p class=\"text-center\">Don't have an account ? <a href=\"sign-up\">Sign up</a></p>\r\n</div>"
 
 /***/ }),
 
@@ -459,7 +459,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav *ngIf=\"show\" class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <a class=\"navbar-brand\" href=\"#\">TPD</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\"\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"#\">Home\n          <span class=\"sr-only\">(current)</span>\n        </a>\n      </li>\n    </ul>\n    <ul *ngIf=\"!logined\" class=\"navbar-nav my-2 my-lg-0\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"login\">Sign in</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"sign-up\">Sign up</a>\n      </li>\n    </ul>\n    <ul *ngIf=\"logined\" class=\"navbar-nav my-2 my-lg-0\">      \n      <li class=\"nav-item dropdown\">\n        <a class=\"nav-link dropdown-toggle\" href=\"javascript:;\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n          aria-expanded=\"false\">\n          Thau Nguyen\n        </a>\n        <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdown\">\n          <a class=\"dropdown-item\" href=\"javascript:;\">Settings</a>\n          <div class=\"dropdown-divider\"></div>\n          <a class=\"dropdown-item\" href=\"javascript:;\" (click)=\"signout()\">Logout</a>\n        </div>\n      </li>\n    </ul>\n  </div>\n</nav>"
+module.exports = "<nav *ngIf=\"show\" class=\"navbar navbar-expand-lg navbar-light bg-light\">\r\n  <a class=\"navbar-brand\" href=\"#\">Ripple</a>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\"\r\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item active\">\r\n        <a class=\"nav-link\" href=\"#\">Home\r\n          <span class=\"sr-only\">(current)</span>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n    <ul *ngIf=\"!logined\" class=\"navbar-nav my-2 my-lg-0\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" href=\"login\">Sign in</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" href=\"sign-up\">Sign up</a>\r\n      </li>\r\n    </ul>\r\n    <ul *ngIf=\"logined\" class=\"navbar-nav my-2 my-lg-0\">      \r\n      <li class=\"nav-item dropdown\">\r\n        <a class=\"nav-link dropdown-toggle\" href=\"javascript:;\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\r\n          aria-expanded=\"false\">\r\n          Thau Nguyen\r\n        </a>\r\n        <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdown\">\r\n          <a class=\"dropdown-item\" href=\"javascript:;\">Settings</a>\r\n          <div class=\"dropdown-divider\"></div>\r\n          <a class=\"dropdown-item\" href=\"javascript:;\" (click)=\"signout()\">Logout</a>\r\n        </div>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n</nav>"
 
 /***/ }),
 
@@ -920,7 +920,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".btn-create, .form-create {\r\n    margin-bottom: 10px;\r\n}", ""]);
+exports.push([module.i, ".btn-create, .form-create {\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.cover {\r\n    position: relative;\r\n}\r\n\r\n.cover-img {\r\n    height: 350px;\r\n    background-image: url(" + __webpack_require__("../../../../../src/assets/cover.jpg") + ");\r\n    background-position: top center;\r\n    background-repeat: no-repeat;\r\n    background-size: 100% 100%;\r\n}\r\n\r\n.profile-img {    \r\n    background-image: url(" + __webpack_require__("../../../../../src/assets/thau.jpg") + ");\r\n    background-position: top center;\r\n    background-repeat: no-repeat;\r\n    background-size: 100% 100%;\r\n\r\n    height: 200px;\r\n    width: 200px;\r\n    border-radius: 50%;\r\n    position: absolute;\r\n    bottom: 0;\r\n    left: 100px;\r\n}\r\n\r\n.nav {\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n}\r\n\r\n.tab-content {\r\n    width: 600px;\r\n    margin: 0 auto;\r\n}\r\n\r\n.nav-pills .nav-link.active, .nav-pills .show>.nav-link {\r\n    border-bottom: 1px solid #007bff;\r\n    background: none;\r\n    color: #007bff;\r\n}\r\n\r\n.nav-pills .nav-link {\r\n    border-radius: 0;\r\n}", ""]);
 
 // exports
 
@@ -933,7 +933,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/user-page/user-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <h2>The Personal Developement</h2>\n  <hr/>\n  <p>Why is it that some people live the life they’ve always dreamed of, while others watch from the sidelines as their own dreams gather dust? Is it luck, or an elusive quality that only some people are born with? Neither. Everything you need to live your own dream is contained between the pages of a simple book.</p>\n  <p>Do the thing. You will have the power.</p>\n\n  <h5>Your simple tasks today</h5>\n  <hr/>\n\n  <button *ngIf=\"!showCreateInput\" class=\"btn btn-primary btn-create\" (click)=\"createTask()\">Create</button>\n  \n  <form *ngIf=\"showCreateInput\" class=\"form-create\">\n    <div class=\"form-group row\">\n      <div class=\"col-sm-6\">\n          <input class=\"form-control\" type=\"text\" [(ngModel)]=\"taskTitle\" name=\"taskTitle\" />  \n      </div>\n    </div> \n    <button class=\"btn btn-primary\" (click)=\"saveTask()\">Save</button> or \n    <a href=\"javascript:;\" (click)=\"cancelTask()\">cancel</a>\n  </form> \n\n  <app-list [items]=\"taskList\" (clickDelete)=\"deleteTask($event)\"></app-list>\n</div>\n"
+module.exports = "<div class=\"user-page\">\r\n\r\n  <div class=\"cover\">\r\n    <div class=\"cover-img\"></div>\r\n    <div class=\"profile-img\"></div>\r\n    <ul class=\"nav nav-pills mb-3\" id=\"pills-tab\" role=\"tablist\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link active\" id=\"pills-home-tab\" data-toggle=\"pill\" href=\"#pills-home\" role=\"tab\" aria-controls=\"pills-home\"\r\n          aria-selected=\"true\">Home</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-profile-tab\" data-toggle=\"pill\" href=\"#pills-profile\" role=\"tab\" aria-controls=\"pills-profile\"\r\n          aria-selected=\"false\">Profile</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-contact-tab\" data-toggle=\"pill\" href=\"#pills-contact\" role=\"tab\" aria-controls=\"pills-contact\"\r\n          aria-selected=\"false\">Contact</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n\r\n  <div class=\"tab-content\" id=\"pills-tabContent\">\r\n    <div class=\"tab-pane fade show active\" id=\"pills-home\" role=\"tabpanel\" aria-labelledby=\"pills-home-tab\">\r\n      <button *ngIf=\"!showCreateInput\" class=\"btn btn-primary btn-create\" (click)=\"createTask()\">Create</button>\r\n      <form *ngIf=\"showCreateInput\" class=\"form-create\">\r\n        <div class=\"form-group row\">\r\n          <div class=\"col-sm-6\">\r\n            <input class=\"form-control\" type=\"text\" [(ngModel)]=\"taskTitle\" name=\"taskTitle\" />\r\n          </div>\r\n        </div>\r\n        <button class=\"btn btn-primary\" (click)=\"saveTask()\">Save</button> or\r\n        <a href=\"javascript:;\" (click)=\"cancelTask()\">cancel</a>\r\n      </form>\r\n\r\n      <app-list [items]=\"taskList\" (clickDelete)=\"deleteTask($event)\"></app-list>\r\n    </div>\r\n    <div class=\"tab-pane fade\" id=\"pills-profile\" role=\"tabpanel\" aria-labelledby=\"pills-profile-tab\">Profile</div>\r\n    <div class=\"tab-pane fade\" id=\"pills-contact\" role=\"tabpanel\" aria-labelledby=\"pills-contact-tab\">Contact</div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -1011,6 +1011,27 @@ UserPageComponent = __decorate([
 
 var _a, _b;
 //# sourceMappingURL=user-page.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/assets/cover.jpg":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "cover.43270a36b11834676e3f.jpg";
+
+/***/ }),
+
+/***/ "../../../../../src/assets/homepage.jpg":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "homepage.fc2e1b1316430fd67aaa.jpg";
+
+/***/ }),
+
+/***/ "../../../../../src/assets/thau.jpg":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "thau.6614dcee37f36bdde3b9.jpg";
 
 /***/ }),
 

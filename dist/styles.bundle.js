@@ -62,7 +62,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "body {\r\n    margin: 0;\r\n    padding: 0;\r\n}", ""]);
+exports.push([module.i, "body {\n    margin: 0;\n    padding: 0;\n}", ""]);
 
 // exports
 
