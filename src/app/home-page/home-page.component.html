@@ -1,36 +1,5 @@
-<header>
-  <nav class="navbar navbar-light bg-light justify-content-between">
-    <a href="#" class="navbar-brand">TPD</a>
-    <div>
-      <a class="text-secondary" href="login">Sign in</a>
-      <span class="text-muted">or</span>
-      <a class="text-secondary" href="sign-up">Sign up</a>
-      <a href="javascript:;" (click)="signout()">Sign out</a>      
-    </div>
-  </nav>
-</header>
 <main class="container">
-  <h2>The Personal Developement</h2>
-  <hr/>
-  <p>Why is it that some people live the life they’ve always dreamed of, while others watch from the sidelines as their own dreams gather dust? Is it luck, or an elusive quality that only some people are born with? Neither. Everything you need to live your own dream is contained between the pages of a simple book.</p>
-  <p>Do the thing. You will have the power.</p>
-
-  <h5>Your simple tasks today</h5>
-  <hr/>
-
-  <button *ngIf="!showCreateInput" class="btn btn-primary btn-create" (click)="createTask()">Create</button>
-  
-  <form *ngIf="showCreateInput" class="form-create">
-    <div class="form-group row">
-      <div class="col-sm-6">
-          <input class="form-control" type="text" [(ngModel)]="taskTitle" name="taskTitle" />  
-      </div>
-    </div> 
-    <button class="btn btn-primary" (click)="saveTask()">Save</button> or 
-    <a href="javascript:;" (click)="cancelTask()">cancel</a>
-  </form> 
-
-  <app-list [items]="taskList" (clickDelete)="deleteTask($event)"></app-list>
+  <p>This is Home Page</p>
 </main>
 <footer>
   

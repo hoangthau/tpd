@@ -12,9 +12,12 @@ import { ListComponent } from './list/list.component';
 
 import { HttpConnector } from './shared/httpConnector';
 import { HomePageService } from './shared/home-page.service';
+import { UserPageService } from './shared/user-page.service';
 import { LoginService } from './shared/login.service';
 import { SignupService } from './shared/sign-up.service';
 import { AuthGuard } from './shared/auth-guard.service';
+import { UserPageComponent } from './user-page/user-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { AuthGuard } from './shared/auth-guard.service';
     LoginComponent,
     HomePageComponent,
     SignUpComponent,
-    ListComponent
+    ListComponent,
+    UserPageComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,7 @@ import { AuthGuard } from './shared/auth-guard.service';
     HttpModule,
     AppRoutes
   ],
-  providers: [HttpConnector, HomePageService, LoginService, SignupService, AuthGuard],
+  providers: [HttpConnector, HomePageService, UserPageService, LoginService, SignupService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
