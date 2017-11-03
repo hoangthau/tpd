@@ -14,11 +14,13 @@ export class UserPageComponent implements OnInit {
   taskList: Array<any>;
   taskTitle: string;
   userList: Array<any>;
+  currentUser: any;
 
   constructor(private userPageService: UserPageService, private loginService: LoginService) { }
 
   ngOnInit() {
     this.getTaskList();
+    this.currentUser = this.loginService.getCurrentUser();    
   }
 
   getTaskList() {
