@@ -2,7 +2,7 @@
   <li class="list-group-item" *ngFor="let item of items; let i = index" [ngClass]="{'text-success': item.done}">
     <span>{{ i + 1}}.</span>
     <span>{{ item.title}}</span>
-    <a class="pull-right action" href="javascript:;" (click)="complete(item)"><span class="fa fa-check"></span></a>
-    <a class="pull-right action" href="javascript:;" (click)="delete(item)"><span class="fa fa-trash"></span></a>    
+    <span class="pull-right action hover-icon" href="javascript:;" (click)="complete(item)"><span class="fa fa-check"></span></span>
+    <span class="pull-right action hover-icon" href="javascript:;" (click)="delete(item)"><span class="fa fa-trash"></span></span>    
   </li> 
 </ul>

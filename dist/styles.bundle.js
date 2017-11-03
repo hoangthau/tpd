@@ -62,7 +62,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "body {\n    margin: 0;\n    padding: 0;\n}", ""]);
+exports.push([module.i, "body {\r\n    margin: 0;\r\n    padding: 0;\r\n    background-color: #e6ecf0;\r\n}\r\n\r\n.hover-icon {\r\n    cursor: pointer;\r\n    -webbkit-opacity: 0.4;\r\n    -o-opacity: 0.4;\r\n    -ms-opacity: 0.4;\r\n    opacity: 0.4;\r\n    transition: opacity 0.4s;\r\n    color: #000;\r\n}\r\n.hover-icon.disabled {\r\n    -webbkit-opacity: 0.4 !important;\r\n    -o-opacity: 0.4 !important;\r\n    -ms-opacity: 0.4 !important;\r\n    opacity: 0.4 !important; \r\n}\r\n.hover-icon.hover-icon:hover {\r\n    -webbkit-opacity: 1;\r\n    -o-opacity: 1;\r\n    -ms-opacity: 1;\r\n    opacity: 1; \r\n}\r\n.hover-icon.active {\r\n    opacity: 1; \r\n}\r\n\r\n.box-shadow {\r\n    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.25);\r\n}", ""]);
 
 // exports
 

@@ -30,11 +30,14 @@
 
 .nav {
     justify-content: center;
+    background: #fff;
 }
 
 .tab-content {
     width: 600px;
     margin: 0 auto;
+    padding: 15px 10px;
+    background: #fff;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {

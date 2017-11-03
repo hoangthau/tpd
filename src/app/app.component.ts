@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
+import { LoginService } from './shared/login.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,9 +11,10 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'app works!';
   showNavbar: boolean = true;
-  isLogined: boolean = false;
+  isLogined: boolean = true;
+  fullName: string = '';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private loginService: LoginService) { }
 
   ngOnInit() {
     const self = this;
@@ -23,7 +26,9 @@ export class AppComponent implements OnInit {
           if (event.url === '/login' || event.url === '/sign-up' ) {
             self.showNavbar = false;
           } else if (event.url.indexOf('/user/') >= 0 && localStorage.getItem('currentUser')) {
+            const currentUser = self.loginService.getCurrentUser();
             self.isLogined = true;
+            self.fullName = currentUser.fullName;
           } else {
             self.isLogined = false;
           }

@@ -6,6 +6,8 @@ import { HttpConnector } from './httpConnector';
 
 @Injectable()
 export class LoginService {
+    currentUser: any;
+
     constructor(private httpConnector: HttpConnector, private router: Router) { }
 
     login(data: any) {
@@ -15,6 +17,7 @@ export class LoginService {
             if (user && user.password === data.password) {
                 const link = '/user/' + user.username;
                 localStorage.setItem('currentUser', JSON.stringify({ username: user.username, id: user._id }));
+                this.currentUser = user;
                 this.router.navigate([link]);
             }
         });
@@ -23,6 +26,10 @@ export class LoginService {
     logout() {
         localStorage.removeItem('currentUser');
         this.router.navigate(['/login']);
+    }
+
+    getCurrentUser() {
+        return this.currentUser;
     }
 
     getUserList() {

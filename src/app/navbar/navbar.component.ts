@@ -9,7 +9,7 @@ import { LoginService } from '../shared/login.service';
 })
 export class NavbarComponent implements OnInit, OnChanges {
   @Input() show: boolean = true;
-  @Input() logined: boolean = false;
+  @Input() logined: boolean = true;
   @Input() fullName: string = '';
 
   constructor(private loginService: LoginService) { }
@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
   }
 
   signout() {

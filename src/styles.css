@@ -1,4 +1,38 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #e6ecf0;
+}
+
+.hover-icon {
+    cursor: pointer;
+    -webbkit-opacity: 0.4;
+    -o-opacity: 0.4;
+    -ms-opacity: 0.4;
+    opacity: 0.4;
+    -webkit-transition: opacity 0.4s;
+    -o-transition: opacity 0.4s;
+    -moz-transition: opacity 0.4s;
+    -ms-transition: opacity 0.4s;
+    transition: opacity 0.4s;
+    color: #000;
+}
+.hover-icon.disabled {
+    -webbkit-opacity: 0.4 !important;
+    -o-opacity: 0.4 !important;
+    -ms-opacity: 0.4 !important;
+    opacity: 0.4 !important; 
+}
+.hover-icon.hover-icon:hover {
+    -webbkit-opacity: 1;
+    -o-opacity: 1;
+    -ms-opacity: 1;
+    opacity: 1; 
+}
+.hover-icon.active {
+    opacity: 1; 
+}
+
+.box-shadow {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.25);
 }
