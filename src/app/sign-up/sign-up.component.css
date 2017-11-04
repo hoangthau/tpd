@@ -1,11 +1,18 @@
 .signup-wrapper {
-    padding: 40px 0;
+    padding: 40px 20px;
 }
 .signup-wrapper form {
-    width: 60%;
+    width: 100%;
     margin: 30px auto;
 }
 
 .signup-wrapper .submit, .login-wrapper .submit {
     width: 100%;
+}
+
+@media(min-width: 768px){
+    .signup-wrapper form {
+        width: 60%;
+        margin: 30px auto;
+    }
 }

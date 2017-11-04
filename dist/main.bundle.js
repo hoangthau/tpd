@@ -378,7 +378,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".login-wrapper {    \r\n    width: 100%;\r\n    padding: 0;\r\n}\r\n\r\n.login-wrapper .fa {\r\n    width: 16px;\r\n    height: 16px;\r\n}\r\n\r\n.login-wrapper .submit {\r\n    width: 100%;\r\n}\r\n\r\n@media (min-width: 768px){\r\n    .login-wrapper {\r\n        width: 400px;\r\n        padding: 50px 0;\r\n    }\r\n}\r\n", ""]);
+exports.push([module.i, ".login-wrapper {    \r\n    width: 100%;\r\n    padding: 20px;\r\n}\r\n\r\n.login-wrapper .fa {\r\n    width: 16px;\r\n    height: 16px;\r\n}\r\n\r\n.login-wrapper .submit {\r\n    width: 100%;\r\n}\r\n\r\n@media (min-width: 768px){\r\n    .login-wrapper {\r\n        width: 400px;\r\n        padding: 50px 0;\r\n    }\r\n}\r\n", ""]);
 
 // exports
 
@@ -844,7 +844,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".signup-wrapper {\r\n    padding: 40px 0;\r\n}\r\n.signup-wrapper form {\r\n    width: 60%;\r\n    margin: 30px auto;\r\n}\r\n\r\n.signup-wrapper .submit, .login-wrapper .submit {\r\n    width: 100%;\r\n}", ""]);
+exports.push([module.i, ".signup-wrapper {\r\n    padding: 40px 20px;\r\n}\r\n.signup-wrapper form {\r\n    width: 100%;\r\n    margin: 30px auto;\r\n}\r\n\r\n.signup-wrapper .submit, .login-wrapper .submit {\r\n    width: 100%;\r\n}\r\n\r\n@media(min-width: 768px){\r\n    .signup-wrapper form {\r\n        width: 60%;\r\n        margin: 30px auto;\r\n    }\r\n}", ""]);
 
 // exports
 
