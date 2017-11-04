@@ -1,6 +1,6 @@
-.login-wrapper {
-    width: 400px;
-    padding: 50px 0;
+.login-wrapper {    
+    width: 100%;
+    padding: 0;
 }
 
 .login-wrapper .fa {
@@ -10,4 +10,11 @@
 
 .login-wrapper .submit {
     width: 100%;
+}
+
+@media (min-width: 768px){
+    .login-wrapper {
+        width: 400px;
+        padding: 50px 0;
+    }
 }
