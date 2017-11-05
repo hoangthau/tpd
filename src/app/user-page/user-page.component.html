@@ -2,7 +2,13 @@
 
   <div class="cover">
     <div class="cover-img"></div>
-    <div class="profile-img"></div>
+    <div class="profile-img">
+      <img src="{{userImg}}" />
+    </div>
+    <div class="m-info">
+      <h5>{{currentUser.fullName}}</h5>
+      <p>@{{currentUser.username}}</p>      
+    </div>
     <ul class="nav nav-pills mb-3 box-shadow" id="pills-tab" role="tablist">
       <li class="nav-item">
         <a class="nav-link active" id="pills-task-tab" data-toggle="pill" href="#pills-task" role="tab" aria-controls="pills-task"
@@ -28,6 +34,8 @@
     <div class="col-md-6 tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-task" role="tabpanel" aria-labelledby="pills-task-tab">
         <button *ngIf="!showCreateInput" class="btn btn-primary btn-create" (click)="createTask()">Create</button>
+        <a *ngIf="!modifyTaskList" class="pull-right" href="javascript:;" (click)="enableEditMode()">Edit</a>
+        <a *ngIf="modifyTaskList" class="pull-right" href="javascript:;" (click)="enableEditMode()">Quit</a>        
         <form *ngIf="showCreateInput" class="form-create">
           <div class="form-group row">
             <div class="col-sm-12">
@@ -37,7 +45,7 @@
           <button class="btn btn-primary" (click)="saveTask()">Save</button> or
           <a href="javascript:;" (click)="cancelTask()">cancel</a>
         </form>
-        <app-list [items]="taskList" (clickDelete)="deleteTask($event)"></app-list>
+        <app-list [items]="taskList" (clickDelete)="deleteTask($event)" [modifyMode]="modifyTaskList"></app-list>
       </div>
       <div class="tab-pane fade" id="pills-story" role="tabpanel" aria-labelledby="pills-story-tab">Stories</div>
       <div class="tab-pane fade" id="pills-mentor" role="tabpanel" aria-labelledby="pills-mentor-tab">Mentors</div>

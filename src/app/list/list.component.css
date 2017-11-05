@@ -1,13 +1,9 @@
 .action {
     padding-right: 5px;
-    display: none;
 }
 
 .list-group-item {
     border-width: 0;
     padding-left: 0;
-}
-
-.list-group-item:hover .action {
-    display: inline;
+    cursor: pointer;
 }

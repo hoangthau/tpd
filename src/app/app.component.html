@@ -1,9 +1,9 @@
 <div class="page-content">
     <header>
-        <app-navbar [show]="showNavbar" [logined]="isLogined" [fullName]="fullName"></app-navbar>
+        <app-navbar [show]="showNavbar" [logined]="isLogined" [fullName]="fullName" [username]="username"></app-navbar>
     </header>
     <router-outlet></router-outlet>
-    <footer class="container">
+    <footer *ngIf="showFooter" class="container">
         <hr />
         <p>@2017 - Ripple</p>
     </footer>

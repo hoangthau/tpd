@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserPageService } from '../shared/user-page.service';
 import { LoginService } from '../shared/login.service';
 
+import * as md5 from 'md5';
+
 @Component({
   selector: 'app-user-page',
   templateUrl: './user-page.component.html',
@@ -11,16 +13,24 @@ import { LoginService } from '../shared/login.service';
 export class UserPageComponent implements OnInit {
 
   showCreateInput = false;
-  taskList: Array<any>;
   taskTitle: string;
   userList: Array<any>;
   currentUser: any;
+  modifyTaskList: boolean = false;
+  gravatarUrl: string = 'https://www.gravatar.com/avatar/'
+  userImg: string = this.gravatarUrl;
+  taskList: Array<any> = [
+    { title: 'Review my plans, my goals, my daily schedule' }
+  ];
+  
 
   constructor(private userPageService: UserPageService, private loginService: LoginService) { }
 
   ngOnInit() {
     this.getTaskList();
-    this.currentUser = this.loginService.getCurrentUser();    
+    this.currentUser = this.loginService.getCurrentUser();
+    this.userImg = this.gravatarUrl + md5(this.currentUser.email) + '?s=200';
+    console.log(this.userImg);
   }
 
   getTaskList() {
@@ -56,6 +66,10 @@ export class UserPageComponent implements OnInit {
 
   signout() {
     this.loginService.logout();
+  }
+
+  enableEditMode(){
+    this.modifyTaskList = !this.modifyTaskList;
   }
 
 }

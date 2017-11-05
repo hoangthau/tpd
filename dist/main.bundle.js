@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page-content\">\r\n    <header>\r\n        <app-navbar [show]=\"showNavbar\" [logined]=\"isLogined\" [fullName]=\"fullName\"></app-navbar>\r\n    </header>\r\n    <router-outlet></router-outlet>\r\n    <footer class=\"container\">\r\n        <hr />\r\n        <p>@2017 - Ripple</p>\r\n    </footer>\r\n</div>\r\n"
+module.exports = "<div class=\"page-content\">\r\n    <header>\r\n        <app-navbar [show]=\"showNavbar\" [logined]=\"isLogined\" [fullName]=\"fullName\" [username]=\"username\"></app-navbar>\r\n    </header>\r\n    <router-outlet></router-outlet>\r\n    <footer *ngIf=\"showFooter\" class=\"container\">\r\n        <hr />\r\n        <p>@2017 - Ripple</p>\r\n    </footer>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -68,8 +68,10 @@ var AppComponent = (function () {
         this.loginService = loginService;
         this.title = 'app works!';
         this.showNavbar = true;
-        this.isLogined = true;
+        this.isLogined = false;
         this.fullName = '';
+        this.username = '';
+        this.showFooter = true;
     }
     AppComponent.prototype.ngOnInit = function () {
         var self = this;
@@ -78,16 +80,16 @@ var AppComponent = (function () {
             if (event instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* NavigationEnd */]) {
                 console.log(event);
                 self.showNavbar = true;
+                self.showFooter = true;
                 if (event.url === '/login' || event.url === '/sign-up') {
                     self.showNavbar = false;
+                    self.showFooter = false;
                 }
-                else if (event.url.indexOf('/user/') >= 0 && localStorage.getItem('currentUser')) {
+                else if (localStorage.getItem('currentUser')) {
                     var currentUser = self.loginService.getCurrentUser();
                     self.isLogined = true;
                     self.fullName = currentUser.fullName;
-                }
-                else {
-                    self.isLogined = false;
+                    self.username = currentUser.username;
                 }
             }
         });
@@ -241,7 +243,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".container {\r\n    margin-top: 20px;\r\n}\r\n\r\n.btn-create, .form-create {\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.img-intro {\r\n    height: 300px;\r\n    background-image: url(" + __webpack_require__("../../../../../src/assets/homepage.jpg") + ");\r\n    background-position: top center;\r\n    background-repeat: no-repeat;\r\n    background-size: contain;\r\n}\r\n\r\n.divider {\r\n    margin: 30px 0;\r\n    height: 1px;\r\n}\r\n\r\n.header {\r\n    border-bottom: 1px solid rgba(0,0,0,.15)!important;\r\n    padding-bottom: 18px;\r\n}\r\n\r\n.title { \r\n    padding-bottom: 20px;\r\n    border-bottom: 1px solid rgba(0,0,0,.54);\r\n    font-size: 22px;\r\n    font-size: 500;\r\n}\r\n\r\n.text {\r\n    margin-top: 20px;\r\n}\r\n\r\n.more-info {\r\n    margin-top: 70px;\r\n}", ""]);
+exports.push([module.i, ".container {\r\n    margin-top: 20px;\r\n}\r\n\r\n.btn-create, .form-create {\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.img-intro {\r\n    height: 300px;\r\n    margin-top: 10px;\r\n    \r\n    background-image: url(" + __webpack_require__("../../../../../src/assets/homepage.jpg") + ");\r\n    background-position: top center;\r\n    background-repeat: no-repeat;\r\n    background-size: contain;\r\n}\r\n\r\n.divider {\r\n    margin: 30px 0;\r\n    height: 1px;\r\n}\r\n\r\n.header {\r\n    border-bottom: 1px solid rgba(0,0,0,.15)!important;\r\n    padding-bottom: 18px;\r\n}\r\n\r\n.title { \r\n    padding-bottom: 20px;\r\n    border-bottom: 1px solid rgba(0,0,0,.54);\r\n    font-size: 22px;\r\n    font-size: 500;\r\n}\r\n\r\n.text {\r\n    margin-top: 20px;\r\n}\r\n\r\n.more-info {\r\n    margin-top: 70px;\r\n}", ""]);
 
 // exports
 
@@ -254,7 +256,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home-page/home-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<main class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6\">\r\n      <h2>As you live your days, so you LIVE YOUR LIFE</h2>\r\n      <p>The only reason we've made the transformation from there to here is that, somewhere along the way, we've had the good\r\n        fortune of being exposed to the slight edge.\r\n      </p>\r\n      <p>\r\n        The transformation from beach bum to millionaire did not happen overnight. It was a long, slow, at times painful roller-coaster\r\n        process.\r\n      </p>\r\n      <p><b>We create a powerful tool that you follow your DREAM and bring it come TRUE.</b></p>\r\n      <button type=\"button\" class=\"btn btn-primary\">Get started</button>\r\n      <button type=\"button\" class=\"btn btn-outline-secondary\">Learn more</button>\r\n    </div>\r\n    <div class=\"col-md-6 img-intro\">\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"more-info\">\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>We have to stop procrastinating and start living</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      And it's all because of what I've learned about beating FEAR, conquering PROCRASTINATION and doing impossible things.\r\n    </p>\r\n    <p>Your payoff and your rewards and your GROWTH and your MASTERY and your SUCCESS lies when you go to the places that scares you, when you \r\n      do difficult things, when you take the difficult projects on, when you read the difficult books, when you run longer than\r\n      you've ever run, when you try new things that STRETCH you. THAT IS HOW YOU GET MORE WILLPOWER.\r\n    </p>\r\n\r\n    <div class=\"divider\"></div>\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>Master your day, design your life</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      Do anything LONG ENOUGH and you will get depth of INSIGHT and UNDERSTANNDING about it. They'll call you a GURU.\r\n    </p>\r\n    <p>\r\n      For the nest 90 days, spend the FIRST 90 minutes of your workday on SIGNLE most game-changing opportunity, move \r\n      the NEEDLE in your insdustry.\r\n    </p>\r\n\r\n    <div class=\"divider\"></div>\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>Discovery your destiny</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      Be so KNOWLEDGEABLE, COMPETENT and BRILLIANT at what yo do, that firm can not run WITHOUT you.\r\n      Become INDISPENSABLE.      \r\n    </p>\r\n    <p>\r\n      Each day, life will send you little windows of OPPORTUNITY. Your DESTINY will ultimately be defined\r\n      by how you respond to these windows of opportunity. SHRINK from them and your life will be small.\r\n    </p>\r\n  </div>\r\n\r\n</main>"
+module.exports = "<main class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6\">\r\n      <h2>As you live your days, so you LIVE YOUR LIFE</h2>\r\n      <p>The only reason we've made the transformation from there to here is that, somewhere along the way, we've had the good\r\n        fortune of being exposed to the slight edge.\r\n      </p>\r\n      <p>\r\n        The transformation from beach bum to millionaire did not happen overnight. It was a long, slow, at times painful roller-coaster\r\n        process.\r\n      </p>\r\n      <p><b>We create a powerful tool that you follow your DREAM and bring it come TRUE.</b></p>\r\n      <button type=\"button\" class=\"btn btn-primary\">Get started</button>\r\n      <button type=\"button\" class=\"btn btn-outline-secondary\">Learn more</button>\r\n    </div>\r\n    <div class=\"col-md-6 img-intro\">\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"more-info\">\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>We have to stop procrastinating</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      And it's all because of what I've learned about beating FEAR, conquering PROCRASTINATION and doing impossible things.\r\n    </p>\r\n    <p>Your payoff and your rewards and your GROWTH and your MASTERY and your SUCCESS lies when you go to the places that scares you, when you \r\n      do difficult things, when you take the difficult projects on, when you read the difficult books, when you run longer than\r\n      you've ever run, when you try new things that STRETCH you. THAT IS HOW YOU GET MORE WILLPOWER.\r\n    </p>\r\n\r\n    <div class=\"divider\"></div>\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>Master your day, design your life</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      Do anything LONG ENOUGH and you will get depth of INSIGHT and UNDERSTANNDING about it. They'll call you a GURU.\r\n    </p>\r\n    <p>\r\n      For the nest 90 days, spend the FIRST 90 minutes of your workday on SIGNLE most game-changing opportunity, move \r\n      the NEEDLE in your insdustry.\r\n    </p>\r\n\r\n    <div class=\"divider\"></div>\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>Discovery your destiny</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      Be so KNOWLEDGEABLE, COMPETENT and BRILLIANT at what yo do, that firm can not run WITHOUT you.\r\n      Become INDISPENSABLE.      \r\n    </p>\r\n    <p>\r\n      Each day, life will send you little windows of OPPORTUNITY. Your DESTINY will ultimately be defined\r\n      by how you respond to these windows of opportunity. SHRINK from them and your life will be small.\r\n    </p>\r\n  </div>\r\n\r\n</main>"
 
 /***/ }),
 
@@ -302,7 +304,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".action {\r\n    padding-right: 5px;\r\n    display: none;\r\n}\r\n\r\n.list-group-item {\r\n    border-width: 0;\r\n    padding-left: 0;\r\n}\r\n\r\n.list-group-item:hover .action {\r\n    display: inline;\r\n}", ""]);
+exports.push([module.i, ".action {\r\n    padding-right: 5px;\r\n}\r\n\r\n.list-group-item {\r\n    border-width: 0;\r\n    padding-left: 0;\r\n    cursor: pointer;\r\n}", ""]);
 
 // exports
 
@@ -315,7 +317,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/list/list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"list-group\">\r\n  <li class=\"list-group-item\" *ngFor=\"let item of items; let i = index\" [ngClass]=\"{'text-success': item.done}\">\r\n    <span>{{ i + 1}}.</span>\r\n    <span>{{ item.title}}</span>\r\n    <span class=\"pull-right action hover-icon\" href=\"javascript:;\" (click)=\"complete(item)\"><span class=\"fa fa-check\"></span></span>\r\n    <span class=\"pull-right action hover-icon\" href=\"javascript:;\" (click)=\"delete(item)\"><span class=\"fa fa-trash\"></span></span>    \r\n  </li> \r\n</ul>\r\n"
+module.exports = "<ul class=\"list-group\">\r\n  <li class=\"list-group-item\" *ngFor=\"let item of items; let i = index\" (click)=\"complete(item)\" [ngClass]=\"{'text-success': item.done}\">\r\n    <span>{{ i + 1}}.</span>\r\n    <span>{{ item.title}}</span>\r\n    <span *ngIf=\"modifyMode\" class=\"pull-right action hover-icon\" href=\"javascript:;\" (click)=\"delete($event, item)\"><span class=\"fa fa-trash\"></span></span>    \r\n  </li> \r\n</ul>\r\n"
 
 /***/ }),
 
@@ -337,14 +339,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var ListComponent = (function () {
     function ListComponent() {
+        this.modifyMode = false;
         this.clickDelete = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
     }
     ListComponent.prototype.ngOnInit = function () {
     };
     ListComponent.prototype.complete = function (item) {
-        item.done = true;
+        item.done = !item.done;
     };
-    ListComponent.prototype.delete = function (item) {
+    ListComponent.prototype.delete = function (evt, item) {
+        evt.stopPropagation();
         this.clickDelete.emit(item);
     };
     return ListComponent;
@@ -353,6 +357,10 @@ __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
     __metadata("design:type", Object)
 ], ListComponent.prototype, "items", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Boolean)
+], ListComponent.prototype, "modifyMode", void 0);
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
     __metadata("design:type", Object)
@@ -465,7 +473,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav *ngIf=\"show\" class=\"navbar navbar-expand-lg navbar-light bg-light\">\r\n  <a class=\"navbar-brand\" href=\"#\">Ripple</a>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\"\r\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item active\">\r\n        <a class=\"nav-link\" href=\"#\">Home\r\n          <span class=\"sr-only\">(current)</span>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n    <ul *ngIf=\"!logined\" class=\"navbar-nav my-2 my-lg-0\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" href=\"login\">Sign in</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" href=\"sign-up\">Sign up</a>\r\n      </li>\r\n    </ul>\r\n    <ul *ngIf=\"logined && fullName\" class=\"navbar-nav my-2 my-lg-0\">      \r\n      <li class=\"nav-item dropdown\">\r\n        <a class=\"nav-link dropdown-toggle\" href=\"javascript:;\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\r\n          aria-expanded=\"false\">\r\n          <span class=\"fa fa-user\"></span>\r\n          {{fullName}}\r\n        </a>\r\n        <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdown\">\r\n          <a class=\"dropdown-item\" href=\"javascript:;\">Settings</a>\r\n          <div class=\"dropdown-divider\"></div>\r\n          <a class=\"dropdown-item\" href=\"javascript:;\" (click)=\"signout()\">Logout</a>\r\n        </div>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n</nav>"
+module.exports = "<nav *ngIf=\"show\" class=\"navbar navbar-expand-lg navbar-light bg-light\">\r\n  <a class=\"navbar-brand\" href=\"#\">Ripple</a>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\"\r\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item active\">\r\n        <a class=\"nav-link\" href=\"#\">Home\r\n          <span class=\"sr-only\">(current)</span>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n    <ul *ngIf=\"!logined\" class=\"navbar-nav my-2 my-lg-0\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" href=\"login\">Sign in</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" href=\"sign-up\">Sign up</a>\r\n      </li>\r\n    </ul>\r\n    <ul *ngIf=\"logined && fullName\" class=\"navbar-nav my-2 my-lg-0\">\r\n      <li class=\"nav-item\" (click)=\"goToUserPage()\">\r\n        <a class=\"nav-link\" href=\"javascript:;\">\r\n            <span class=\"fa fa-user\"></span>\r\n            <span>{{fullName}}</span>\r\n        </a>        \r\n      </li>\r\n      <li class=\"nav-item dropdown\">\r\n        <a class=\"nav-link dropdown-toggle\" href=\"javascript:;\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\r\n          aria-expanded=\"false\">\r\n        </a>\r\n        <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdown\">\r\n          <a class=\"dropdown-item\" href=\"javascript:;\">Settings</a>\r\n          <div class=\"dropdown-divider\"></div>\r\n          <a class=\"dropdown-item\" href=\"javascript:;\" (click)=\"signout()\">Logout</a>\r\n        </div>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n</nav>"
 
 /***/ }),
 
@@ -475,7 +483,8 @@ module.exports = "<nav *ngIf=\"show\" class=\"navbar navbar-expand-lg navbar-lig
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavbarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_login_service__ = __webpack_require__("../../../../../src/app/shared/login.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_login_service__ = __webpack_require__("../../../../../src/app/shared/login.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -487,12 +496,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var NavbarComponent = (function () {
-    function NavbarComponent(loginService) {
+    function NavbarComponent(loginService, router) {
         this.loginService = loginService;
+        this.router = router;
         this.show = true;
         this.logined = true;
         this.fullName = '';
+        this.username = '';
     }
     NavbarComponent.prototype.ngOnInit = function () {
     };
@@ -501,6 +513,9 @@ var NavbarComponent = (function () {
     };
     NavbarComponent.prototype.signout = function () {
         this.loginService.logout();
+    };
+    NavbarComponent.prototype.goToUserPage = function () {
+        this.router.navigate(['/user/' + this.username]);
     };
     return NavbarComponent;
 }());
@@ -516,16 +531,20 @@ __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
     __metadata("design:type", String)
 ], NavbarComponent.prototype, "fullName", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", String)
+], NavbarComponent.prototype, "username", void 0);
 NavbarComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-navbar',
         template: __webpack_require__("../../../../../src/app/navbar/navbar.component.html"),
         styles: [__webpack_require__("../../../../../src/app/navbar/navbar.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_login_service__["a" /* LoginService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_login_service__["a" /* LoginService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object])
 ], NavbarComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=navbar.component.js.map
 
 /***/ }),
@@ -707,6 +726,12 @@ var LoginService = (function () {
     function LoginService(httpConnector, router) {
         this.httpConnector = httpConnector;
         this.router = router;
+        this.currentUser = {
+            id: '',
+            fullName: '',
+            username: '',
+            email: ''
+        };
     }
     LoginService.prototype.login = function (data) {
         var _this = this;
@@ -715,7 +740,7 @@ var LoginService = (function () {
             console.log(user);
             if (user && user.password === data.password) {
                 var link = '/user/' + user.username;
-                localStorage.setItem('currentUser', JSON.stringify({ username: user.username, id: user._id }));
+                localStorage.setItem('currentUser', JSON.stringify({ username: user.username, fullName: user.fullName, email: user.email, id: user._id }));
                 _this.currentUser = user;
                 _this.router.navigate([link]);
             }
@@ -726,6 +751,8 @@ var LoginService = (function () {
         this.router.navigate(['/login']);
     };
     LoginService.prototype.getCurrentUser = function () {
+        var user = JSON.parse(localStorage.getItem('currentUser'));
+        this.currentUser = Object.assign(this.currentUser, user);
         return this.currentUser;
     };
     LoginService.prototype.getUserList = function () {
@@ -931,7 +958,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".btn-create, .form-create {\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.cover {\r\n    position: relative;\r\n}\r\n\r\n.cover-img {\r\n    height: 200px;\r\n    background-image: url(" + __webpack_require__("../../../../../src/assets/cover.jpg") + ");\r\n    background-position: top center;\r\n    background-repeat: no-repeat;\r\n    background-size: 100% 100%;\r\n}\r\n\r\n.profile-img {    \r\n    background-image: url(" + __webpack_require__("../../../../../src/assets/thau.jpg") + ");\r\n    background-position: top center;\r\n    background-repeat: no-repeat;\r\n    background-size: 100% 100%;    \r\n\r\n    border-radius: 50%;\r\n    position: absolute;    \r\n    border: 5px solid #fff;\r\n\r\n    width: 200px;\r\n    height: 200px;\r\n    left: 0;\r\n    bottom: 40px;\r\n}\r\n\r\n.nav {\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    background: #fff;\r\n}\r\n\r\n.tab-content {\r\n    margin: 0 auto;\r\n    padding: 15px 10px;\r\n    background: #fff;\r\n    min-height: 250px;\r\n}\r\n\r\n.nav-pills .nav-link.active, .nav-pills .show>.nav-link {\r\n    border-bottom: 1px solid #007bff;\r\n    background: none;\r\n    color: #007bff;\r\n}\r\n\r\n.nav-pills .nav-link {\r\n    border-radius: 0;\r\n}\r\n\r\n.row.content {\r\n    margin: 0;\r\n}\r\n\r\n@media (min-width: 768px) {\r\n    .cover-img {\r\n        height: 350px;\r\n    }\r\n\r\n    .profile-img {\r\n        height: 200px;\r\n        width: 200px;\r\n        bottom: -20px;\r\n        left: 100px;\r\n    }\r\n}\r\n", ""]);
+exports.push([module.i, ".btn-create, .form-create {\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.cover {\r\n    position: relative;\r\n}\r\n\r\n.cover-img {\r\n    height: 150px;\r\n    background-image: url(" + __webpack_require__("../../../../../src/assets/cover.jpg") + ");\r\n    background-position: top center;\r\n    background-repeat: no-repeat;\r\n    background-size: 100% 100%;\r\n}\r\n\r\n.profile-img {\r\n    border-radius: 50%;\r\n    position: absolute;    \r\n    border: 5px solid #fff;\r\n\r\n    width: 100px;\r\n    height: 100px;\r\n    left: 10px;\r\n    bottom: 120px;\r\n}\r\n\r\n.profile-img img {\r\n    border-radius: 50%;\r\n    height: 100%;\r\n    left: 0;\r\n    position: absolute;\r\n    top: 0;\r\n    width: 100%;\r\n}\r\n\r\n.nav {\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    background: #fff;\r\n}\r\n\r\n.tab-content {\r\n    margin: 0 auto;\r\n    padding: 15px 10px;\r\n    background: #fff;\r\n    min-height: 250px;\r\n}\r\n\r\n.nav-pills .nav-link.active, .nav-pills .show>.nav-link {\r\n    border-bottom: 1px solid #007bff;\r\n    background: none;\r\n    color: #007bff;\r\n}\r\n\r\n.nav-pills .nav-link {\r\n    border-radius: 0;\r\n}\r\n\r\n.row.content {\r\n    margin: 0;\r\n}\r\n\r\n.m-info {\r\n    padding: 30px 10px 10px 10px;\r\n\r\n}\r\n\r\n.info {\r\n    display: none;\r\n}\r\n\r\n@media (min-width: 768px) {\r\n    .cover-img {\r\n        height: 350px;\r\n    }\r\n\r\n    .profile-img {\r\n        height: 200px;\r\n        width: 200px;\r\n        bottom: -20px;\r\n        left: 100px;\r\n    }\r\n\r\n    .m-info {\r\n        display: none;\r\n    }\r\n\r\n    .info {\r\n        display: block;\r\n    }\r\n}\r\n", ""]);
 
 // exports
 
@@ -944,7 +971,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/user-page/user-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"user-page\">\r\n\r\n  <div class=\"cover\">\r\n    <div class=\"cover-img\"></div>\r\n    <div class=\"profile-img\"></div>\r\n    <ul class=\"nav nav-pills mb-3 box-shadow\" id=\"pills-tab\" role=\"tablist\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link active\" id=\"pills-task-tab\" data-toggle=\"pill\" href=\"#pills-task\" role=\"tab\" aria-controls=\"pills-task\"\r\n          aria-selected=\"true\">Tasks</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-story-tab\" data-toggle=\"pill\" href=\"#pills-story\" role=\"tab\" aria-controls=\"pills-story\" aria-selected=\"false\">Stories</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-mentor-tab\" data-toggle=\"pill\" href=\"#pills-mentor\" role=\"tab\" aria-controls=\"pills-mentor\"\r\n          aria-selected=\"false\">Mentors</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n\r\n  <div class=\"row content\">\r\n    <div class=\"offset-md-1 col-md-2 info\">\r\n      <h5>{{currentUser.fullName}}</h5>\r\n      <p>@{{currentUser.username}}</p>\r\n      <span>\r\n        <i class=\"fa fa-calendar\"></i>Joined Nov 2017</span>\r\n    </div>\r\n    <div class=\"col-md-6 tab-content\" id=\"pills-tabContent\">\r\n      <div class=\"tab-pane fade show active\" id=\"pills-task\" role=\"tabpanel\" aria-labelledby=\"pills-task-tab\">\r\n        <button *ngIf=\"!showCreateInput\" class=\"btn btn-primary btn-create\" (click)=\"createTask()\">Create</button>\r\n        <form *ngIf=\"showCreateInput\" class=\"form-create\">\r\n          <div class=\"form-group row\">\r\n            <div class=\"col-sm-12\">\r\n              <input class=\"form-control form-control-sm\" type=\"text\" [(ngModel)]=\"taskTitle\" name=\"taskTitle\" />\r\n            </div>\r\n          </div>\r\n          <button class=\"btn btn-primary\" (click)=\"saveTask()\">Save</button> or\r\n          <a href=\"javascript:;\" (click)=\"cancelTask()\">cancel</a>\r\n        </form>\r\n        <app-list [items]=\"taskList\" (clickDelete)=\"deleteTask($event)\"></app-list>\r\n      </div>\r\n      <div class=\"tab-pane fade\" id=\"pills-story\" role=\"tabpanel\" aria-labelledby=\"pills-story-tab\">Stories</div>\r\n      <div class=\"tab-pane fade\" id=\"pills-mentor\" role=\"tabpanel\" aria-labelledby=\"pills-mentor-tab\">Mentors</div>\r\n    </div>\r\n    <div class=\"col-md-3\">     \r\n    </div>\r\n  </div>\r\n\r\n\r\n</div>"
+module.exports = "<div class=\"user-page\">\r\n\r\n  <div class=\"cover\">\r\n    <div class=\"cover-img\"></div>\r\n    <div class=\"profile-img\">\r\n      <img src=\"{{userImg}}\" />\r\n    </div>\r\n    <div class=\"m-info\">\r\n      <h5>{{currentUser.fullName}}</h5>\r\n      <p>@{{currentUser.username}}</p>      \r\n    </div>\r\n    <ul class=\"nav nav-pills mb-3 box-shadow\" id=\"pills-tab\" role=\"tablist\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link active\" id=\"pills-task-tab\" data-toggle=\"pill\" href=\"#pills-task\" role=\"tab\" aria-controls=\"pills-task\"\r\n          aria-selected=\"true\">Tasks</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-story-tab\" data-toggle=\"pill\" href=\"#pills-story\" role=\"tab\" aria-controls=\"pills-story\" aria-selected=\"false\">Stories</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-mentor-tab\" data-toggle=\"pill\" href=\"#pills-mentor\" role=\"tab\" aria-controls=\"pills-mentor\"\r\n          aria-selected=\"false\">Mentors</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n\r\n  <div class=\"row content\">\r\n    <div class=\"offset-md-1 col-md-2 info\">\r\n      <h5>{{currentUser.fullName}}</h5>\r\n      <p>@{{currentUser.username}}</p>\r\n      <span>\r\n        <i class=\"fa fa-calendar\"></i>Joined Nov 2017</span>\r\n    </div>\r\n    <div class=\"col-md-6 tab-content\" id=\"pills-tabContent\">\r\n      <div class=\"tab-pane fade show active\" id=\"pills-task\" role=\"tabpanel\" aria-labelledby=\"pills-task-tab\">\r\n        <button *ngIf=\"!showCreateInput\" class=\"btn btn-primary btn-create\" (click)=\"createTask()\">Create</button>\r\n        <a *ngIf=\"!modifyTaskList\" class=\"pull-right\" href=\"javascript:;\" (click)=\"enableEditMode()\">Edit</a>\r\n        <a *ngIf=\"modifyTaskList\" class=\"pull-right\" href=\"javascript:;\" (click)=\"enableEditMode()\">Quit</a>        \r\n        <form *ngIf=\"showCreateInput\" class=\"form-create\">\r\n          <div class=\"form-group row\">\r\n            <div class=\"col-sm-12\">\r\n              <input class=\"form-control form-control-sm\" type=\"text\" [(ngModel)]=\"taskTitle\" name=\"taskTitle\" />\r\n            </div>\r\n          </div>\r\n          <button class=\"btn btn-primary\" (click)=\"saveTask()\">Save</button> or\r\n          <a href=\"javascript:;\" (click)=\"cancelTask()\">cancel</a>\r\n        </form>\r\n        <app-list [items]=\"taskList\" (clickDelete)=\"deleteTask($event)\" [modifyMode]=\"modifyTaskList\"></app-list>\r\n      </div>\r\n      <div class=\"tab-pane fade\" id=\"pills-story\" role=\"tabpanel\" aria-labelledby=\"pills-story-tab\">Stories</div>\r\n      <div class=\"tab-pane fade\" id=\"pills-mentor\" role=\"tabpanel\" aria-labelledby=\"pills-mentor-tab\">Mentors</div>\r\n    </div>\r\n    <div class=\"col-md-3\">     \r\n    </div>\r\n  </div>\r\n\r\n\r\n</div>"
 
 /***/ }),
 
@@ -956,6 +983,8 @@ module.exports = "<div class=\"user-page\">\r\n\r\n  <div class=\"cover\">\r\n  
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_user_page_service__ = __webpack_require__("../../../../../src/app/shared/user-page.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_login_service__ = __webpack_require__("../../../../../src/app/shared/login.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_md5__ = __webpack_require__("../../../../md5/md5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_md5___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_md5__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -968,15 +997,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var UserPageComponent = (function () {
     function UserPageComponent(userPageService, loginService) {
         this.userPageService = userPageService;
         this.loginService = loginService;
         this.showCreateInput = false;
+        this.modifyTaskList = false;
+        this.gravatarUrl = 'https://www.gravatar.com/avatar/';
+        this.userImg = this.gravatarUrl;
+        this.taskList = [
+            { title: 'Review my plans, my goals, my daily schedule' }
+        ];
     }
     UserPageComponent.prototype.ngOnInit = function () {
         this.getTaskList();
         this.currentUser = this.loginService.getCurrentUser();
+        this.userImg = this.gravatarUrl + __WEBPACK_IMPORTED_MODULE_3_md5__(this.currentUser.email) + '?s=200';
+        console.log(this.userImg);
     };
     UserPageComponent.prototype.getTaskList = function () {
         var _this = this;
@@ -1010,6 +1048,9 @@ var UserPageComponent = (function () {
     UserPageComponent.prototype.signout = function () {
         this.loginService.logout();
     };
+    UserPageComponent.prototype.enableEditMode = function () {
+        this.modifyTaskList = !this.modifyTaskList;
+    };
     return UserPageComponent;
 }());
 UserPageComponent = __decorate([
@@ -1037,13 +1078,6 @@ module.exports = __webpack_require__.p + "cover.43270a36b11834676e3f.jpg";
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "homepage.fc2e1b1316430fd67aaa.jpg";
-
-/***/ }),
-
-/***/ "../../../../../src/assets/thau.jpg":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "thau.6614dcee37f36bdde3b9.jpg";
 
 /***/ }),
 

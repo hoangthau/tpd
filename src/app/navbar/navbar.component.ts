@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { LoginService } from '../shared/login.service';
 
@@ -11,8 +12,9 @@ export class NavbarComponent implements OnInit, OnChanges {
   @Input() show: boolean = true;
   @Input() logined: boolean = true;
   @Input() fullName: string = '';
+  @Input() username: string = '';  
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -23,6 +25,10 @@ export class NavbarComponent implements OnInit, OnChanges {
 
   signout() {
     this.loginService.logout();
+  }
+
+  goToUserPage(){
+    this.router.navigate(['/user/' + this.username ]);
   }
 
 }

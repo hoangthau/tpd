@@ -7,6 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ListComponent implements OnInit {
   @Input() items : Array<any>;
+  @Input() modifyMode: boolean = false;
   @Output() clickDelete = new EventEmitter();
   
   constructor() { }
@@ -15,10 +16,11 @@ export class ListComponent implements OnInit {
   }
 
   complete(item){
-    item.done = true;
+    item.done = !item.done;
   }
 
-  delete(item){
+  delete(evt, item){
+    evt.stopPropagation();
     this.clickDelete.emit(item);
   }
 

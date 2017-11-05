@@ -21,12 +21,16 @@
         <a class="nav-link" href="sign-up">Sign up</a>
       </li>
     </ul>
-    <ul *ngIf="logined && fullName" class="navbar-nav my-2 my-lg-0">      
+    <ul *ngIf="logined && fullName" class="navbar-nav my-2 my-lg-0">
+      <li class="nav-item" (click)="goToUserPage()">
+        <a class="nav-link" href="javascript:;">
+            <span class="fa fa-user"></span>
+            <span>{{fullName}}</span>
+        </a>        
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="javascript:;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
-          <span class="fa fa-user"></span>
-          {{fullName}}
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="javascript:;">Settings</a>

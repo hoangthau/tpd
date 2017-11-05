@@ -11,8 +11,10 @@ import { LoginService } from './shared/login.service';
 export class AppComponent implements OnInit {
   title = 'app works!';
   showNavbar: boolean = true;
-  isLogined: boolean = true;
+  isLogined: boolean = false;
   fullName: string = '';
+  username: string = '';
+  showFooter: boolean = true;
 
   constructor(private router: Router, private loginService: LoginService) { }
 
@@ -23,14 +25,15 @@ export class AppComponent implements OnInit {
         if (event instanceof NavigationEnd) {
           console.log(event);
           self.showNavbar = true;
+          self.showFooter = true;
           if (event.url === '/login' || event.url === '/sign-up' ) {
             self.showNavbar = false;
-          } else if (event.url.indexOf('/user/') >= 0 && localStorage.getItem('currentUser')) {
+            self.showFooter = false;
+          } else if (localStorage.getItem('currentUser')) {
             const currentUser = self.loginService.getCurrentUser();
             self.isLogined = true;
             self.fullName = currentUser.fullName;
-          } else {
-            self.isLogined = false;
+            self.username = currentUser.username;
           }
         }
       });

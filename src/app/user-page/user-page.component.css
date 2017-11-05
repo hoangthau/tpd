@@ -7,27 +7,31 @@
 }
 
 .cover-img {
-    height: 200px;
+    height: 150px;
     background-image: url("../../assets/cover.jpg");
     background-position: top center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
-.profile-img {    
-    background-image: url("../../assets/thau.jpg");
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;    
-
+.profile-img {
     border-radius: 50%;
     position: absolute;    
     border: 5px solid #fff;
 
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
+    left: 10px;
+    bottom: 120px;
+}
+
+.profile-img img {
+    border-radius: 50%;
+    height: 100%;
     left: 0;
-    bottom: 40px;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 .nav {
@@ -56,6 +60,15 @@
     margin: 0;
 }
 
+.m-info {
+    padding: 30px 10px 10px 10px;
+
+}
+
+.info {
+    display: none;
+}
+
 @media (min-width: 768px) {
     .cover-img {
         height: 350px;
@@ -66,5 +79,13 @@
         width: 200px;
         bottom: -20px;
         left: 100px;
+    }
+
+    .m-info {
+        display: none;
+    }
+
+    .info {
+        display: block;
     }
 }
