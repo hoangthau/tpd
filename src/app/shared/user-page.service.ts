@@ -7,8 +7,8 @@ import { HttpConnector } from './httpConnector';
 export class UserPageService {
     constructor(private httpConnector: HttpConnector) { }
 
-    getTaskList() {
-        const url = 'api/tasks';
+    getTaskList(userId) {
+        const url = 'api/tasks?userId=' + userId;
         return this.httpConnector.get(url);
     }
 

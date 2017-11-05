@@ -399,7 +399,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-wrapper container\">\r\n  <h1 class=\"green text-center\">Ripple</h1>\r\n  <p class=\"text-center\"><strong>Log in</strong></p>\r\n  <hr/>\r\n  <form class=\"form-horizontal\">\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\"><i class=\"fa fa-user\"></i></span>\r\n          <input type=\"text\" class=\"form-control\" name=\"usernmae\" [(ngModel)]=\"username\" placeholder=\"Username\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\"><i class=\"fa fa-lock\"></i></span>\r\n          <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"password\" placeholder=\"Password\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\">Remember me</label></div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\"> \r\n      <div class=\"col-sm-12\">\r\n        <button type=\"submit\" class=\"btn btn-primary submit\" (click)=\"login()\">Submit</button>\r\n      </div>\r\n    </div>\r\n  </form>\r\n  <hr/>\r\n  <p class=\"text-center\"><a>Forgot your password ?</a></p>\r\n  <p class=\"text-center\">Don't have an account ? <a href=\"sign-up\">Sign up</a></p>\r\n</div>"
+module.exports = "<div class=\"login-wrapper container\">\r\n  <h1 class=\"green text-center\">Ripple</h1>\r\n  <p class=\"text-center\"><strong>Log in</strong></p>\r\n  <hr/>\r\n  <div *ngIf=\"msg\" class=\"alert alert-danger\" role=\"alert\">\r\n    {{msg}}\r\n  </div>\r\n  <form class=\"form-horizontal\">\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\"><i class=\"fa fa-user\"></i></span>\r\n          <input type=\"text\" class=\"form-control\" name=\"usernmae\" [(ngModel)]=\"username\" placeholder=\"Username\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\"><i class=\"fa fa-lock\"></i></span>\r\n          <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"password\" placeholder=\"Password\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-12\">\r\n        <div class=\"checkbox\"><label><input type=\"checkbox\">Remember me</label></div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\"> \r\n      <div class=\"col-sm-12\">\r\n        <button type=\"submit\" class=\"btn btn-primary submit\" (click)=\"login()\">Submit</button>\r\n      </div>\r\n    </div>\r\n  </form>\r\n  <hr/>\r\n  <p class=\"text-center\"><a>Forgot your password ?</a></p>\r\n  <p class=\"text-center\">Don't have an account ? <a href=\"sign-up\">Sign up</a></p>\r\n</div>"
 
 /***/ }),
 
@@ -426,15 +426,28 @@ var LoginComponent = (function () {
         this.loginService = loginService;
         this.username = '';
         this.password = '';
+        this.msg = '';
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
     LoginComponent.prototype.login = function () {
+        var _this = this;
         var data = {
             username: this.username,
             password: this.password
         };
-        this.loginService.login(data);
+        this.loginService.login(data).subscribe(function (user) {
+            console.log(user);
+            if (user === true) {
+                return;
+            }
+            if (user) {
+                _this.msg = 'Incorrect password !';
+            }
+            else {
+                _this.msg = 'Incorrect username !';
+            }
+        });
     };
     return LoginComponent;
 }());
@@ -709,7 +722,8 @@ var _a;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__httpConnector__ = __webpack_require__("../../../../../src/app/shared/httpConnector.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__httpConnector__ = __webpack_require__("../../../../../src/app/shared/httpConnector.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -719,6 +733,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -735,15 +750,21 @@ var LoginService = (function () {
     }
     LoginService.prototype.login = function (data) {
         var _this = this;
-        this.getUserList().subscribe(function (userList) {
-            var user = _this.getUserByUserName(userList, data.username);
-            console.log(user);
-            if (user && user.password === data.password) {
-                var link = '/user/' + user.username;
-                localStorage.setItem('currentUser', JSON.stringify({ username: user.username, fullName: user.fullName, email: user.email, id: user._id }));
-                _this.currentUser = user;
-                _this.router.navigate([link]);
-            }
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["a" /* Observable */].create(function (observer) {
+            _this.getUserList().subscribe(function (userList) {
+                var user = _this.getUserByUserName(userList, data.username);
+                if (user && user.password === data.password) {
+                    var link = '/user/' + user.username;
+                    localStorage.setItem('currentUser', JSON.stringify({ username: user.username, fullName: user.fullName, email: user.email, id: user._id }));
+                    _this.currentUser = user;
+                    _this.router.navigate([link]);
+                    observer.next(true);
+                }
+                else {
+                    observer.next(user);
+                }
+                observer.complete();
+            });
         });
     };
     LoginService.prototype.logout = function () {
@@ -771,7 +792,7 @@ var LoginService = (function () {
 }());
 LoginService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__httpConnector__["a" /* HttpConnector */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__httpConnector__["a" /* HttpConnector */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__httpConnector__["a" /* HttpConnector */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__httpConnector__["a" /* HttpConnector */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object])
 ], LoginService);
 
 var _a, _b;
@@ -839,8 +860,8 @@ var UserPageService = (function () {
     function UserPageService(httpConnector) {
         this.httpConnector = httpConnector;
     }
-    UserPageService.prototype.getTaskList = function () {
-        var url = 'api/tasks';
+    UserPageService.prototype.getTaskList = function (userId) {
+        var url = 'api/tasks?userId=' + userId;
         return this.httpConnector.get(url);
     };
     UserPageService.prototype.saveTask = function (data) {
@@ -1011,14 +1032,13 @@ var UserPageComponent = (function () {
         ];
     }
     UserPageComponent.prototype.ngOnInit = function () {
-        this.getTaskList();
         this.currentUser = this.loginService.getCurrentUser();
         this.userImg = this.gravatarUrl + __WEBPACK_IMPORTED_MODULE_3_md5__(this.currentUser.email) + '?s=200';
-        console.log(this.userImg);
+        this.getTaskList();
     };
     UserPageComponent.prototype.getTaskList = function () {
         var _this = this;
-        this.userPageService.getTaskList().subscribe(function (data) {
+        this.userPageService.getTaskList(this.currentUser.id).subscribe(function (data) {
             _this.taskList = data;
         });
     };
@@ -1030,7 +1050,8 @@ var UserPageComponent = (function () {
         var _this = this;
         this.showCreateInput = false;
         var data = {
-            title: this.taskTitle
+            title: this.taskTitle,
+            userId: this.currentUser.id
         };
         this.userPageService.saveTask(data).subscribe(function () {
             _this.getTaskList();

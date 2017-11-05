@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Task = require('../models/task');
 const User = require('../models/user');
+const _ = require('lodash');
 
 /* GET api listing. */
 router.get('/', (req, res) => {
@@ -14,14 +15,20 @@ router.route('/tasks')
     Task.find(function(err, tasks){
       if(err)
         res.send(err);
-
-      res.json(tasks);
+      
+      const userId = req.query.userId;
+      let _tasks = tasks;
+      if(userId){
+        _tasks = _.filter(tasks, {'userId': userId});        
+      }
+      res.json(_tasks);
     })    
   })
   .post(function(req, res){
     var task = new Task();
     task.title = req.body.title;
     task.isDone = false;
+    task.userId = req.body.userId;
 
     task.save(function(err){
       if(err)
@@ -65,7 +72,6 @@ router.route('/task/:task_id')
       res.json({message: 'Successfully deletected'});
     })
   });
-
 
 //for user
 router.route('/users')

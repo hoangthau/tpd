@@ -10,6 +10,7 @@ import { LoginService } from '../shared/login.service';
 export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
+  msg: string = '';
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {
@@ -20,7 +21,17 @@ export class LoginComponent implements OnInit {
       username: this.username,
       password: this.password
     };
-    this.loginService.login(data);
+    this.loginService.login(data).subscribe((user) => {
+      console.log(user);
+      if(user === true) {
+        return;
+      }
+      if(user){
+        this.msg = 'Incorrect password !';
+      } else {
+        this.msg = 'Incorrect username !';
+      }
+    });
   }
 
 }
