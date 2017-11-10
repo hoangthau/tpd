@@ -15,3 +15,7 @@
 .learn-more p {
     text-align: justify;
 }
+
+.container {
+    max-width: 800px;
+}

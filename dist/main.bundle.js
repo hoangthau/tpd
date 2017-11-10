@@ -310,7 +310,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".article-img {\r\n    height: 500px;\r\n    width: 100%;\r\n    background-image: url(" + __webpack_require__("../../../../../src/assets/cover2.png") + ");\r\n    background-position: top center;\r\n    background-repeat: no-repeat;\r\n    background-size: 100% 100%;\r\n    margin: 20px auto;\r\n}\r\n\r\n.learn-more {\r\n    margin-top: 20px;\r\n}\r\n\r\n.learn-more p {\r\n    text-align: justify;\r\n}", ""]);
+exports.push([module.i, ".article-img {\r\n    height: 500px;\r\n    width: 100%;\r\n    background-image: url(" + __webpack_require__("../../../../../src/assets/cover2.png") + ");\r\n    background-position: top center;\r\n    background-repeat: no-repeat;\r\n    background-size: 100% 100%;\r\n    margin: 20px auto;\r\n}\r\n\r\n.learn-more {\r\n    margin-top: 20px;\r\n}\r\n\r\n.learn-more p {\r\n    text-align: justify;\r\n}\r\n\r\n.container {\r\n    max-width: 800px;\r\n}", ""]);
 
 // exports
 
@@ -323,7 +323,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/learn-more/learn-more.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container learn-more\">\n  <h2>Do the thing, and you will have the power</h2>\n  <img class=\"article-img\">\n  <p>To find the path to success, you have to back up one more step. It's the understanding behind the \n    attitudes that are behind the actions.\n  </p>\n  <p>It's the philosophy. That's the missing ingredient, the secret ingredient. The first ingredient.</p>\n  <p>Yes, you have to know the winning how-to actions, and you have to possess the winning attitudes-\n    but what generates all that and keeps it all in place is your philosophy. Your philosophy is what you know,\n    how you hold it, and how it affects what you do. How do you think about simple, everyday things.\n  </p>\n  <p>\n    A positive philosophy turns into a positive attitude, which turns into positive actions, which turns into\n    positive results, which turns into positive lifestyle. A positive life.\n  </p>\n\n</div>\n"
+module.exports = "<div class=\"container learn-more\">\r\n  <h2>Do the thing, and you will have the power</h2>\r\n  <img class=\"article-img\">\r\n  <p>To find the path to success, you have to back up one more step. It's the understanding behind the \r\n    attitudes that are behind the actions.\r\n  </p>\r\n  <p>It's the philosophy. That's the missing ingredient, the secret ingredient. The first ingredient.</p>\r\n  <p>Yes, you have to know the winning how-to actions, and you have to possess the winning attitudes-\r\n    but what generates all that and keeps it all in place is your philosophy. Your philosophy is what you know,\r\n    how you hold it, and how it affects what you do. How do you think about simple, everyday things.\r\n  </p>\r\n  <p>\r\n    A positive philosophy turns into a positive attitude, which turns into positive actions, which turns into\r\n    positive results, which turns into positive lifestyle. A positive life.\r\n  </p>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
