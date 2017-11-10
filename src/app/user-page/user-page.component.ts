@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { UserPageService } from '../shared/user-page.service';
 import { LoginService } from '../shared/login.service';
@@ -22,14 +23,18 @@ export class UserPageComponent implements OnInit {
   taskList: Array<any> = [
     { title: 'Review my plans, my goals, my daily schedule' }
   ];
-  
 
-  constructor(private userPageService: UserPageService, private loginService: LoginService) { }
+
+  constructor(
+    private userPageService: UserPageService, 
+    private loginService: LoginService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.currentUser = this.loginService.getCurrentUser();
     this.userImg = this.gravatarUrl + md5(this.currentUser.email) + '?s=200';
-    this.getTaskList();    
+    this.getTaskList();
   }
 
   getTaskList() {
@@ -68,8 +73,12 @@ export class UserPageComponent implements OnInit {
     this.loginService.logout();
   }
 
-  enableEditMode(){
+  enableEditMode() {
     this.modifyTaskList = !this.modifyTaskList;
+  }
+
+  createStory() {
+    this.router.navigate(['/new-story']);
   }
 
 }

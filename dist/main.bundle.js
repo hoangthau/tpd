@@ -1291,7 +1291,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/user-page/user-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"user-page\">\r\n\r\n  <div class=\"cover\">\r\n    <div class=\"cover-img\"></div>\r\n    <div class=\"profile-img\">\r\n      <img src=\"{{userImg}}\" />\r\n    </div>\r\n    <div class=\"m-info\">\r\n      <h5>{{currentUser.fullName}}</h5>\r\n      <p>@{{currentUser.username}}</p>      \r\n    </div>\r\n    <ul class=\"nav nav-pills mb-3 box-shadow\" id=\"pills-tab\" role=\"tablist\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link active\" id=\"pills-task-tab\" data-toggle=\"pill\" href=\"#pills-task\" role=\"tab\" aria-controls=\"pills-task\"\r\n          aria-selected=\"true\">Tasks</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-story-tab\" data-toggle=\"pill\" href=\"#pills-story\" role=\"tab\" aria-controls=\"pills-story\" aria-selected=\"false\">Stories</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-mentor-tab\" data-toggle=\"pill\" href=\"#pills-mentor\" role=\"tab\" aria-controls=\"pills-mentor\"\r\n          aria-selected=\"false\">Mentors</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n\r\n  <div class=\"row content\">\r\n    <div class=\"offset-md-1 col-md-2 info\">\r\n      <h5>{{currentUser.fullName}}</h5>\r\n      <p>@{{currentUser.username}}</p>\r\n      <span>\r\n        <i class=\"fa fa-calendar\"></i>Joined Nov 2017</span>\r\n    </div>\r\n    <div class=\"col-md-6 tab-content\" id=\"pills-tabContent\">\r\n      <div class=\"tab-pane fade show active\" id=\"pills-task\" role=\"tabpanel\" aria-labelledby=\"pills-task-tab\">\r\n        <button *ngIf=\"!showCreateInput\" class=\"btn btn-primary btn-create\" (click)=\"createTask()\">Create</button>\r\n        <a *ngIf=\"!modifyTaskList\" class=\"pull-right\" href=\"javascript:;\" (click)=\"enableEditMode()\">Edit</a>\r\n        <a *ngIf=\"modifyTaskList\" class=\"pull-right\" href=\"javascript:;\" (click)=\"enableEditMode()\">Quit</a>        \r\n        <form *ngIf=\"showCreateInput\" class=\"form-create\">\r\n          <div class=\"form-group row\">\r\n            <div class=\"col-sm-12\">\r\n              <input class=\"form-control form-control-sm\" type=\"text\" [(ngModel)]=\"taskTitle\" name=\"taskTitle\" />\r\n            </div>\r\n          </div>\r\n          <button class=\"btn btn-primary\" (click)=\"saveTask()\">Save</button> or\r\n          <a href=\"javascript:;\" (click)=\"cancelTask()\">cancel</a>\r\n        </form>\r\n        <app-list [items]=\"taskList\" (clickDelete)=\"deleteTask($event)\" [modifyMode]=\"modifyTaskList\"></app-list>\r\n      </div>\r\n      <div class=\"tab-pane fade\" id=\"pills-story\" role=\"tabpanel\" aria-labelledby=\"pills-story-tab\">Stories</div>\r\n      <div class=\"tab-pane fade\" id=\"pills-mentor\" role=\"tabpanel\" aria-labelledby=\"pills-mentor-tab\">Mentors</div>\r\n    </div>\r\n    <div class=\"col-md-3\">     \r\n    </div>\r\n  </div>\r\n\r\n\r\n</div>"
+module.exports = "<div class=\"user-page\">\r\n\r\n  <div class=\"cover\">\r\n    <div class=\"cover-img\"></div>\r\n    <div class=\"profile-img\">\r\n      <img src=\"{{userImg}}\" />\r\n    </div>\r\n    <div class=\"m-info\">\r\n      <h5>{{currentUser.fullName}}</h5>\r\n      <p>@{{currentUser.username}}</p>      \r\n    </div>\r\n    <ul class=\"nav nav-pills mb-3 box-shadow\" id=\"pills-tab\" role=\"tablist\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link active\" id=\"pills-task-tab\" data-toggle=\"pill\" href=\"#pills-task\" role=\"tab\" aria-controls=\"pills-task\"\r\n          aria-selected=\"true\">Tasks</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-story-tab\" data-toggle=\"pill\" href=\"#pills-story\" role=\"tab\" aria-controls=\"pills-story\" aria-selected=\"false\">Stories</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-mentor-tab\" data-toggle=\"pill\" href=\"#pills-mentor\" role=\"tab\" aria-controls=\"pills-mentor\"\r\n          aria-selected=\"false\">Mentors</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n\r\n  <div class=\"row content\">\r\n    <div class=\"offset-md-1 col-md-2 info\">\r\n      <h5>{{currentUser.fullName}}</h5>\r\n      <p>@{{currentUser.username}}</p>\r\n      <span>\r\n        <i class=\"fa fa-calendar\"></i>Joined Nov 2017</span>\r\n    </div>\r\n    <div class=\"col-md-6 tab-content\" id=\"pills-tabContent\">\r\n      <div class=\"tab-pane fade show active\" id=\"pills-task\" role=\"tabpanel\" aria-labelledby=\"pills-task-tab\">\r\n        <button *ngIf=\"!showCreateInput\" class=\"btn btn-primary btn-create\" (click)=\"createTask()\">Create</button>\r\n        <a *ngIf=\"!modifyTaskList\" class=\"pull-right\" href=\"javascript:;\" (click)=\"enableEditMode()\">Edit</a>\r\n        <a *ngIf=\"modifyTaskList\" class=\"pull-right\" href=\"javascript:;\" (click)=\"enableEditMode()\">Quit</a>        \r\n        <form *ngIf=\"showCreateInput\" class=\"form-create\">\r\n          <div class=\"form-group row\">\r\n            <div class=\"col-sm-12\">\r\n              <input class=\"form-control form-control-sm\" type=\"text\" [(ngModel)]=\"taskTitle\" name=\"taskTitle\" />\r\n            </div>\r\n          </div>\r\n          <button class=\"btn btn-primary\" (click)=\"saveTask()\">Save</button> or\r\n          <a href=\"javascript:;\" (click)=\"cancelTask()\">cancel</a>\r\n        </form>\r\n        <app-list [items]=\"taskList\" (clickDelete)=\"deleteTask($event)\" [modifyMode]=\"modifyTaskList\"></app-list>\r\n      </div>\r\n      <div class=\"tab-pane fade\" id=\"pills-story\" role=\"tabpanel\" aria-labelledby=\"pills-story-tab\">\r\n        <button class=\"btn btn-primary\" (click)=\"createStory()\">Create Story</button>\r\n      </div>\r\n      <div class=\"tab-pane fade\" id=\"pills-mentor\" role=\"tabpanel\" aria-labelledby=\"pills-mentor-tab\">Mentors</div>\r\n    </div>\r\n    <div class=\"col-md-3\">     \r\n    </div>\r\n  </div>\r\n\r\n\r\n</div>"
 
 /***/ }),
 
@@ -1301,10 +1301,11 @@ module.exports = "<div class=\"user-page\">\r\n\r\n  <div class=\"cover\">\r\n  
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserPageComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_user_page_service__ = __webpack_require__("../../../../../src/app/shared/user-page.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_login_service__ = __webpack_require__("../../../../../src/app/shared/login.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_md5__ = __webpack_require__("../../../../md5/md5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_md5___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_md5__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_user_page_service__ = __webpack_require__("../../../../../src/app/shared/user-page.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_login_service__ = __webpack_require__("../../../../../src/app/shared/login.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_md5__ = __webpack_require__("../../../../md5/md5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_md5___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_md5__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1318,10 +1319,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var UserPageComponent = (function () {
-    function UserPageComponent(userPageService, loginService) {
+    function UserPageComponent(userPageService, loginService, router) {
         this.userPageService = userPageService;
         this.loginService = loginService;
+        this.router = router;
         this.showCreateInput = false;
         this.modifyTaskList = false;
         this.gravatarUrl = 'https://www.gravatar.com/avatar/';
@@ -1332,7 +1335,7 @@ var UserPageComponent = (function () {
     }
     UserPageComponent.prototype.ngOnInit = function () {
         this.currentUser = this.loginService.getCurrentUser();
-        this.userImg = this.gravatarUrl + __WEBPACK_IMPORTED_MODULE_3_md5__(this.currentUser.email) + '?s=200';
+        this.userImg = this.gravatarUrl + __WEBPACK_IMPORTED_MODULE_4_md5__(this.currentUser.email) + '?s=200';
         this.getTaskList();
     };
     UserPageComponent.prototype.getTaskList = function () {
@@ -1371,6 +1374,9 @@ var UserPageComponent = (function () {
     UserPageComponent.prototype.enableEditMode = function () {
         this.modifyTaskList = !this.modifyTaskList;
     };
+    UserPageComponent.prototype.createStory = function () {
+        this.router.navigate(['/new-story']);
+    };
     return UserPageComponent;
 }());
 UserPageComponent = __decorate([
@@ -1379,10 +1385,10 @@ UserPageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/user-page/user-page.component.html"),
         styles: [__webpack_require__("../../../../../src/app/user-page/user-page.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_user_page_service__["a" /* UserPageService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_user_page_service__["a" /* UserPageService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_login_service__["a" /* LoginService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_user_page_service__["a" /* UserPageService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_user_page_service__["a" /* UserPageService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared_login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_login_service__["a" /* LoginService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _c || Object])
 ], UserPageComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=user-page.component.js.map
 
 /***/ }),

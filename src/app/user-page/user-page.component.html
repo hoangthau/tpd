@@ -47,7 +47,9 @@
         </form>
         <app-list [items]="taskList" (clickDelete)="deleteTask($event)" [modifyMode]="modifyTaskList"></app-list>
       </div>
-      <div class="tab-pane fade" id="pills-story" role="tabpanel" aria-labelledby="pills-story-tab">Stories</div>
+      <div class="tab-pane fade" id="pills-story" role="tabpanel" aria-labelledby="pills-story-tab">
+        <button class="btn btn-primary" (click)="createStory()">Create Story</button>
+      </div>
       <div class="tab-pane fade" id="pills-mentor" role="tabpanel" aria-labelledby="pills-mentor-tab">Mentors</div>
     </div>
     <div class="col-md-3">     
