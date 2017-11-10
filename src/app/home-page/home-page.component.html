@@ -54,5 +54,10 @@
       by how you respond to these windows of opportunity. SHRINK from them and your life will be small.
     </p>
   </div>
+  <app-simple-tiny
+    [elementId]="'my-editor-id'"
+    (onEditorKeyup)="keyupHandlerFunction($event)"
+    >
+  </app-simple-tiny>
 
 </main>

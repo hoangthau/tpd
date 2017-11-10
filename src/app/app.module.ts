@@ -19,6 +19,7 @@ import { AuthGuard } from './shared/auth-guard.service';
 import { UserPageComponent } from './user-page/user-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LearnMoreComponent } from './learn-more/learn-more.component';
+import { SimpleTinyComponent } from './simple-tiny/simple-tiny.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LearnMoreComponent } from './learn-more/learn-more.component';
     ListComponent,
     UserPageComponent,
     NavbarComponent,
-    LearnMoreComponent
+    LearnMoreComponent,
+    SimpleTinyComponent
   ],
   imports: [
     BrowserModule,

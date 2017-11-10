@@ -134,12 +134,14 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__user_page_user_page_component__ = __webpack_require__("../../../../../src/app/user-page/user-page.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__navbar_navbar_component__ = __webpack_require__("../../../../../src/app/navbar/navbar.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__learn_more_learn_more_component__ = __webpack_require__("../../../../../src/app/learn-more/learn-more.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__simple_tiny_simple_tiny_component__ = __webpack_require__("../../../../../src/app/simple-tiny/simple-tiny.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -174,7 +176,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_9__list_list_component__["a" /* ListComponent */],
             __WEBPACK_IMPORTED_MODULE_16__user_page_user_page_component__["a" /* UserPageComponent */],
             __WEBPACK_IMPORTED_MODULE_17__navbar_navbar_component__["a" /* NavbarComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__learn_more_learn_more_component__["a" /* LearnMoreComponent */]
+            __WEBPACK_IMPORTED_MODULE_18__learn_more_learn_more_component__["a" /* LearnMoreComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__simple_tiny_simple_tiny_component__["a" /* SimpleTinyComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -262,7 +265,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home-page/home-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<main class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6\">\r\n      <h2>As you live your days, so you LIVE YOUR LIFE</h2>\r\n      <p>The only reason we've made the transformation from there to here is that, somewhere along the way, we've had the good\r\n        fortune of being exposed to the slight edge.\r\n      </p>\r\n      <p>\r\n        The transformation from beach bum to millionaire did not happen overnight. It was a long, slow, at times painful roller-coaster\r\n        process.\r\n      </p>\r\n      <p><b>We create a powerful tool that you follow your DREAM and bring it come TRUE.</b></p>\r\n      <a class=\"btn btn-primary\" href=\"sign-up\">Get started</a>\r\n      <a class=\"btn btn-outline-secondary\" href=\"learn-more\">Learn more</a>\r\n    </div>\r\n    <div class=\"col-md-6 img-intro\">\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"more-info\">\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>We have to stop procrastinating</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      And it's all because of what I've learned about beating FEAR, conquering PROCRASTINATION and doing impossible things.\r\n    </p>\r\n    <p>Your payoff and your rewards and your GROWTH and your MASTERY and your SUCCESS lies when you go to the places that scares you, when you \r\n      do difficult things, when you take the difficult projects on, when you read the difficult books, when you run longer than\r\n      you've ever run, when you try new things that STRETCH you. THAT IS HOW YOU GET MORE WILLPOWER.\r\n    </p>\r\n\r\n    <div class=\"divider\"></div>\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>Master your day, design your life</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      Do anything LONG ENOUGH and you will get depth of INSIGHT and UNDERSTANNDING about it. They'll call you a GURU.\r\n    </p>\r\n    <p>\r\n      For the nest 90 days, spend the FIRST 90 minutes of your workday on SIGNLE most game-changing opportunity, move \r\n      the NEEDLE in your insdustry.\r\n    </p>\r\n\r\n    <div class=\"divider\"></div>\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>Discovery your destiny</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      Be so KNOWLEDGEABLE, COMPETENT and BRILLIANT at what yo do, that firm can not run WITHOUT you.\r\n      Become INDISPENSABLE.      \r\n    </p>\r\n    <p>\r\n      Each day, life will send you little windows of OPPORTUNITY. Your DESTINY will ultimately be defined\r\n      by how you respond to these windows of opportunity. SHRINK from them and your life will be small.\r\n    </p>\r\n  </div>\r\n\r\n</main>"
+module.exports = "<main class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6\">\r\n      <h2>As you live your days, so you LIVE YOUR LIFE</h2>\r\n      <p>The only reason we've made the transformation from there to here is that, somewhere along the way, we've had the good\r\n        fortune of being exposed to the slight edge.\r\n      </p>\r\n      <p>\r\n        The transformation from beach bum to millionaire did not happen overnight. It was a long, slow, at times painful roller-coaster\r\n        process.\r\n      </p>\r\n      <p><b>We create a powerful tool that you follow your DREAM and bring it come TRUE.</b></p>\r\n      <a class=\"btn btn-primary\" href=\"sign-up\">Get started</a>\r\n      <a class=\"btn btn-outline-secondary\" href=\"learn-more\">Learn more</a>\r\n    </div>\r\n    <div class=\"col-md-6 img-intro\">\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"more-info\">\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>We have to stop procrastinating</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      And it's all because of what I've learned about beating FEAR, conquering PROCRASTINATION and doing impossible things.\r\n    </p>\r\n    <p>Your payoff and your rewards and your GROWTH and your MASTERY and your SUCCESS lies when you go to the places that scares you, when you \r\n      do difficult things, when you take the difficult projects on, when you read the difficult books, when you run longer than\r\n      you've ever run, when you try new things that STRETCH you. THAT IS HOW YOU GET MORE WILLPOWER.\r\n    </p>\r\n\r\n    <div class=\"divider\"></div>\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>Master your day, design your life</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      Do anything LONG ENOUGH and you will get depth of INSIGHT and UNDERSTANNDING about it. They'll call you a GURU.\r\n    </p>\r\n    <p>\r\n      For the nest 90 days, spend the FIRST 90 minutes of your workday on SIGNLE most game-changing opportunity, move \r\n      the NEEDLE in your insdustry.\r\n    </p>\r\n\r\n    <div class=\"divider\"></div>\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>Discovery your destiny</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      Be so KNOWLEDGEABLE, COMPETENT and BRILLIANT at what yo do, that firm can not run WITHOUT you.\r\n      Become INDISPENSABLE.      \r\n    </p>\r\n    <p>\r\n      Each day, life will send you little windows of OPPORTUNITY. Your DESTINY will ultimately be defined\r\n      by how you respond to these windows of opportunity. SHRINK from them and your life will be small.\r\n    </p>\r\n  </div>\r\n  <app-simple-tiny\r\n    [elementId]=\"'my-editor-id'\"\r\n    (onEditorKeyup)=\"keyupHandlerFunction($event)\"\r\n    >\r\n  </app-simple-tiny>\r\n\r\n</main>"
 
 /***/ }),
 
@@ -286,6 +289,8 @@ var HomePageComponent = (function () {
     function HomePageComponent() {
     }
     HomePageComponent.prototype.ngOnInit = function () {
+    };
+    HomePageComponent.prototype.keyupHandlerFunction = function () {
     };
     return HomePageComponent;
 }());
@@ -1035,6 +1040,80 @@ SignUpComponent = __decorate([
 
 var _a;
 //# sourceMappingURL=sign-up.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/simple-tiny/simple-tiny.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SimpleTinyComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_tinymce__ = __webpack_require__("../../../../tinymce/tinymce.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_tinymce___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_tinymce__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_tinymce_themes_modern__ = __webpack_require__("../../../../tinymce/themes/modern/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_tinymce_themes_modern___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_tinymce_themes_modern__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_tinymce_plugins_table__ = __webpack_require__("../../../../tinymce/plugins/table/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_tinymce_plugins_table___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_tinymce_plugins_table__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_tinymce_plugins_link__ = __webpack_require__("../../../../tinymce/plugins/link/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_tinymce_plugins_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_tinymce_plugins_link__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_tinymce_plugins_paste__ = __webpack_require__("../../../../tinymce/plugins/paste/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_tinymce_plugins_paste___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_tinymce_plugins_paste__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var SimpleTinyComponent = (function () {
+    function SimpleTinyComponent() {
+        this.onEditorKeyup = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+    }
+    SimpleTinyComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        tinymce.init({
+            selector: '#' + this.elementId,
+            plugins: ['link', 'paste', 'table'],
+            skin_url: 'assets/skins/lightgray',
+            setup: function (editor) {
+                _this.editor = editor;
+                editor.on('keyup', function () {
+                    var content = editor.getContent();
+                    _this.onEditorKeyup.emit(content);
+                });
+            },
+        });
+    };
+    SimpleTinyComponent.prototype.ngOnDestroy = function () {
+        tinymce.remove(this.editor);
+    };
+    return SimpleTinyComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object)
+], SimpleTinyComponent.prototype, "elementId", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
+    __metadata("design:type", Object)
+], SimpleTinyComponent.prototype, "onEditorKeyup", void 0);
+SimpleTinyComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-simple-tiny',
+        template: "<textarea id=\"{{elementId}}\"></textarea>"
+    })
+], SimpleTinyComponent);
+
+//# sourceMappingURL=simple-tiny.component.js.map
 
 /***/ }),
 

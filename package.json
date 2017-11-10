@@ -33,6 +33,7 @@
     "mongoose": "^4.12.4",
     "popper.js": "^1.12.6",
     "rxjs": "^5.4.2",
+    "tinymce": "^4.7.2",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
