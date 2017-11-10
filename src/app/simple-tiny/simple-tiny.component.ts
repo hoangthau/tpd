@@ -17,7 +17,9 @@ declare var tinymce: any;
 
 @Component({
   selector: 'app-simple-tiny',
-  template: `<textarea id="{{elementId}}"></textarea>`
+  template: `<div class="tiny-mce"><textarea id="{{elementId}}"></textarea></div>`,
+  styleUrls: ['./simple-tiny.component.css']
+  
 })
 export class SimpleTinyComponent implements AfterViewInit, OnDestroy {
   @Input() elementId: String;
@@ -30,6 +32,7 @@ export class SimpleTinyComponent implements AfterViewInit, OnDestroy {
       selector: '#' + this.elementId,
       plugins: ['link', 'paste', 'table'],
       skin_url: 'assets/skins/lightgray',
+      height : '480',
       setup: editor => {
         this.editor = editor;
         editor.on('keyup', () => {

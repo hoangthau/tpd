@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Task = require('../models/task');
 const User = require('../models/user');
+const Story = require('../models/story');
+
 const _ = require('lodash');
 
 /* GET api listing. */
@@ -95,6 +97,35 @@ router.route('/users')
         res.send(err);
 
       res.json({message: 'User created!'});
+    })
+  });
+
+//for task
+router.route('/stories')
+  .get(function(req, res){
+    Story.find(function(err, stories){
+      if(err)
+        res.send(err);
+      
+      const userId = req.query.userId;
+      let _stories = stories;
+      if(userId){
+        _stories = _.filter(stories, {'userId': userId});        
+      }
+      res.json(_stories);
+    })    
+  })
+  .post(function(req, res){
+    var story = new Story();
+    story.title = req.body.title;
+    story.content = req.body.content;
+    story.userId = req.body.userId;
+
+    story.save(function(err){
+      if(err)
+        res.send(err);
+
+      res.json({message: 'Story created!'});
     })
   });
 

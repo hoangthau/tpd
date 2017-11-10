@@ -23,10 +23,10 @@ export class LoginComponent implements OnInit {
     };
     this.loginService.login(data).subscribe((user) => {
       console.log(user);
-      if(user === true) {
+      if (user === true) {
         return;
       }
-      if(user){
+      if (user) {
         this.msg = 'Incorrect password !';
       } else {
         this.msg = 'Incorrect username !';
