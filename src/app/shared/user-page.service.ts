@@ -21,4 +21,9 @@ export class UserPageService {
         const url = 'api/task/' + id;
         return this.httpConnector.delete(url);
     }
+
+    getStoryList(userId) {
+        const url = 'api/stories?userId=' + userId;
+        return this.httpConnector.get(url);
+    }
 }

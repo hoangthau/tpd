@@ -23,6 +23,10 @@ export class UserPageComponent implements OnInit {
   taskList: Array<any> = [
     { title: 'Review my plans, my goals, my daily schedule' }
   ];
+  storyList: Array<any> = [
+    {title: 'This is story', content: 'This is content', date: 'Nov 11, 2017'},
+    {title: 'This is story', content: 'This is content', date: 'Nov 11, 2017'}
+  ];
 
 
   constructor(
@@ -35,11 +39,18 @@ export class UserPageComponent implements OnInit {
     this.currentUser = this.loginService.getCurrentUser();
     this.userImg = this.gravatarUrl + md5(this.currentUser.email) + '?s=200';
     this.getTaskList();
+    this.getStoryList();
   }
 
   getTaskList() {
     this.userPageService.getTaskList(this.currentUser.id).subscribe((data) => {
       this.taskList = data;
+    });
+  }
+
+  getStoryList() {
+    this.userPageService.getStoryList(this.currentUser.id).subscribe((data) => {
+      this.storyList = data;
     });
   }
 

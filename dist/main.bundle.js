@@ -137,12 +137,14 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__learn_more_learn_more_component__ = __webpack_require__("../../../../../src/app/learn-more/learn-more.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__simple_tiny_simple_tiny_component__ = __webpack_require__("../../../../../src/app/simple-tiny/simple-tiny.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__new_story_new_story_component__ = __webpack_require__("../../../../../src/app/new-story/new-story.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__story_list_story_list_component__ = __webpack_require__("../../../../../src/app/story-list/story-list.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -182,7 +184,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_18__navbar_navbar_component__["a" /* NavbarComponent */],
             __WEBPACK_IMPORTED_MODULE_19__learn_more_learn_more_component__["a" /* LearnMoreComponent */],
             __WEBPACK_IMPORTED_MODULE_20__simple_tiny_simple_tiny_component__["a" /* SimpleTinyComponent */],
-            __WEBPACK_IMPORTED_MODULE_21__new_story_new_story_component__["a" /* NewStoryComponent */]
+            __WEBPACK_IMPORTED_MODULE_21__new_story_new_story_component__["a" /* NewStoryComponent */],
+            __WEBPACK_IMPORTED_MODULE_22__story_list_story_list_component__["a" /* StoryListComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -334,7 +337,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/learn-more/learn-more.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container learn-more\">\r\n  <h2>Do the thing, and you will have the power</h2>\r\n  <img class=\"article-img\">\r\n  <p>To find the path to success, you have to back up one more step. It's the understanding behind the \r\n    attitudes that are behind the actions.\r\n  </p>\r\n  <p>It's the philosophy. That's the missing ingredient, the secret ingredient. The first ingredient.</p>\r\n  <p>Yes, you have to know the winning how-to actions, and you have to possess the winning attitudes-\r\n    but what generates all that and keeps it all in place is your philosophy. Your philosophy is what you know,\r\n    how you hold it, and how it affects what you do. How do you think about simple, everyday things.\r\n  </p>\r\n  <p>\r\n    A positive philosophy turns into a positive attitude, which turns into positive actions, which turns into\r\n    positive results, which turns into positive lifestyle. A positive life.\r\n  </p>\r\n\r\n</div>\r\n"
+module.exports = "<div class=\"container learn-more\">\n  <h2>Do the thing, and you will have the power</h2>\n  <img class=\"article-img\">\n  <p>To find the path to success, you have to back up one more step. It's the understanding behind the \n    attitudes that are behind the actions.\n  </p>\n  <p>It's the philosophy. That's the missing ingredient, the secret ingredient. The first ingredient.</p>\n  <p>Yes, you have to know the winning how-to actions, and you have to possess the winning attitudes-\n    but what generates all that and keeps it all in place is your philosophy. Your philosophy is what you know,\n    how you hold it, and how it affects what you do. How do you think about simple, everyday things.\n  </p>\n  <p>\n    A positive philosophy turns into a positive attitude, which turns into positive actions, which turns into\n    positive results, which turns into positive lifestyle. A positive life.\n  </p>\n\n</div>\n"
 
 /***/ }),
 
@@ -661,7 +664,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/new-story/new-story.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <button class=\"btn btn-primary pull-right\" (click)=\"publish()\">Publish</button>    \n  <h3>Title</h3>\n  <input class=\"form-control\" type=\"text\" name=\"storyTitle\" [(ngModel)]=\"title\" />\n  <app-simple-tiny\n    [elementId]=\"'my-editor-id'\"\n    (onEditorKeyup)=\"keyupHandlerFunction($event)\">\n  </app-simple-tiny>\n</div>\n\n"
+module.exports = "<div class=\"container\">\r\n  <button class=\"btn btn-primary pull-right\" (click)=\"publish()\">Publish</button>    \r\n  <h3>Title</h3>\r\n  <input class=\"form-control\" type=\"text\" name=\"storyTitle\" [(ngModel)]=\"title\" />\r\n  <app-simple-tiny\r\n    [elementId]=\"'my-editor-id'\"\r\n    (onEditorKeyup)=\"keyupHandlerFunction($event)\">\r\n  </app-simple-tiny>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -1077,6 +1080,10 @@ var UserPageService = (function () {
         var url = 'api/task/' + id;
         return this.httpConnector.delete(url);
     };
+    UserPageService.prototype.getStoryList = function (userId) {
+        var url = 'api/stories?userId=' + userId;
+        return this.httpConnector.get(url);
+    };
     return UserPageService;
 }());
 UserPageService = __decorate([
@@ -1270,6 +1277,79 @@ SimpleTinyComponent = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../src/app/story-list/story-list.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".list-group {\r\n    margin-top: 30px;\r\n}\r\n\r\n.list-group-item {\r\n    background: #fff;\r\n    box-shadow: 0 1px 4px rgba(0,0,0,.04);\r\n    border: 1px solid rgba(0,0,0,.09);\r\n    border-radius: 3px;\r\n    margin-bottom: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.user-image {\r\n    width: 36px;\r\n    height: 36px;\r\n    border-radius: 100%;\r\n    display: inline-block;\r\n}\r\n\r\n.story-info {\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n}\r\n\r\n.story-info p {\r\n    margin: 0;\r\n}\r\n\r\n.story-heading {\r\n    margin-bottom: 10px;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/story-list/story-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ul class=\"list-group\">\n  <li class=\"list-group-item\" *ngFor=\"let item of items\">\n    <div class=\"story-heading\">\n        <img class=\"user-image\" [src]=\"userImg\" />\n        <div class=\"story-info\">\n          <p class=\"text-primary\">{{currentUser.fullName}}</p>\n          <span class=\"text-secondary\">{{item.date}}</span>\n        </div>\n    </div>    \n    <h5>{{ item.title }}</h5>\n    <div [innerHTML]=\"item.content\"></div>\n  </li> \n</ul>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/story-list/story-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StoryListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var StoryListComponent = (function () {
+    function StoryListComponent() {
+    }
+    StoryListComponent.prototype.ngOnInit = function () {
+    };
+    return StoryListComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", String)
+], StoryListComponent.prototype, "userImg", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object)
+], StoryListComponent.prototype, "currentUser", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object)
+], StoryListComponent.prototype, "items", void 0);
+StoryListComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-story-list',
+        template: __webpack_require__("../../../../../src/app/story-list/story-list.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/story-list/story-list.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], StoryListComponent);
+
+//# sourceMappingURL=story-list.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/user-page/user-page.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1291,7 +1371,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/user-page/user-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"user-page\">\r\n\r\n  <div class=\"cover\">\r\n    <div class=\"cover-img\"></div>\r\n    <div class=\"profile-img\">\r\n      <img src=\"{{userImg}}\" />\r\n    </div>\r\n    <div class=\"m-info\">\r\n      <h5>{{currentUser.fullName}}</h5>\r\n      <p>@{{currentUser.username}}</p>      \r\n    </div>\r\n    <ul class=\"nav nav-pills mb-3 box-shadow\" id=\"pills-tab\" role=\"tablist\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link active\" id=\"pills-task-tab\" data-toggle=\"pill\" href=\"#pills-task\" role=\"tab\" aria-controls=\"pills-task\"\r\n          aria-selected=\"true\">Tasks</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-story-tab\" data-toggle=\"pill\" href=\"#pills-story\" role=\"tab\" aria-controls=\"pills-story\" aria-selected=\"false\">Stories</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-mentor-tab\" data-toggle=\"pill\" href=\"#pills-mentor\" role=\"tab\" aria-controls=\"pills-mentor\"\r\n          aria-selected=\"false\">Mentors</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n\r\n  <div class=\"row content\">\r\n    <div class=\"offset-md-1 col-md-2 info\">\r\n      <h5>{{currentUser.fullName}}</h5>\r\n      <p>@{{currentUser.username}}</p>\r\n      <span>\r\n        <i class=\"fa fa-calendar\"></i>Joined Nov 2017</span>\r\n    </div>\r\n    <div class=\"col-md-6 tab-content\" id=\"pills-tabContent\">\r\n      <div class=\"tab-pane fade show active\" id=\"pills-task\" role=\"tabpanel\" aria-labelledby=\"pills-task-tab\">\r\n        <button *ngIf=\"!showCreateInput\" class=\"btn btn-primary btn-create\" (click)=\"createTask()\">Create</button>\r\n        <a *ngIf=\"!modifyTaskList\" class=\"pull-right\" href=\"javascript:;\" (click)=\"enableEditMode()\">Edit</a>\r\n        <a *ngIf=\"modifyTaskList\" class=\"pull-right\" href=\"javascript:;\" (click)=\"enableEditMode()\">Quit</a>        \r\n        <form *ngIf=\"showCreateInput\" class=\"form-create\">\r\n          <div class=\"form-group row\">\r\n            <div class=\"col-sm-12\">\r\n              <input class=\"form-control form-control-sm\" type=\"text\" [(ngModel)]=\"taskTitle\" name=\"taskTitle\" />\r\n            </div>\r\n          </div>\r\n          <button class=\"btn btn-primary\" (click)=\"saveTask()\">Save</button> or\r\n          <a href=\"javascript:;\" (click)=\"cancelTask()\">cancel</a>\r\n        </form>\r\n        <app-list [items]=\"taskList\" (clickDelete)=\"deleteTask($event)\" [modifyMode]=\"modifyTaskList\"></app-list>\r\n      </div>\r\n      <div class=\"tab-pane fade\" id=\"pills-story\" role=\"tabpanel\" aria-labelledby=\"pills-story-tab\">\r\n        <button class=\"btn btn-primary\" (click)=\"createStory()\">Create Story</button>\r\n      </div>\r\n      <div class=\"tab-pane fade\" id=\"pills-mentor\" role=\"tabpanel\" aria-labelledby=\"pills-mentor-tab\">Mentors</div>\r\n    </div>\r\n    <div class=\"col-md-3\">     \r\n    </div>\r\n  </div>\r\n\r\n\r\n</div>"
+module.exports = "<div class=\"user-page\">\r\n\r\n  <div class=\"cover\">\r\n    <div class=\"cover-img\"></div>\r\n    <div class=\"profile-img\">\r\n      <img src=\"{{userImg}}\" />\r\n    </div>\r\n    <div class=\"m-info\">\r\n      <h5>{{currentUser.fullName}}</h5>\r\n      <p>@{{currentUser.username}}</p>      \r\n    </div>\r\n    <ul class=\"nav nav-pills mb-3 box-shadow\" id=\"pills-tab\" role=\"tablist\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link active\" id=\"pills-task-tab\" data-toggle=\"pill\" href=\"#pills-task\" role=\"tab\" aria-controls=\"pills-task\"\r\n          aria-selected=\"true\">Tasks</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-story-tab\" data-toggle=\"pill\" href=\"#pills-story\" role=\"tab\" aria-controls=\"pills-story\" aria-selected=\"false\">Stories</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-mentor-tab\" data-toggle=\"pill\" href=\"#pills-mentor\" role=\"tab\" aria-controls=\"pills-mentor\"\r\n          aria-selected=\"false\">Mentors</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n\r\n  <div class=\"row content\">\r\n    <div class=\"offset-md-1 col-md-2 info\">\r\n      <h5>{{currentUser.fullName}}</h5>\r\n      <p>@{{currentUser.username}}</p>\r\n      <span>\r\n        <i class=\"fa fa-calendar\"></i>Joined Nov 2017</span>\r\n    </div>\r\n    <div class=\"col-md-6 tab-content\" id=\"pills-tabContent\">\r\n      <div class=\"tab-pane fade show active\" id=\"pills-task\" role=\"tabpanel\" aria-labelledby=\"pills-task-tab\">\r\n        <button *ngIf=\"!showCreateInput\" class=\"btn btn-primary btn-create\" (click)=\"createTask()\">Create</button>\r\n        <a *ngIf=\"!modifyTaskList\" class=\"pull-right\" href=\"javascript:;\" (click)=\"enableEditMode()\">Edit</a>\r\n        <a *ngIf=\"modifyTaskList\" class=\"pull-right\" href=\"javascript:;\" (click)=\"enableEditMode()\">Quit</a>        \r\n        <form *ngIf=\"showCreateInput\" class=\"form-create\">\r\n          <div class=\"form-group row\">\r\n            <div class=\"col-sm-12\">\r\n              <input class=\"form-control form-control-sm\" type=\"text\" [(ngModel)]=\"taskTitle\" name=\"taskTitle\" />\r\n            </div>\r\n          </div>\r\n          <button class=\"btn btn-primary\" (click)=\"saveTask()\">Save</button> or\r\n          <a href=\"javascript:;\" (click)=\"cancelTask()\">cancel</a>\r\n        </form>\r\n        <app-list [items]=\"taskList\" (clickDelete)=\"deleteTask($event)\" [modifyMode]=\"modifyTaskList\"></app-list>\r\n      </div>\r\n      <div class=\"tab-pane fade\" id=\"pills-story\" role=\"tabpanel\" aria-labelledby=\"pills-story-tab\">\r\n        <button class=\"btn btn-primary\" (click)=\"createStory()\">Create</button>\r\n        <app-story-list [items]=\"storyList\" [userImg]=\"userImg\" [currentUser]=\"currentUser\"></app-story-list>\r\n      </div>\r\n      <div class=\"tab-pane fade\" id=\"pills-mentor\" role=\"tabpanel\" aria-labelledby=\"pills-mentor-tab\">Mentors</div>\r\n    </div>\r\n    <div class=\"col-md-3\">     \r\n    </div>\r\n  </div>\r\n\r\n\r\n</div>"
 
 /***/ }),
 
@@ -1332,16 +1412,27 @@ var UserPageComponent = (function () {
         this.taskList = [
             { title: 'Review my plans, my goals, my daily schedule' }
         ];
+        this.storyList = [
+            { title: 'This is story', content: 'This is content', date: 'Nov 11, 2017' },
+            { title: 'This is story', content: 'This is content', date: 'Nov 11, 2017' }
+        ];
     }
     UserPageComponent.prototype.ngOnInit = function () {
         this.currentUser = this.loginService.getCurrentUser();
         this.userImg = this.gravatarUrl + __WEBPACK_IMPORTED_MODULE_4_md5__(this.currentUser.email) + '?s=200';
         this.getTaskList();
+        this.getStoryList();
     };
     UserPageComponent.prototype.getTaskList = function () {
         var _this = this;
         this.userPageService.getTaskList(this.currentUser.id).subscribe(function (data) {
             _this.taskList = data;
+        });
+    };
+    UserPageComponent.prototype.getStoryList = function () {
+        var _this = this;
+        this.userPageService.getStoryList(this.currentUser.id).subscribe(function (data) {
+            _this.storyList = data;
         });
     };
     UserPageComponent.prototype.createTask = function () {

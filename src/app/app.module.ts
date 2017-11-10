@@ -22,6 +22,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LearnMoreComponent } from './learn-more/learn-more.component';
 import { SimpleTinyComponent } from './simple-tiny/simple-tiny.component';
 import { NewStoryComponent } from './new-story/new-story.component';
+import { StoryListComponent } from './story-list/story-list.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { NewStoryComponent } from './new-story/new-story.component';
     NavbarComponent,
     LearnMoreComponent,
     SimpleTinyComponent,
-    NewStoryComponent
+    NewStoryComponent,
+    StoryListComponent
   ],
   imports: [
     BrowserModule,
