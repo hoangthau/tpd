@@ -1,0 +1,17 @@
+.article-img {
+    height: 500px;
+    width: 100%;
+    background-image: url("../../assets/cover2.png");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 20px auto;
+}
+
+.learn-more {
+    margin-top: 20px;
+}
+
+.learn-more p {
+    text-align: justify;
+}

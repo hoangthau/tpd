@@ -18,6 +18,7 @@ import { SignupService } from './shared/sign-up.service';
 import { AuthGuard } from './shared/auth-guard.service';
 import { UserPageComponent } from './user-page/user-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LearnMoreComponent } from './learn-more/learn-more.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     SignUpComponent,
     ListComponent,
     UserPageComponent,
-    NavbarComponent
+    NavbarComponent,
+    LearnMoreComponent
   ],
   imports: [
     BrowserModule,

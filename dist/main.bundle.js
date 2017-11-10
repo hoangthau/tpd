@@ -133,12 +133,14 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__shared_auth_guard_service__ = __webpack_require__("../../../../../src/app/shared/auth-guard.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__user_page_user_page_component__ = __webpack_require__("../../../../../src/app/user-page/user-page.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__navbar_navbar_component__ = __webpack_require__("../../../../../src/app/navbar/navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__learn_more_learn_more_component__ = __webpack_require__("../../../../../src/app/learn-more/learn-more.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -171,7 +173,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_8__sign_up_sign_up_component__["a" /* SignUpComponent */],
             __WEBPACK_IMPORTED_MODULE_9__list_list_component__["a" /* ListComponent */],
             __WEBPACK_IMPORTED_MODULE_16__user_page_user_page_component__["a" /* UserPageComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__navbar_navbar_component__["a" /* NavbarComponent */]
+            __WEBPACK_IMPORTED_MODULE_17__navbar_navbar_component__["a" /* NavbarComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__learn_more_learn_more_component__["a" /* LearnMoreComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -200,6 +203,7 @@ AppModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__user_page_user_page_component__ = __webpack_require__("../../../../../src/app/user-page/user-page.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sign_up_sign_up_component__ = __webpack_require__("../../../../../src/app/sign-up/sign-up.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared_auth_guard_service__ = __webpack_require__("../../../../../src/app/shared/auth-guard.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__learn_more_learn_more_component__ = __webpack_require__("../../../../../src/app/learn-more/learn-more.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -213,11 +217,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var routes = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_3__home_page_home_page_component__["a" /* HomePageComponent */] },
     { path: 'user/:username', component: __WEBPACK_IMPORTED_MODULE_4__user_page_user_page_component__["a" /* UserPageComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_6__shared_auth_guard_service__["a" /* AuthGuard */]] },
     { path: 'sign-up', component: __WEBPACK_IMPORTED_MODULE_5__sign_up_sign_up_component__["a" /* SignUpComponent */] },
-    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_2__login_login_component__["a" /* LoginComponent */] }
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_2__login_login_component__["a" /* LoginComponent */] },
+    { path: 'learn-more', component: __WEBPACK_IMPORTED_MODULE_7__learn_more_learn_more_component__["a" /* LearnMoreComponent */] }
 ];
 var AppRoutes = (function () {
     function AppRoutes() {
@@ -256,7 +262,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home-page/home-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<main class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6\">\r\n      <h2>As you live your days, so you LIVE YOUR LIFE</h2>\r\n      <p>The only reason we've made the transformation from there to here is that, somewhere along the way, we've had the good\r\n        fortune of being exposed to the slight edge.\r\n      </p>\r\n      <p>\r\n        The transformation from beach bum to millionaire did not happen overnight. It was a long, slow, at times painful roller-coaster\r\n        process.\r\n      </p>\r\n      <p><b>We create a powerful tool that you follow your DREAM and bring it come TRUE.</b></p>\r\n      <button type=\"button\" class=\"btn btn-primary\">Get started</button>\r\n      <button type=\"button\" class=\"btn btn-outline-secondary\">Learn more</button>\r\n    </div>\r\n    <div class=\"col-md-6 img-intro\">\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"more-info\">\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>We have to stop procrastinating</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      And it's all because of what I've learned about beating FEAR, conquering PROCRASTINATION and doing impossible things.\r\n    </p>\r\n    <p>Your payoff and your rewards and your GROWTH and your MASTERY and your SUCCESS lies when you go to the places that scares you, when you \r\n      do difficult things, when you take the difficult projects on, when you read the difficult books, when you run longer than\r\n      you've ever run, when you try new things that STRETCH you. THAT IS HOW YOU GET MORE WILLPOWER.\r\n    </p>\r\n\r\n    <div class=\"divider\"></div>\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>Master your day, design your life</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      Do anything LONG ENOUGH and you will get depth of INSIGHT and UNDERSTANNDING about it. They'll call you a GURU.\r\n    </p>\r\n    <p>\r\n      For the nest 90 days, spend the FIRST 90 minutes of your workday on SIGNLE most game-changing opportunity, move \r\n      the NEEDLE in your insdustry.\r\n    </p>\r\n\r\n    <div class=\"divider\"></div>\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>Discovery your destiny</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      Be so KNOWLEDGEABLE, COMPETENT and BRILLIANT at what yo do, that firm can not run WITHOUT you.\r\n      Become INDISPENSABLE.      \r\n    </p>\r\n    <p>\r\n      Each day, life will send you little windows of OPPORTUNITY. Your DESTINY will ultimately be defined\r\n      by how you respond to these windows of opportunity. SHRINK from them and your life will be small.\r\n    </p>\r\n  </div>\r\n\r\n</main>"
+module.exports = "<main class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6\">\r\n      <h2>As you live your days, so you LIVE YOUR LIFE</h2>\r\n      <p>The only reason we've made the transformation from there to here is that, somewhere along the way, we've had the good\r\n        fortune of being exposed to the slight edge.\r\n      </p>\r\n      <p>\r\n        The transformation from beach bum to millionaire did not happen overnight. It was a long, slow, at times painful roller-coaster\r\n        process.\r\n      </p>\r\n      <p><b>We create a powerful tool that you follow your DREAM and bring it come TRUE.</b></p>\r\n      <a class=\"btn btn-primary\" href=\"sign-up\">Get started</a>\r\n      <a class=\"btn btn-outline-secondary\" href=\"learn-more\">Learn more</a>\r\n    </div>\r\n    <div class=\"col-md-6 img-intro\">\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"more-info\">\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>We have to stop procrastinating</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      And it's all because of what I've learned about beating FEAR, conquering PROCRASTINATION and doing impossible things.\r\n    </p>\r\n    <p>Your payoff and your rewards and your GROWTH and your MASTERY and your SUCCESS lies when you go to the places that scares you, when you \r\n      do difficult things, when you take the difficult projects on, when you read the difficult books, when you run longer than\r\n      you've ever run, when you try new things that STRETCH you. THAT IS HOW YOU GET MORE WILLPOWER.\r\n    </p>\r\n\r\n    <div class=\"divider\"></div>\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>Master your day, design your life</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      Do anything LONG ENOUGH and you will get depth of INSIGHT and UNDERSTANNDING about it. They'll call you a GURU.\r\n    </p>\r\n    <p>\r\n      For the nest 90 days, spend the FIRST 90 minutes of your workday on SIGNLE most game-changing opportunity, move \r\n      the NEEDLE in your insdustry.\r\n    </p>\r\n\r\n    <div class=\"divider\"></div>\r\n    <div class=\"header\">\r\n        <span class=\"title\"><a>Discovery your destiny</a></span>        \r\n    </div>\r\n    <p class=\"text\">\r\n      Be so KNOWLEDGEABLE, COMPETENT and BRILLIANT at what yo do, that firm can not run WITHOUT you.\r\n      Become INDISPENSABLE.      \r\n    </p>\r\n    <p>\r\n      Each day, life will send you little windows of OPPORTUNITY. Your DESTINY will ultimately be defined\r\n      by how you respond to these windows of opportunity. SHRINK from them and your life will be small.\r\n    </p>\r\n  </div>\r\n\r\n</main>"
 
 /***/ }),
 
@@ -293,6 +299,67 @@ HomePageComponent = __decorate([
 ], HomePageComponent);
 
 //# sourceMappingURL=home-page.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/learn-more/learn-more.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".article-img {\r\n    height: 500px;\r\n    width: 100%;\r\n    background-image: url(" + __webpack_require__("../../../../../src/assets/cover2.png") + ");\r\n    background-position: top center;\r\n    background-repeat: no-repeat;\r\n    background-size: 100% 100%;\r\n    margin: 20px auto;\r\n}\r\n\r\n.learn-more {\r\n    margin-top: 20px;\r\n}\r\n\r\n.learn-more p {\r\n    text-align: justify;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/learn-more/learn-more.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container learn-more\">\n  <h2>Do the thing, and you will have the power</h2>\n  <img class=\"article-img\">\n  <p>To find the path to success, you have to back up one more step. It's the understanding behind the \n    attitudes that are behind the actions.\n  </p>\n  <p>It's the philosophy. That's the missing ingredient, the secret ingredient. The first ingredient.</p>\n  <p>Yes, you have to know the winning how-to actions, and you have to possess the winning attitudes-\n    but what generates all that and keeps it all in place is your philosophy. Your philosophy is what you know,\n    how you hold it, and how it affects what you do. How do you think about simple, everyday things.\n  </p>\n  <p>\n    A positive philosophy turns into a positive attitude, which turns into positive actions, which turns into\n    positive results, which turns into positive lifestyle. A positive life.\n  </p>\n\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/learn-more/learn-more.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LearnMoreComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LearnMoreComponent = (function () {
+    function LearnMoreComponent() {
+    }
+    LearnMoreComponent.prototype.ngOnInit = function () {
+    };
+    return LearnMoreComponent;
+}());
+LearnMoreComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-learn-more',
+        template: __webpack_require__("../../../../../src/app/learn-more/learn-more.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/learn-more/learn-more.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], LearnMoreComponent);
+
+//# sourceMappingURL=learn-more.component.js.map
 
 /***/ }),
 
@@ -1092,6 +1159,13 @@ var _a, _b;
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "cover.43270a36b11834676e3f.jpg";
+
+/***/ }),
+
+/***/ "../../../../../src/assets/cover2.png":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "cover2.c545519ca7d10ebd3362.png";
 
 /***/ }),
 
