@@ -77,7 +77,7 @@ var AppComponent = (function () {
         var self = this;
         self.router.events
             .subscribe(function (event) {
-            if (event instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* NavigationEnd */]) {
+            if (event instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* NavigationEnd */]) {
                 console.log(event);
                 self.showNavbar = true;
                 self.showFooter = true;
@@ -102,7 +102,7 @@ AppComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_login_service__["a" /* LoginService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_login_service__["a" /* LoginService */]) === "function" && _b || Object])
 ], AppComponent);
 
 var _a, _b;
@@ -132,18 +132,22 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__shared_sign_up_service__ = __webpack_require__("../../../../../src/app/shared/sign-up.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__shared_auth_guard_service__ = __webpack_require__("../../../../../src/app/shared/auth-guard.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__shared_new_story_service__ = __webpack_require__("../../../../../src/app/shared/new-story.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__user_page_user_page_component__ = __webpack_require__("../../../../../src/app/user-page/user-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__navbar_navbar_component__ = __webpack_require__("../../../../../src/app/navbar/navbar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__learn_more_learn_more_component__ = __webpack_require__("../../../../../src/app/learn-more/learn-more.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__simple_tiny_simple_tiny_component__ = __webpack_require__("../../../../../src/app/simple-tiny/simple-tiny.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__new_story_new_story_component__ = __webpack_require__("../../../../../src/app/new-story/new-story.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__story_list_story_list_component__ = __webpack_require__("../../../../../src/app/story-list/story-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__shared_view_story_service__ = __webpack_require__("../../../../../src/app/shared/view-story.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__user_page_user_page_component__ = __webpack_require__("../../../../../src/app/user-page/user-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__navbar_navbar_component__ = __webpack_require__("../../../../../src/app/navbar/navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__learn_more_learn_more_component__ = __webpack_require__("../../../../../src/app/learn-more/learn-more.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__simple_tiny_simple_tiny_component__ = __webpack_require__("../../../../../src/app/simple-tiny/simple-tiny.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__new_story_new_story_component__ = __webpack_require__("../../../../../src/app/new-story/new-story.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__story_list_story_list_component__ = __webpack_require__("../../../../../src/app/story-list/story-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__view_story_view_story_component__ = __webpack_require__("../../../../../src/app/view-story/view-story.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -180,12 +184,13 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_7__home_page_home_page_component__["a" /* HomePageComponent */],
             __WEBPACK_IMPORTED_MODULE_8__sign_up_sign_up_component__["a" /* SignUpComponent */],
             __WEBPACK_IMPORTED_MODULE_9__list_list_component__["a" /* ListComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__user_page_user_page_component__["a" /* UserPageComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__navbar_navbar_component__["a" /* NavbarComponent */],
-            __WEBPACK_IMPORTED_MODULE_19__learn_more_learn_more_component__["a" /* LearnMoreComponent */],
-            __WEBPACK_IMPORTED_MODULE_20__simple_tiny_simple_tiny_component__["a" /* SimpleTinyComponent */],
-            __WEBPACK_IMPORTED_MODULE_21__new_story_new_story_component__["a" /* NewStoryComponent */],
-            __WEBPACK_IMPORTED_MODULE_22__story_list_story_list_component__["a" /* StoryListComponent */]
+            __WEBPACK_IMPORTED_MODULE_18__user_page_user_page_component__["a" /* UserPageComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__navbar_navbar_component__["a" /* NavbarComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__learn_more_learn_more_component__["a" /* LearnMoreComponent */],
+            __WEBPACK_IMPORTED_MODULE_21__simple_tiny_simple_tiny_component__["a" /* SimpleTinyComponent */],
+            __WEBPACK_IMPORTED_MODULE_22__new_story_new_story_component__["a" /* NewStoryComponent */],
+            __WEBPACK_IMPORTED_MODULE_23__story_list_story_list_component__["a" /* StoryListComponent */],
+            __WEBPACK_IMPORTED_MODULE_24__view_story_view_story_component__["a" /* ViewStoryComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -193,7 +198,16 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_6__app_routing__["a" /* AppRoutes */]
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_10__shared_httpConnector__["a" /* HttpConnector */], __WEBPACK_IMPORTED_MODULE_11__shared_home_page_service__["a" /* HomePageService */], __WEBPACK_IMPORTED_MODULE_12__shared_user_page_service__["a" /* UserPageService */], __WEBPACK_IMPORTED_MODULE_13__shared_login_service__["a" /* LoginService */], __WEBPACK_IMPORTED_MODULE_14__shared_sign_up_service__["a" /* SignupService */], __WEBPACK_IMPORTED_MODULE_15__shared_auth_guard_service__["a" /* AuthGuard */], __WEBPACK_IMPORTED_MODULE_16__shared_new_story_service__["a" /* NewStoryService */]],
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_10__shared_httpConnector__["a" /* HttpConnector */],
+            __WEBPACK_IMPORTED_MODULE_11__shared_home_page_service__["a" /* HomePageService */],
+            __WEBPACK_IMPORTED_MODULE_12__shared_user_page_service__["a" /* UserPageService */],
+            __WEBPACK_IMPORTED_MODULE_13__shared_login_service__["a" /* LoginService */],
+            __WEBPACK_IMPORTED_MODULE_14__shared_sign_up_service__["a" /* SignupService */],
+            __WEBPACK_IMPORTED_MODULE_15__shared_auth_guard_service__["a" /* AuthGuard */],
+            __WEBPACK_IMPORTED_MODULE_16__shared_new_story_service__["a" /* NewStoryService */],
+            __WEBPACK_IMPORTED_MODULE_17__shared_view_story_service__["a" /* ViewStoryService */]
+        ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -216,6 +230,7 @@ AppModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared_auth_guard_service__ = __webpack_require__("../../../../../src/app/shared/auth-guard.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__learn_more_learn_more_component__ = __webpack_require__("../../../../../src/app/learn-more/learn-more.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__new_story_new_story_component__ = __webpack_require__("../../../../../src/app/new-story/new-story.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__view_story_view_story_component__ = __webpack_require__("../../../../../src/app/view-story/view-story.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -231,13 +246,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var routes = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_3__home_page_home_page_component__["a" /* HomePageComponent */] },
     { path: 'user/:username', component: __WEBPACK_IMPORTED_MODULE_4__user_page_user_page_component__["a" /* UserPageComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_6__shared_auth_guard_service__["a" /* AuthGuard */]] },
     { path: 'sign-up', component: __WEBPACK_IMPORTED_MODULE_5__sign_up_sign_up_component__["a" /* SignUpComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_2__login_login_component__["a" /* LoginComponent */] },
     { path: 'learn-more', component: __WEBPACK_IMPORTED_MODULE_7__learn_more_learn_more_component__["a" /* LearnMoreComponent */] },
-    { path: 'new-story', component: __WEBPACK_IMPORTED_MODULE_8__new_story_new_story_component__["a" /* NewStoryComponent */] }
+    { path: 'new-story', component: __WEBPACK_IMPORTED_MODULE_8__new_story_new_story_component__["a" /* NewStoryComponent */] },
+    { path: 'view-story/:story-id', component: __WEBPACK_IMPORTED_MODULE_9__view_story_view_story_component__["a" /* ViewStoryComponent */] }
 ];
 var AppRoutes = (function () {
     function AppRoutes() {
@@ -246,8 +263,8 @@ var AppRoutes = (function () {
 }());
 AppRoutes = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
-        imports: [__WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* RouterModule */].forRoot(routes, { useHash: false })],
-        exports: [__WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* RouterModule */]]
+        imports: [__WEBPACK_IMPORTED_MODULE_0__angular_router__["d" /* RouterModule */].forRoot(routes, { useHash: false })],
+        exports: [__WEBPACK_IMPORTED_MODULE_0__angular_router__["d" /* RouterModule */]]
     })
 ], AppRoutes);
 
@@ -635,7 +652,7 @@ NavbarComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/navbar/navbar.component.html"),
         styles: [__webpack_require__("../../../../../src/app/navbar/navbar.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_login_service__["a" /* LoginService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_login_service__["a" /* LoginService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _b || Object])
 ], NavbarComponent);
 
 var _a, _b;
@@ -705,10 +722,12 @@ var NewStoryComponent = (function () {
     NewStoryComponent.prototype.publish = function () {
         var _this = this;
         if (this.currentUser && this.currentUser.id) {
+            var now = new Date();
             var data = {
                 title: this.title,
                 content: this.content,
-                userId: this.currentUser.id
+                userId: this.currentUser.id,
+                date: now.getTime()
             };
             this.newStoryService.publishStory(data).subscribe(function () {
                 var link = '/user/' + _this.currentUser.username;
@@ -724,7 +743,7 @@ NewStoryComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/new-story/new-story.component.html"),
         styles: [__webpack_require__("../../../../../src/app/new-story/new-story.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_new_story_service__["a" /* NewStoryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_new_story_service__["a" /* NewStoryService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared_login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_login_service__["a" /* LoginService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_new_story_service__["a" /* NewStoryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_new_story_service__["a" /* NewStoryService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared_login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_login_service__["a" /* LoginService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _c || Object])
 ], NewStoryComponent);
 
 var _a, _b, _c;
@@ -766,7 +785,7 @@ var AuthGuard = (function () {
 }());
 AuthGuard = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _a || Object])
 ], AuthGuard);
 
 var _a;
@@ -962,7 +981,7 @@ var LoginService = (function () {
 }());
 LoginService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__httpConnector__["a" /* HttpConnector */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__httpConnector__["a" /* HttpConnector */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__httpConnector__["a" /* HttpConnector */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__httpConnector__["a" /* HttpConnector */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _b || Object])
 ], LoginService);
 
 var _a, _b;
@@ -1093,6 +1112,44 @@ UserPageService = __decorate([
 
 var _a;
 //# sourceMappingURL=user-page.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/view-story.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViewStoryService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__httpConnector__ = __webpack_require__("../../../../../src/app/shared/httpConnector.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ViewStoryService = (function () {
+    function ViewStoryService(httpConnector) {
+        this.httpConnector = httpConnector;
+    }
+    ViewStoryService.prototype.getStory = function (id) {
+        var url = 'api/story/' + id;
+        return this.httpConnector.get(url);
+    };
+    return ViewStoryService;
+}());
+ViewStoryService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__httpConnector__["a" /* HttpConnector */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__httpConnector__["a" /* HttpConnector */]) === "function" && _a || Object])
+], ViewStoryService);
+
+var _a;
+//# sourceMappingURL=view-story.service.js.map
 
 /***/ }),
 
@@ -1298,7 +1355,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/story-list/story-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"list-group\">\n  <li class=\"list-group-item\" *ngFor=\"let item of items\">\n    <div class=\"story-heading\">\n        <img class=\"user-image\" [src]=\"userImg\" />\n        <div class=\"story-info\">\n          <p class=\"text-primary\">{{currentUser.fullName}}</p>\n          <span class=\"text-secondary\">{{item.date}}</span>\n        </div>\n    </div>    \n    <h5>{{ item.title }}</h5>\n    <div [innerHTML]=\"item.content\"></div>\n  </li> \n</ul>\n"
+module.exports = "<ul class=\"list-group\">\n  <li class=\"list-group-item\" *ngFor=\"let item of items\" (click)=\"viewStory(item)\">\n    <div class=\"story-heading\">\n        <img class=\"user-image\" [src]=\"userImg\" />\n        <div class=\"story-info\">\n          <p class=\"text-primary\">{{currentUser.fullName}}</p>\n          <span class=\"text-secondary\">{{item.dateDisplay || dateDisplay}}</span>\n        </div>\n    </div>    \n    <h5>{{ item.title }}</h5>\n    <div [innerHTML]=\"item.content\"></div>\n  </li> \n</ul>\n"
 
 /***/ }),
 
@@ -1308,6 +1365,7 @@ module.exports = "<ul class=\"list-group\">\n  <li class=\"list-group-item\" *ng
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StoryListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1318,10 +1376,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var StoryListComponent = (function () {
-    function StoryListComponent() {
+    function StoryListComponent(router) {
+        this.router = router;
     }
     StoryListComponent.prototype.ngOnInit = function () {
+        var now = new Date();
+        this.dateDisplay = now.toLocaleDateString();
+    };
+    StoryListComponent.prototype.viewStory = function (story) {
+        var link = '/view-story/' + story.title.toLowerCase().replace(/\s/g, '-') + '@' + story._id;
+        this.router.navigate([link]);
     };
     return StoryListComponent;
 }());
@@ -1343,9 +1409,10 @@ StoryListComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/story-list/story-list.component.html"),
         styles: [__webpack_require__("../../../../../src/app/story-list/story-list.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _a || Object])
 ], StoryListComponent);
 
+var _a;
 //# sourceMappingURL=story-list.component.js.map
 
 /***/ }),
@@ -1413,8 +1480,8 @@ var UserPageComponent = (function () {
             { title: 'Review my plans, my goals, my daily schedule' }
         ];
         this.storyList = [
-            { title: 'This is story', content: 'This is content', date: 'Nov 11, 2017' },
-            { title: 'This is story', content: 'This is content', date: 'Nov 11, 2017' }
+            { _id: '5a056f41734d1d68d42ce314', title: 'This is story', content: 'This is content', date: 1510366896400 },
+            { _id: '5a05790971a93b28501544ed', title: 'This is story', content: 'This is content', date: 1510366896400 }
         ];
     }
     UserPageComponent.prototype.ngOnInit = function () {
@@ -1432,7 +1499,10 @@ var UserPageComponent = (function () {
     UserPageComponent.prototype.getStoryList = function () {
         var _this = this;
         this.userPageService.getStoryList(this.currentUser.id).subscribe(function (data) {
-            _this.storyList = data;
+            _this.storyList = data.map(function (d) {
+                d.dateDisplay = new Date(d.date).getTime();
+                return d;
+            });
         });
     };
     UserPageComponent.prototype.createTask = function () {
@@ -1476,11 +1546,94 @@ UserPageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/user-page/user-page.component.html"),
         styles: [__webpack_require__("../../../../../src/app/user-page/user-page.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_user_page_service__["a" /* UserPageService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_user_page_service__["a" /* UserPageService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared_login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_login_service__["a" /* LoginService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_user_page_service__["a" /* UserPageService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_user_page_service__["a" /* UserPageService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared_login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_login_service__["a" /* LoginService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _c || Object])
 ], UserPageComponent);
 
 var _a, _b, _c;
 //# sourceMappingURL=user-page.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/view-story/view-story.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/view-story/view-story.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container view-story\">\n  <h2>{{story.title}}</h2>\n  <div [innerHTML]=\"story.content\"></div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/view-story/view-story.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViewStoryComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_view_story_service__ = __webpack_require__("../../../../../src/app/shared/view-story.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ViewStoryComponent = (function () {
+    function ViewStoryComponent(viewStoryService, route) {
+        this.viewStoryService = viewStoryService;
+        this.route = route;
+    }
+    ViewStoryComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.story = {
+            '_id': '5a056f41734d1d68d42ce314',
+            'title': 'The first story',
+            'content': '<p>The simple content</p>',
+            'userId': '59f97b8ef36d28236309ab9b'
+        };
+        var param = this.route.snapshot.params['story-id'];
+        var id = param.split('@')[1];
+        if (id) {
+            this.viewStoryService.getStory(id).subscribe(function (data) {
+                console.log(data);
+                _this.story = data;
+            });
+        }
+    };
+    return ViewStoryComponent;
+}());
+ViewStoryComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-view-story',
+        template: __webpack_require__("../../../../../src/app/view-story/view-story.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/view-story/view-story.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_view_story_service__["a" /* ViewStoryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_view_story_service__["a" /* ViewStoryService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object])
+], ViewStoryComponent);
+
+var _a, _b;
+//# sourceMappingURL=view-story.component.js.map
 
 /***/ }),
 

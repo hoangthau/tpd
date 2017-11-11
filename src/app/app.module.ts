@@ -17,12 +17,15 @@ import { LoginService } from './shared/login.service';
 import { SignupService } from './shared/sign-up.service';
 import { AuthGuard } from './shared/auth-guard.service';
 import { NewStoryService } from './shared/new-story.service';
+import { ViewStoryService } from './shared/view-story.service';
+
 import { UserPageComponent } from './user-page/user-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LearnMoreComponent } from './learn-more/learn-more.component';
 import { SimpleTinyComponent } from './simple-tiny/simple-tiny.component';
 import { NewStoryComponent } from './new-story/new-story.component';
 import { StoryListComponent } from './story-list/story-list.component';
+import { ViewStoryComponent } from './view-story/view-story.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,8 @@ import { StoryListComponent } from './story-list/story-list.component';
     LearnMoreComponent,
     SimpleTinyComponent,
     NewStoryComponent,
-    StoryListComponent
+    StoryListComponent,
+    ViewStoryComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,15 @@ import { StoryListComponent } from './story-list/story-list.component';
     HttpModule,
     AppRoutes
   ],
-  providers: [HttpConnector, HomePageService, UserPageService, LoginService, SignupService, AuthGuard, NewStoryService],
+  providers: [
+    HttpConnector, 
+    HomePageService, 
+    UserPageService, 
+    LoginService, 
+    SignupService, 
+    AuthGuard, 
+    NewStoryService,
+    ViewStoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

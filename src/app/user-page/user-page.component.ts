@@ -24,8 +24,8 @@ export class UserPageComponent implements OnInit {
     { title: 'Review my plans, my goals, my daily schedule' }
   ];
   storyList: Array<any> = [
-    {title: 'This is story', content: 'This is content', date: 'Nov 11, 2017'},
-    {title: 'This is story', content: 'This is content', date: 'Nov 11, 2017'}
+    {_id: '5a056f41734d1d68d42ce314', title: 'This is story', content: 'This is content', date: 1510366896400},
+    {_id: '5a05790971a93b28501544ed', title: 'This is story', content: 'This is content', date: 1510366896400}
   ];
 
 
@@ -50,7 +50,10 @@ export class UserPageComponent implements OnInit {
 
   getStoryList() {
     this.userPageService.getStoryList(this.currentUser.id).subscribe((data) => {
-      this.storyList = data;
+      this.storyList = data.map((d) => {
+        d.dateDisplay = new Date(d.date).getTime();
+        return d;
+      });
     });
   }
 

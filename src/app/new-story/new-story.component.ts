@@ -29,10 +29,12 @@ export class NewStoryComponent implements OnInit {
 
   publish() {
     if (this.currentUser && this.currentUser.id) {
+      const now = new Date();
       const data = {
         title: this.title,
         content: this.content,
-        userId: this.currentUser.id
+        userId: this.currentUser.id,
+        date: now.getTime()
       };
       this.newStoryService.publishStory(data).subscribe(() => {
         const link = '/user/' + this.currentUser.username;

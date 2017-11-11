@@ -8,6 +8,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { AuthGuard } from './shared/auth-guard.service';
 import { LearnMoreComponent } from './learn-more/learn-more.component';
 import { NewStoryComponent } from './new-story/new-story.component';
+import { ViewStoryComponent } from './view-story/view-story.component';
 
 const routes: Routes = [
     { path: '', component: HomePageComponent },    
@@ -15,7 +16,8 @@ const routes: Routes = [
     { path: 'sign-up', component: SignUpComponent },
     { path: 'login', component: LoginComponent },
     { path: 'learn-more', component: LearnMoreComponent },
-    { path: 'new-story', component: NewStoryComponent }    
+    { path: 'new-story', component: NewStoryComponent },
+    { path: 'view-story/:story-id', component: ViewStoryComponent }   
     
 ];
 

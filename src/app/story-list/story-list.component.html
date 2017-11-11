@@ -1,10 +1,10 @@
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let item of items">
+  <li class="list-group-item" *ngFor="let item of items" (click)="viewStory(item)">
     <div class="story-heading">
         <img class="user-image" [src]="userImg" />
         <div class="story-info">
           <p class="text-primary">{{currentUser.fullName}}</p>
-          <span class="text-secondary">{{item.date}}</span>
+          <span class="text-secondary">{{item.dateDisplay || dateDisplay}}</span>
         </div>
     </div>    
     <h5>{{ item.title }}</h5>

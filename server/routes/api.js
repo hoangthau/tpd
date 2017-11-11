@@ -100,7 +100,7 @@ router.route('/users')
     })
   });
 
-//for task
+//for story
 router.route('/stories')
   .get(function(req, res){
     Story.find(function(err, stories){
@@ -120,12 +120,49 @@ router.route('/stories')
     story.title = req.body.title;
     story.content = req.body.content;
     story.userId = req.body.userId;
+    story.date = req.body.date;
 
     story.save(function(err){
       if(err)
         res.send(err);
 
       res.json({message: 'Story created!'});
+    })
+  });
+router.route('/story/:story_id')
+  .get(function(req, res){
+    Story.findById(req.params.story_id, function(err, story){
+      if(err)
+        res.send(err);
+
+      res.json(story);
+    })
+  })
+  .put(function(req, res){
+    Story.findById(req.params.story_id, function(err, story){
+      if(err)
+        res.send(err);
+
+      story.title = req.body.title;
+      story.content = req.body.content;
+      story.date = req.body.date;      
+
+      story.save(function(err){
+        if(err)
+          res.send(err)
+        
+        res.json({message: 'Story updated'});
+      })
+    })
+  })
+  .delete(function(req, res){
+    Story.remove({
+      _id: req.params.story_id
+    }, function(err, task){
+      if(err)
+        res.send(err);
+
+      res.json({message: 'Successfully deletected'});
     })
   });
 
