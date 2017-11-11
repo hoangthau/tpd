@@ -1357,7 +1357,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/story-list/story-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"list-group\">\n  <li class=\"list-group-item\" *ngFor=\"let item of items\">\n    <div class=\"actions pull-right\">\n        <i class=\"fa fa-ellipsis-h hover-icon icon\" data-toggle=\"dropdown\"></i>      \n        <div class=\"dropdown-menu dropdown-menu-right\">\n            <a class=\"dropdown-item\" href=\"javascript:;\" (click)=\"delete(item)\">Delete</a>\n            <a class=\"dropdown-item\" href=\"javascript:;\" (click)=\"edit(item)\">Edit</a>                       \n        </div>\n    </div>\n    <div class=\"story-heading\">\n        <img class=\"user-image\" [src]=\"userImg\" />\n        <div class=\"story-info\">\n          <p class=\"text-primary\">{{currentUser.fullName}}</p>\n          <span class=\"text-secondary\">{{item.dateDisplay || dateDisplay}}</span>\n        </div>\n    </div>    \n    <h5 class=\"story-title\" (click)=\"view(item)\">{{ item.title }}</h5>\n    <div [innerHTML]=\"item.content\"></div>\n  </li> \n</ul>\n"
+module.exports = "<ul class=\"list-group\">\n  <li class=\"list-group-item\" *ngFor=\"let item of items\">\n    <div class=\"actions pull-right\">\n        <i class=\"fa fa-ellipsis-h hover-icon icon\" data-toggle=\"dropdown\"></i>      \n        <div class=\"dropdown-menu dropdown-menu-right\">\n            <a class=\"dropdown-item\" href=\"javascript:;\" (click)=\"delete(item)\">Delete</a>\n            <a class=\"dropdown-item\" href=\"javascript:;\" (click)=\"edit(item)\">Edit</a>                       \n        </div>\n    </div>\n    <div class=\"story-heading\">\n        <img class=\"user-image\" [src]=\"userImg\" />\n        <div class=\"story-info\">\n          <p class=\"text-primary\">{{currentUser.fullName}}</p>\n          <span class=\"text-secondary\">{{item.dateDisplay || \"\"}}</span>\n        </div>\n    </div>    \n    <h5 class=\"story-title\" (click)=\"view(item)\">{{ item.title }}</h5>\n    <div [innerHTML]=\"item.content\"></div>\n  </li> \n</ul>\n"
 
 /***/ }),
 
@@ -1384,8 +1384,6 @@ var StoryListComponent = (function () {
         this.editStory = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
     }
     StoryListComponent.prototype.ngOnInit = function () {
-        var now = new Date();
-        this.dateDisplay = now.toLocaleDateString();
     };
     StoryListComponent.prototype.view = function (story) {
         this.viewStory.emit(story);
@@ -1524,7 +1522,8 @@ var UserPageComponent = (function () {
         var _this = this;
         this.userPageService.getStoryList(this.currentUser.id).subscribe(function (data) {
             _this.storyList = data.map(function (d) {
-                d.dateDisplay = new Date(d.date).getTime();
+                var date = new Date(d.date);
+                d.dateDisplay = date.toLocaleDateString();
                 d.content = d.content.substring(0, 100) + '...';
                 return d;
             });

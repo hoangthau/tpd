@@ -14,13 +14,9 @@ export class StoryListComponent implements OnInit {
   @Output() deleteStory: EventEmitter<any> = new EventEmitter();
   @Output() editStory: EventEmitter<any> = new EventEmitter();  
 
-  dateDisplay: string;  
-
   constructor() { }
 
-  ngOnInit() {
-    const now = new Date();
-    this.dateDisplay = now.toLocaleDateString();
+  ngOnInit() {    
   }
 
   view(story: any) {
