@@ -56,7 +56,8 @@ export class UserPageComponent implements OnInit {
   getStoryList() {
     this.userPageService.getStoryList(this.currentUser.id).subscribe((data) => {
       this.storyList = data.map((d) => {
-        d.dateDisplay = new Date(d.date).getTime();
+        const date = new Date(d.date);
+        d.dateDisplay = date.toLocaleDateString();
         d.content = d.content.substring(0, 100) + '...';
         return d;
       });

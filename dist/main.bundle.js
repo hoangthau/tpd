@@ -533,7 +533,6 @@ var LoginComponent = (function () {
             password: this.password
         };
         this.loginService.login(data).subscribe(function (user) {
-            console.log(user);
             if (user === true) {
                 return;
             }
@@ -618,7 +617,6 @@ var NavbarComponent = (function () {
     NavbarComponent.prototype.ngOnInit = function () {
     };
     NavbarComponent.prototype.ngOnChanges = function (changes) {
-        console.log(changes);
     };
     NavbarComponent.prototype.signout = function () {
         this.loginService.logout();

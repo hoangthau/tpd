@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
       password: this.password
     };
     this.loginService.login(data).subscribe((user) => {
-      console.log(user);
       if (user === true) {
         return;
       }
