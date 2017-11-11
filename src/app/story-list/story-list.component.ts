@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-story-list',
@@ -11,18 +10,29 @@ export class StoryListComponent implements OnInit {
   @Input() currentUser: any;
   @Input() items: Array<any>;
 
+  @Output() viewStory: EventEmitter<any> = new EventEmitter();
+  @Output() deleteStory: EventEmitter<any> = new EventEmitter();
+  @Output() editStory: EventEmitter<any> = new EventEmitter();  
+
   dateDisplay: string;  
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
     const now = new Date();
     this.dateDisplay = now.toLocaleDateString();
   }
 
-  viewStory(story: any) {
-    const link = '/view-story/'+ story.title.toLowerCase().replace(/\s/g, '-') + '@' + story._id;
-    this.router.navigate([link]);
+  view(story: any) {
+    this.viewStory.emit(story);    
+  }
+
+  delete(story: any) {
+    this.deleteStory.emit(story);
+  }
+
+  edit(story: any) {
+    this.editStory.emit(story);
   }
 
 }

@@ -95,4 +95,19 @@ export class UserPageComponent implements OnInit {
     this.router.navigate(['/new-story']);
   }
 
+  viewStory(story: any) {
+    const link = '/view-story/'+ story.title.toLowerCase().replace(/\s/g, '-') + '@' + story._id;
+    this.router.navigate([link]);
+  }
+
+  deleteStory(story: any) {
+    this.userPageService.deleteStory(story._id).subscribe((data) => {
+      this.getStoryList();
+    });
+  }
+
+  editStory(story: any) {
+
+  }
+
 }

@@ -10,7 +10,6 @@
     -webkit-border-radius: 3px;
     border-radius: 3px;
     margin-bottom: 20px;
-    cursor: pointer;
 }
 
 .user-image {
@@ -31,4 +30,8 @@
 
 .story-heading {
     margin-bottom: 10px;
+}
+
+.story-title {
+    cursor: pointer;
 }

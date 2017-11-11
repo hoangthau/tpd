@@ -1,5 +1,12 @@
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let item of items" (click)="viewStory(item)">
+  <li class="list-group-item" *ngFor="let item of items">
+    <div class="actions pull-right">
+        <i class="fa fa-ellipsis-v hover-icon" data-toggle="dropdown"></i>      
+        <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="javascript:;" (click)="delete(item)">Delete</a>
+            <a class="dropdown-item" href="javascript:;" (click)="edit(item)">Edit</a>                       
+        </div>
+    </div>
     <div class="story-heading">
         <img class="user-image" [src]="userImg" />
         <div class="story-info">
@@ -7,7 +14,7 @@
           <span class="text-secondary">{{item.dateDisplay || dateDisplay}}</span>
         </div>
     </div>    
-    <h5>{{ item.title }}</h5>
+    <h5 class="story-title" (click)="view(item)">{{ item.title }}</h5>
     <div [innerHTML]="item.content"></div>
   </li> 
 </ul>
