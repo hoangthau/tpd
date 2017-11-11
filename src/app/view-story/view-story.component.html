@@ -1,4 +1,5 @@
 <div class="container view-story">
-  <h2>{{story.title}}</h2>
-  <div [innerHTML]="story.content"></div>
+  <h2 class="title">{{story.title}}</h2>
+  <hr class="section-divider">
+  <div class="content" [innerHTML]="story.content"></div>
 </div>

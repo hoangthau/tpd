@@ -25,7 +25,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "footer {\r\n    margin-top: 10px;\r\n}", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page-content\">\r\n    <header>\r\n        <app-navbar [show]=\"showNavbar\" [logined]=\"isLogined\" [fullName]=\"fullName\" [username]=\"username\"></app-navbar>\r\n    </header>\r\n    <router-outlet></router-outlet>\r\n    <footer *ngIf=\"showFooter\" class=\"container\">\r\n        <hr />\r\n        <p>@2017 - Ripple</p>\r\n    </footer>\r\n</div>\r\n"
+module.exports = "<div class=\"page-content\">\r\n    <header>\r\n        <app-navbar [show]=\"showNavbar\" [logined]=\"isLogined\" [fullName]=\"fullName\" [username]=\"username\"></app-navbar>\r\n    </header>\r\n    <router-outlet></router-outlet>    \r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -1346,7 +1346,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".list-group {\r\n    margin-top: 30px;\r\n}\r\n\r\n.list-group-item {\r\n    background: #fff;\r\n    box-shadow: 0 1px 4px rgba(0,0,0,.04);\r\n    border: 1px solid rgba(0,0,0,.09);\r\n    border-radius: 3px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.user-image {\r\n    width: 36px;\r\n    height: 36px;\r\n    border-radius: 100%;\r\n    display: inline-block;\r\n}\r\n\r\n.story-info {\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n}\r\n\r\n.story-info p {\r\n    margin: 0;\r\n}\r\n\r\n.story-heading {\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.story-title {\r\n    cursor: pointer;\r\n}", ""]);
+exports.push([module.i, ".list-group {\r\n    margin-top: 30px;\r\n}\r\n\r\n.list-group-item {\r\n    background: #fff;\r\n    box-shadow: 0 1px 4px rgba(0,0,0,.04);\r\n    border: 1px solid rgba(0,0,0,.09);\r\n    border-radius: 3px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.user-image {\r\n    width: 36px;\r\n    height: 36px;\r\n    border-radius: 100%;\r\n    display: inline-block;\r\n}\r\n\r\n.story-info {\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n}\r\n\r\n.story-info p {\r\n    margin: 0;\r\n}\r\n\r\n.story-heading {\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.story-title {\r\n    cursor: pointer;\r\n}\r\n\r\n.actions .icon {\r\n    padding: 10px;\r\n}", ""]);
 
 // exports
 
@@ -1359,7 +1359,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/story-list/story-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"list-group\">\n  <li class=\"list-group-item\" *ngFor=\"let item of items\">\n    <div class=\"actions pull-right\">\n        <i class=\"fa fa-ellipsis-v hover-icon\" data-toggle=\"dropdown\"></i>      \n        <div class=\"dropdown-menu dropdown-menu-right\">\n            <a class=\"dropdown-item\" href=\"javascript:;\" (click)=\"delete(item)\">Delete</a>\n            <a class=\"dropdown-item\" href=\"javascript:;\" (click)=\"edit(item)\">Edit</a>                       \n        </div>\n    </div>\n    <div class=\"story-heading\">\n        <img class=\"user-image\" [src]=\"userImg\" />\n        <div class=\"story-info\">\n          <p class=\"text-primary\">{{currentUser.fullName}}</p>\n          <span class=\"text-secondary\">{{item.dateDisplay || dateDisplay}}</span>\n        </div>\n    </div>    \n    <h5 class=\"story-title\" (click)=\"view(item)\">{{ item.title }}</h5>\n    <div [innerHTML]=\"item.content\"></div>\n  </li> \n</ul>\n"
+module.exports = "<ul class=\"list-group\">\n  <li class=\"list-group-item\" *ngFor=\"let item of items\">\n    <div class=\"actions pull-right\">\n        <i class=\"fa fa-ellipsis-v hover-icon icon\" data-toggle=\"dropdown\"></i>      \n        <div class=\"dropdown-menu dropdown-menu-right\">\n            <a class=\"dropdown-item\" href=\"javascript:;\" (click)=\"delete(item)\">Delete</a>\n            <a class=\"dropdown-item\" href=\"javascript:;\" (click)=\"edit(item)\">Edit</a>                       \n        </div>\n    </div>\n    <div class=\"story-heading\">\n        <img class=\"user-image\" [src]=\"userImg\" />\n        <div class=\"story-info\">\n          <p class=\"text-primary\">{{currentUser.fullName}}</p>\n          <span class=\"text-secondary\">{{item.dateDisplay || dateDisplay}}</span>\n        </div>\n    </div>    \n    <h5 class=\"story-title\" (click)=\"view(item)\">{{ item.title }}</h5>\n    <div [innerHTML]=\"item.content\"></div>\n  </li> \n</ul>\n"
 
 /***/ }),
 
@@ -1501,8 +1501,12 @@ var UserPageComponent = (function () {
             { title: 'Review my plans, my goals, my daily schedule' }
         ];
         this.storyList = [
-            { _id: '5a056f41734d1d68d42ce314', title: 'This is story', content: 'This is content', date: 1510366896400 },
-            { _id: '5a05790971a93b28501544ed', title: 'This is story', content: 'This is content', date: 1510366896400 }
+            {
+                _id: '5a056f41734d1d68d42ce314',
+                title: 'This is story',
+                content: '<p>This is content British airline EasyJet teamed up with Wright Electric to build aircrafts powered by batteries. So far, it has built a two-seater prototype with plans of a 120-seater plane in 10 years.</p>',
+                date: 1510366896400
+            },
         ];
     }
     UserPageComponent.prototype.ngOnInit = function () {
@@ -1522,6 +1526,7 @@ var UserPageComponent = (function () {
         this.userPageService.getStoryList(this.currentUser.id).subscribe(function (data) {
             _this.storyList = data.map(function (d) {
                 d.dateDisplay = new Date(d.date).getTime();
+                d.content = d.content.substring(0, 100) + '...';
                 return d;
             });
         });
@@ -1595,7 +1600,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".container {\r\n    max-width: 800px;\r\n}\r\n\r\n.title {\r\n    margin-top: 20px;\r\n}\r\n\r\n.content {\r\n    margin-top: 50px;\r\n}", ""]);
 
 // exports
 
@@ -1608,7 +1613,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/view-story/view-story.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container view-story\">\n  <h2>{{story.title}}</h2>\n  <div [innerHTML]=\"story.content\"></div>\n</div>\n"
+module.exports = "<div class=\"container view-story\">\n  <h2 class=\"title\">{{story.title}}</h2>\n  <hr class=\"section-divider\">\n  <div class=\"content\" [innerHTML]=\"story.content\"></div>\n</div>\n"
 
 /***/ }),
 

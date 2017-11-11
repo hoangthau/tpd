@@ -1,7 +1,22 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+
 body {
     margin: 0;
     padding: 0;
     background-color: #fff;
+    margin-bottom: 100px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border-top: 1px solid rgba(0,0,0,.15);
 }
 
 .hover-icon {
@@ -35,4 +50,27 @@ body {
 
 .box-shadow {
     box-shadow: 0 1px 3px 0 rgba(0,0,0,0.25);
+}
+
+hr.section-divider {
+    margin-top: 52px;
+    margin-bottom: 42px;
+    display: block;
+    border: 0;
+    text-align: center;
+    overflow: visible;
+}
+
+hr.section-divider:before {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 30px;
+    letter-spacing: .6em;
+
+    content: '...';
+    display: inline-block;
+    margin-left: .6em;
+    color: rgba(0,0,0,.68);
+    position: relative;
+    top: -30px;
 }

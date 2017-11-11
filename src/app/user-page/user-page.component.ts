@@ -24,13 +24,17 @@ export class UserPageComponent implements OnInit {
     { title: 'Review my plans, my goals, my daily schedule' }
   ];
   storyList: Array<any> = [
-    {_id: '5a056f41734d1d68d42ce314', title: 'This is story', content: 'This is content', date: 1510366896400},
-    {_id: '5a05790971a93b28501544ed', title: 'This is story', content: 'This is content', date: 1510366896400}
+    {
+      _id: '5a056f41734d1d68d42ce314',
+      title: 'This is story',
+      content: '<p>This is content British airline EasyJet teamed up with Wright Electric to build aircrafts powered by batteries. So far, it has built a two-seater prototype with plans of a 120-seater plane in 10 years.</p>', 
+      date: 1510366896400
+    },
   ];
 
 
   constructor(
-    private userPageService: UserPageService, 
+    private userPageService: UserPageService,
     private loginService: LoginService,
     private router: Router
   ) { }
@@ -52,6 +56,7 @@ export class UserPageComponent implements OnInit {
     this.userPageService.getStoryList(this.currentUser.id).subscribe((data) => {
       this.storyList = data.map((d) => {
         d.dateDisplay = new Date(d.date).getTime();
+        d.content = d.content.substring(0, 100) + '...';
         return d;
       });
     });
@@ -96,7 +101,7 @@ export class UserPageComponent implements OnInit {
   }
 
   viewStory(story: any) {
-    const link = '/view-story/'+ story.title.toLowerCase().replace(/\s/g, '-') + '@' + story._id;
+    const link = '/view-story/' + story.title.toLowerCase().replace(/\s/g, '-') + '@' + story._id;
     this.router.navigate([link]);
   }
 

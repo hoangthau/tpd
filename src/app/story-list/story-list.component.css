@@ -35,3 +35,7 @@
 .story-title {
     cursor: pointer;
 }
+
+.actions .icon {
+    padding: 10px;
+}
