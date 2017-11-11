@@ -2,6 +2,11 @@
     <header>
         <app-navbar [show]="showNavbar" [logined]="isLogined" [fullName]="fullName" [username]="username"></app-navbar>
     </header>
-    <router-outlet></router-outlet>    
+    <router-outlet></router-outlet>
+    <footer *ngIf="showFooter">
+        <div class="container">
+            <p>Copyright &copy; Thau Nguyen - Ripple</p>        
+        </div>
+      </footer>    
 </div>
 

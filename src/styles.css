@@ -16,7 +16,7 @@ footer {
     width: 100%;
     height: 60px;
     line-height: 60px;
-    border-top: 1px solid rgba(0,0,0,.15);
+    border-top: 1px solid rgba(0,0,0,.08);
 }
 
 .hover-icon {
@@ -73,4 +73,38 @@ hr.section-divider:before {
     color: rgba(0,0,0,.68);
     position: relative;
     top: -30px;
+}
+
+.story-heading .user-image {
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    display: inline-block;
+}
+
+.story-heading .story-info {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.story-heading .story-info p {
+    margin: 0;
+}
+
+.story-heading {
+    margin-bottom: 10px;
+}
+
+.list-group-item {
+    background: #fff;
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.04);
+    box-shadow: 0 1px 4px rgba(0,0,0,.04);
+    border: 1px solid rgba(0,0,0,.09);
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.actions .icon {
+    padding: 5px;
 }

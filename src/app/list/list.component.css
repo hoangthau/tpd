@@ -1,9 +1,7 @@
 .action {
-    padding-right: 5px;
+    
 }
 
 .list-group-item {
-    border-width: 0;
-    padding-left: 0;
     cursor: pointer;
 }

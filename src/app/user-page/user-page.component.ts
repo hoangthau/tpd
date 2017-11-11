@@ -21,7 +21,8 @@ export class UserPageComponent implements OnInit {
   gravatarUrl: string = 'https://www.gravatar.com/avatar/';
   userImg: string = this.gravatarUrl;
   taskList: Array<any> = [
-    { title: 'Review my plans, my goals, my daily schedule' }
+    { title: 'Review my plans, my goals, my daily schedule' },
+    { title: 'Review my plans, my goals, my daily schedule' }    
   ];
   storyList: Array<any> = [
     {

@@ -19,8 +19,7 @@ export class ListComponent implements OnInit {
     item.done = !item.done;
   }
 
-  delete(evt, item){
-    evt.stopPropagation();
+  delete(item){
     this.clickDelete.emit(item);
   }
 

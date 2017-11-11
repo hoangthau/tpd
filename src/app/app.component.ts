@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
     self.router.events
       .subscribe((event) => {
         if (event instanceof NavigationEnd) {
-          console.log(event);
           self.showNavbar = true;
           self.showFooter = true;
           if (event.url === '/login' || event.url === '/sign-up' ) {

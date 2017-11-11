@@ -34,8 +34,6 @@
     <div class="col-md-6 tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-task" role="tabpanel" aria-labelledby="pills-task-tab">
         <button *ngIf="!showCreateInput" class="btn btn-primary btn-create" (click)="createTask()">Create</button>
-        <a *ngIf="!modifyTaskList" class="pull-right" href="javascript:;" (click)="enableEditMode()">Edit</a>
-        <a *ngIf="modifyTaskList" class="pull-right" href="javascript:;" (click)="enableEditMode()">Quit</a>
         <form *ngIf="showCreateInput" class="form-create">
           <div class="form-group row">
             <div class="col-sm-12">

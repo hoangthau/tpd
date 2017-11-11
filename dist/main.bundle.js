@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page-content\">\r\n    <header>\r\n        <app-navbar [show]=\"showNavbar\" [logined]=\"isLogined\" [fullName]=\"fullName\" [username]=\"username\"></app-navbar>\r\n    </header>\r\n    <router-outlet></router-outlet>    \r\n</div>\r\n\r\n"
+module.exports = "<div class=\"page-content\">\r\n    <header>\r\n        <app-navbar [show]=\"showNavbar\" [logined]=\"isLogined\" [fullName]=\"fullName\" [username]=\"username\"></app-navbar>\r\n    </header>\r\n    <router-outlet></router-outlet>\r\n    <footer *ngIf=\"showFooter\">\r\n        <div class=\"container\">\r\n            <p>Copyright &copy; Thau Nguyen - Ripple</p>        \r\n        </div>\r\n      </footer>    \r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -78,7 +78,6 @@ var AppComponent = (function () {
         self.router.events
             .subscribe(function (event) {
             if (event instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* NavigationEnd */]) {
-                console.log(event);
                 self.showNavbar = true;
                 self.showFooter = true;
                 if (event.url === '/login' || event.url === '/sign-up') {
@@ -402,7 +401,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".action {\r\n    padding-right: 5px;\r\n}\r\n\r\n.list-group-item {\r\n    border-width: 0;\r\n    padding-left: 0;\r\n    cursor: pointer;\r\n}", ""]);
+exports.push([module.i, ".action {\r\n    \r\n}\r\n\r\n.list-group-item {\r\n    cursor: pointer;\r\n}", ""]);
 
 // exports
 
@@ -415,7 +414,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/list/list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"list-group\">\r\n  <li class=\"list-group-item\" *ngFor=\"let item of items; let i = index\" (click)=\"complete(item)\" [ngClass]=\"{'text-success': item.done}\">\r\n    <span>{{ i + 1}}.</span>\r\n    <span>{{ item.title}}</span>\r\n    <span *ngIf=\"modifyMode\" class=\"pull-right action hover-icon\" href=\"javascript:;\" (click)=\"delete($event, item)\"><span class=\"fa fa-trash\"></span></span>    \r\n  </li> \r\n</ul>\r\n"
+module.exports = "<ul class=\"list-group\">\r\n  <li class=\"list-group-item\" *ngFor=\"let item of items; let i = index\">\r\n      <div class=\"actions pull-right\">\r\n          <i class=\"fa fa-ellipsis-h hover-icon icon\" data-toggle=\"dropdown\"></i>      \r\n          <div class=\"dropdown-menu dropdown-menu-right\">\r\n              <a class=\"dropdown-item\" href=\"javascript:;\" (click)=\"delete(item)\">Delete</a>\r\n          </div>\r\n      </div>\r\n    <h5 (click)=\"complete(item)\" [ngClass]=\"{'text-success': item.done}\">{{ i + 1}}. {{ item.title}}</h5>\r\n  </li> \r\n</ul>\r\n"
 
 /***/ }),
 
@@ -445,8 +444,7 @@ var ListComponent = (function () {
     ListComponent.prototype.complete = function (item) {
         item.done = !item.done;
     };
-    ListComponent.prototype.delete = function (evt, item) {
-        evt.stopPropagation();
+    ListComponent.prototype.delete = function (item) {
         this.clickDelete.emit(item);
     };
     return ListComponent;
@@ -1346,7 +1344,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".list-group {\r\n    margin-top: 30px;\r\n}\r\n\r\n.list-group-item {\r\n    background: #fff;\r\n    box-shadow: 0 1px 4px rgba(0,0,0,.04);\r\n    border: 1px solid rgba(0,0,0,.09);\r\n    border-radius: 3px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.user-image {\r\n    width: 36px;\r\n    height: 36px;\r\n    border-radius: 100%;\r\n    display: inline-block;\r\n}\r\n\r\n.story-info {\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n}\r\n\r\n.story-info p {\r\n    margin: 0;\r\n}\r\n\r\n.story-heading {\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.story-title {\r\n    cursor: pointer;\r\n}\r\n\r\n.actions .icon {\r\n    padding: 10px;\r\n}", ""]);
+exports.push([module.i, ".list-group {\r\n    margin-top: 30px;\r\n}\r\n\r\n.story-title {\r\n    cursor: pointer;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -1359,7 +1357,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/story-list/story-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"list-group\">\n  <li class=\"list-group-item\" *ngFor=\"let item of items\">\n    <div class=\"actions pull-right\">\n        <i class=\"fa fa-ellipsis-v hover-icon icon\" data-toggle=\"dropdown\"></i>      \n        <div class=\"dropdown-menu dropdown-menu-right\">\n            <a class=\"dropdown-item\" href=\"javascript:;\" (click)=\"delete(item)\">Delete</a>\n            <a class=\"dropdown-item\" href=\"javascript:;\" (click)=\"edit(item)\">Edit</a>                       \n        </div>\n    </div>\n    <div class=\"story-heading\">\n        <img class=\"user-image\" [src]=\"userImg\" />\n        <div class=\"story-info\">\n          <p class=\"text-primary\">{{currentUser.fullName}}</p>\n          <span class=\"text-secondary\">{{item.dateDisplay || dateDisplay}}</span>\n        </div>\n    </div>    \n    <h5 class=\"story-title\" (click)=\"view(item)\">{{ item.title }}</h5>\n    <div [innerHTML]=\"item.content\"></div>\n  </li> \n</ul>\n"
+module.exports = "<ul class=\"list-group\">\n  <li class=\"list-group-item\" *ngFor=\"let item of items\">\n    <div class=\"actions pull-right\">\n        <i class=\"fa fa-ellipsis-h hover-icon icon\" data-toggle=\"dropdown\"></i>      \n        <div class=\"dropdown-menu dropdown-menu-right\">\n            <a class=\"dropdown-item\" href=\"javascript:;\" (click)=\"delete(item)\">Delete</a>\n            <a class=\"dropdown-item\" href=\"javascript:;\" (click)=\"edit(item)\">Edit</a>                       \n        </div>\n    </div>\n    <div class=\"story-heading\">\n        <img class=\"user-image\" [src]=\"userImg\" />\n        <div class=\"story-info\">\n          <p class=\"text-primary\">{{currentUser.fullName}}</p>\n          <span class=\"text-secondary\">{{item.dateDisplay || dateDisplay}}</span>\n        </div>\n    </div>    \n    <h5 class=\"story-title\" (click)=\"view(item)\">{{ item.title }}</h5>\n    <div [innerHTML]=\"item.content\"></div>\n  </li> \n</ul>\n"
 
 /***/ }),
 
@@ -1459,7 +1457,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/user-page/user-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"user-page\">\r\n\r\n  <div class=\"cover\">\r\n    <div class=\"cover-img\"></div>\r\n    <div class=\"profile-img\">\r\n      <img src=\"{{userImg}}\" />\r\n    </div>\r\n    <div class=\"m-info\">\r\n      <h5>{{currentUser.fullName}}</h5>\r\n      <p>@{{currentUser.username}}</p>\r\n    </div>\r\n    <ul class=\"nav nav-pills mb-3 box-shadow\" id=\"pills-tab\" role=\"tablist\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link active\" id=\"pills-task-tab\" data-toggle=\"pill\" href=\"#pills-task\" role=\"tab\" aria-controls=\"pills-task\"\r\n          aria-selected=\"true\">Tasks</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-story-tab\" data-toggle=\"pill\" href=\"#pills-story\" role=\"tab\" aria-controls=\"pills-story\" aria-selected=\"false\">Stories</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-mentor-tab\" data-toggle=\"pill\" href=\"#pills-mentor\" role=\"tab\" aria-controls=\"pills-mentor\"\r\n          aria-selected=\"false\">Mentors</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n\r\n  <div class=\"row content\">\r\n    <div class=\"offset-md-1 col-md-2 info\">\r\n      <h5>{{currentUser.fullName}}</h5>\r\n      <p>@{{currentUser.username}}</p>\r\n      <span>\r\n        <i class=\"fa fa-calendar\"></i>Joined Nov 2017</span>\r\n    </div>\r\n    <div class=\"col-md-6 tab-content\" id=\"pills-tabContent\">\r\n      <div class=\"tab-pane fade show active\" id=\"pills-task\" role=\"tabpanel\" aria-labelledby=\"pills-task-tab\">\r\n        <button *ngIf=\"!showCreateInput\" class=\"btn btn-primary btn-create\" (click)=\"createTask()\">Create</button>\r\n        <a *ngIf=\"!modifyTaskList\" class=\"pull-right\" href=\"javascript:;\" (click)=\"enableEditMode()\">Edit</a>\r\n        <a *ngIf=\"modifyTaskList\" class=\"pull-right\" href=\"javascript:;\" (click)=\"enableEditMode()\">Quit</a>\r\n        <form *ngIf=\"showCreateInput\" class=\"form-create\">\r\n          <div class=\"form-group row\">\r\n            <div class=\"col-sm-12\">\r\n              <input class=\"form-control form-control-sm\" type=\"text\" [(ngModel)]=\"taskTitle\" name=\"taskTitle\" />\r\n            </div>\r\n          </div>\r\n          <button class=\"btn btn-primary\" (click)=\"saveTask()\">Save</button> or\r\n          <a href=\"javascript:;\" (click)=\"cancelTask()\">cancel</a>\r\n        </form>\r\n        <app-list [items]=\"taskList\" (clickDelete)=\"deleteTask($event)\" [modifyMode]=\"modifyTaskList\"></app-list>\r\n      </div>\r\n      <div class=\"tab-pane fade\" id=\"pills-story\" role=\"tabpanel\" aria-labelledby=\"pills-story-tab\">\r\n        <button class=\"btn btn-primary\" (click)=\"createStory()\">Create</button>\r\n        <app-story-list \r\n            [items]=\"storyList\" \r\n            [userImg]=\"userImg\" \r\n            [currentUser]=\"currentUser\"\r\n            (viewStory)=\"viewStory($event)\"\r\n            (deleteStory)=\"deleteStory($event)\"\r\n            (editStory)=\"editStory($event)\">\r\n        </app-story-list>\r\n      </div>\r\n      <div class=\"tab-pane fade\" id=\"pills-mentor\" role=\"tabpanel\" aria-labelledby=\"pills-mentor-tab\">Mentors</div>\r\n    </div>\r\n    <div class=\"col-md-3\">\r\n    </div>\r\n  </div>\r\n\r\n\r\n</div>"
+module.exports = "<div class=\"user-page\">\r\n\r\n  <div class=\"cover\">\r\n    <div class=\"cover-img\"></div>\r\n    <div class=\"profile-img\">\r\n      <img src=\"{{userImg}}\" />\r\n    </div>\r\n    <div class=\"m-info\">\r\n      <h5>{{currentUser.fullName}}</h5>\r\n      <p>@{{currentUser.username}}</p>\r\n    </div>\r\n    <ul class=\"nav nav-pills mb-3 box-shadow\" id=\"pills-tab\" role=\"tablist\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link active\" id=\"pills-task-tab\" data-toggle=\"pill\" href=\"#pills-task\" role=\"tab\" aria-controls=\"pills-task\"\r\n          aria-selected=\"true\">Tasks</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-story-tab\" data-toggle=\"pill\" href=\"#pills-story\" role=\"tab\" aria-controls=\"pills-story\" aria-selected=\"false\">Stories</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" id=\"pills-mentor-tab\" data-toggle=\"pill\" href=\"#pills-mentor\" role=\"tab\" aria-controls=\"pills-mentor\"\r\n          aria-selected=\"false\">Mentors</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n\r\n  <div class=\"row content\">\r\n    <div class=\"offset-md-1 col-md-2 info\">\r\n      <h5>{{currentUser.fullName}}</h5>\r\n      <p>@{{currentUser.username}}</p>\r\n      <span>\r\n        <i class=\"fa fa-calendar\"></i>Joined Nov 2017</span>\r\n    </div>\r\n    <div class=\"col-md-6 tab-content\" id=\"pills-tabContent\">\r\n      <div class=\"tab-pane fade show active\" id=\"pills-task\" role=\"tabpanel\" aria-labelledby=\"pills-task-tab\">\r\n        <button *ngIf=\"!showCreateInput\" class=\"btn btn-primary btn-create\" (click)=\"createTask()\">Create</button>\r\n        <form *ngIf=\"showCreateInput\" class=\"form-create\">\r\n          <div class=\"form-group row\">\r\n            <div class=\"col-sm-12\">\r\n              <input class=\"form-control form-control-sm\" type=\"text\" [(ngModel)]=\"taskTitle\" name=\"taskTitle\" />\r\n            </div>\r\n          </div>\r\n          <button class=\"btn btn-primary\" (click)=\"saveTask()\">Save</button> or\r\n          <a href=\"javascript:;\" (click)=\"cancelTask()\">cancel</a>\r\n        </form>\r\n        <app-list [items]=\"taskList\" (clickDelete)=\"deleteTask($event)\" [modifyMode]=\"modifyTaskList\"></app-list>\r\n      </div>\r\n      <div class=\"tab-pane fade\" id=\"pills-story\" role=\"tabpanel\" aria-labelledby=\"pills-story-tab\">\r\n        <button class=\"btn btn-primary\" (click)=\"createStory()\">Create</button>\r\n        <app-story-list \r\n            [items]=\"storyList\" \r\n            [userImg]=\"userImg\" \r\n            [currentUser]=\"currentUser\"\r\n            (viewStory)=\"viewStory($event)\"\r\n            (deleteStory)=\"deleteStory($event)\"\r\n            (editStory)=\"editStory($event)\">\r\n        </app-story-list>\r\n      </div>\r\n      <div class=\"tab-pane fade\" id=\"pills-mentor\" role=\"tabpanel\" aria-labelledby=\"pills-mentor-tab\">Mentors</div>\r\n    </div>\r\n    <div class=\"col-md-3\">\r\n    </div>\r\n  </div>\r\n\r\n\r\n</div>"
 
 /***/ }),
 
@@ -1498,6 +1496,7 @@ var UserPageComponent = (function () {
         this.gravatarUrl = 'https://www.gravatar.com/avatar/';
         this.userImg = this.gravatarUrl;
         this.taskList = [
+            { title: 'Review my plans, my goals, my daily schedule' },
             { title: 'Review my plans, my goals, my daily schedule' }
         ];
         this.storyList = [
@@ -1600,7 +1599,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".container {\r\n    max-width: 800px;\r\n}\r\n\r\n.title {\r\n    margin-top: 20px;\r\n}\r\n\r\n.content {\r\n    margin-top: 50px;\r\n}", ""]);
+exports.push([module.i, ".container {\r\n    max-width: 800px;\r\n}\r\n\r\n.title {\r\n    margin-top: 20px;\r\n}\r\n\r\n.content {\r\n    margin-top: 50px;\r\n}\r\n\r\n.story-heading {\r\n    margin-top: 20px;\r\n}", ""]);
 
 // exports
 
@@ -1613,7 +1612,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/view-story/view-story.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container view-story\">\n  <h2 class=\"title\">{{story.title}}</h2>\n  <hr class=\"section-divider\">\n  <div class=\"content\" [innerHTML]=\"story.content\"></div>\n</div>\n"
+module.exports = "<div class=\"container view-story\">\n  <div class=\"story-heading\">\n    <img class=\"user-image\" [src]=\"userImg\" />\n    <div class=\"story-info\">\n      <p class=\"text-primary\">{{currentUser.fullName}}</p>\n      <span class=\"text-secondary\">{{story.dateDisplay}}</span>\n    </div>\n  </div>\n  <h2 class=\"title\">{{story.title}}</h2>\n  <hr class=\"section-divider\">\n  <div class=\"content\" [innerHTML]=\"story.content\"></div>\n</div>"
 
 /***/ }),
 
@@ -1625,6 +1624,9 @@ module.exports = "<div class=\"container view-story\">\n  <h2 class=\"title\">{{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_view_story_service__ = __webpack_require__("../../../../../src/app/shared/view-story.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_login_service__ = __webpack_require__("../../../../../src/app/shared/login.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_md5__ = __webpack_require__("../../../../md5/md5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_md5___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_md5__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1637,10 +1639,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var ViewStoryComponent = (function () {
-    function ViewStoryComponent(viewStoryService, route) {
+    function ViewStoryComponent(viewStoryService, route, loginService) {
         this.viewStoryService = viewStoryService;
         this.route = route;
+        this.loginService = loginService;
+        this.gravatarUrl = 'https://www.gravatar.com/avatar/';
     }
     ViewStoryComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1648,14 +1654,17 @@ var ViewStoryComponent = (function () {
             '_id': '5a056f41734d1d68d42ce314',
             'title': 'The first story',
             'content': '<p>The simple content</p>',
-            'userId': '59f97b8ef36d28236309ab9b'
+            'userId': '59f97b8ef36d28236309ab9b',
+            'dateDisplay': '11/11/2017'
         };
+        this.currentUser = this.loginService.getCurrentUser();
+        this.userImg = this.gravatarUrl + __WEBPACK_IMPORTED_MODULE_4_md5__(this.currentUser.email) + '?s=200';
         var param = this.route.snapshot.params['story-id'];
         var id = param.split('@')[1];
         if (id) {
             this.viewStoryService.getStory(id).subscribe(function (data) {
-                console.log(data);
                 _this.story = data;
+                _this.story.dateDisplay = new Date(data.date).toLocaleDateString();
             });
         }
     };
@@ -1667,10 +1676,10 @@ ViewStoryComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/view-story/view-story.component.html"),
         styles: [__webpack_require__("../../../../../src/app/view-story/view-story.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_view_story_service__["a" /* ViewStoryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_view_story_service__["a" /* ViewStoryService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_view_story_service__["a" /* ViewStoryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_view_story_service__["a" /* ViewStoryService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__shared_login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_login_service__["a" /* LoginService */]) === "function" && _c || Object])
 ], ViewStoryComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=view-story.component.js.map
 
 /***/ }),
