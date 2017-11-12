@@ -18,6 +18,7 @@ export class UserPageComponent implements OnInit {
   userList: Array<any>;
   currentUser: any;
   modifyTaskList: boolean = false;
+  userImg: string;
   taskList: Array<any> = [
     { title: 'Review my plans, my goals, my daily schedule' },
     { title: 'Review my plans, my goals, my daily schedule' }    
@@ -40,6 +41,7 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit() {
     this.currentUser = this.loginService.getCurrentUser();
+    this.userImg = this.loginService.getUserImage(this.currentUser.email);
     this.getTaskList();
     this.getStoryList();
   }

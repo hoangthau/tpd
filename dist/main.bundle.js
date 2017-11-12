@@ -1565,6 +1565,7 @@ var UserPageComponent = (function () {
     }
     UserPageComponent.prototype.ngOnInit = function () {
         this.currentUser = this.loginService.getCurrentUser();
+        this.userImg = this.loginService.getUserImage(this.currentUser.email);
         this.getTaskList();
         this.getStoryList();
     };
