@@ -16,31 +16,6 @@
     background-size: contain;
 }
 
-.divider {
-    margin: 30px 0;
-    height: 1px;
-}
-
-.header {
-    border-bottom: 1px solid rgba(0,0,0,.15)!important;
-    padding-bottom: 18px;
-}
-
-.title { 
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(0,0,0,.54);
-    font-size: 22px;
-    font-size: 500;
-}
-
-.text {
-    margin-top: 20px;
-}
-
-.more-info {
-    margin-top: 70px;
-}
-
 .story-list {
     margin-top: 20px;
 }

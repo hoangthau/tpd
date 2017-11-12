@@ -135,7 +135,8 @@ hr.section-divider:before {
 .story-card .story-image {
     height: 100px;
     width: 100%;
-    background-color: #eee;
+    background-image: url('./assets/story.jpg');
+    background-size: contain;
 }
 
 .story-card .story-content {
