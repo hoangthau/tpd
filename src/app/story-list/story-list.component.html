@@ -7,10 +7,10 @@
             <a class="dropdown-item" href="javascript:;" (click)="edit(item)">Edit</a>                       
         </div>
     </div>
-    <div class="story-heading">
-        <img class="user-image" [src]="userImg" />
+    <div class="user-story">
+        <img class="user-image" [src]="item.userImg" />
         <div class="story-info">
-          <p class="text-primary">{{currentUser.fullName}}</p>
+          <p class="text-primary">{{item.fullName}}</p>
           <span class="text-secondary">{{item.dateDisplay || ""}}</span>
         </div>
     </div>    

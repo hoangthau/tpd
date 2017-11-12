@@ -75,23 +75,23 @@ hr.section-divider:before {
     top: -30px;
 }
 
-.story-heading .user-image {
+.user-story .user-image {
     width: 36px;
     height: 36px;
     border-radius: 100%;
     display: inline-block;
 }
 
-.story-heading .story-info {
+.user-story .story-info {
     display: inline-block;
     vertical-align: middle;
 }
 
-.story-heading .story-info p {
+.user-story .story-info p {
     margin: 0;
 }
 
-.story-heading {
+.user-story {
     margin-bottom: 10px;
 }
 
@@ -107,4 +107,38 @@ hr.section-divider:before {
 
 .actions .icon {
     padding: 5px;
+}
+
+.story-card {
+    border-radius: 2px;
+    border: 1px solid rgba(0,0,0,.1);
+    background-color: #fff;
+    height: 260px;
+    margin-bottom: 20px;
+}
+
+.story-card .user-story {
+    margin-top: 10px;
+}
+
+.story-card .story-title {
+    height: 50px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.story-card .story-wrapper {
+    padding: 16px;
+    height: 160px;
+}
+
+.story-card .story-image {
+    height: 100px;
+    width: 100%;
+    background-color: #eee;
+}
+
+.story-card .story-content {
+    height: 20px;
+    overflow: hidden;
 }

@@ -14,7 +14,6 @@ import * as md5 from 'md5';
 export class ViewStoryComponent implements OnInit {
   story: any;
   currentUser: any;
-  gravatarUrl: string = 'https://www.gravatar.com/avatar/';
   userImg: string;
 
   constructor(
@@ -32,7 +31,7 @@ export class ViewStoryComponent implements OnInit {
     }
 
     this.currentUser = this.loginService.getCurrentUser();
-    this.userImg = this.gravatarUrl + md5(this.currentUser.email) + '?s=200';
+    this.userImg = this.loginService.getUserImage(this.currentUser.email);
 
     const param = this.route.snapshot.params['story-id'];
     const id = param.split('@')[1];

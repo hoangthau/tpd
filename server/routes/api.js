@@ -13,156 +13,170 @@ router.get('/', (req, res) => {
 
 //for task
 router.route('/tasks')
-  .get(function(req, res){
-    Task.find(function(err, tasks){
-      if(err)
+  .get(function (req, res) {
+    Task.find(function (err, tasks) {
+      if (err)
         res.send(err);
-      
+
       const userId = req.query.userId;
       let _tasks = tasks;
-      if(userId){
-        _tasks = _.filter(tasks, {'userId': userId});        
+      if (userId) {
+        _tasks = _.filter(tasks, { 'userId': userId });
       }
       res.json(_tasks);
-    })    
+    })
   })
-  .post(function(req, res){
+  .post(function (req, res) {
     var task = new Task();
     task.title = req.body.title;
     task.isDone = false;
     task.userId = req.body.userId;
 
-    task.save(function(err){
-      if(err)
+    task.save(function (err) {
+      if (err)
         res.send(err);
 
-      res.json({message: 'Task created!'});
+      res.json({ message: 'Task created!' });
     })
   });
 
 router.route('/task/:task_id')
-  .get(function(req, res){
-    Task.findById(req.params.task_id, function(err, task){
-      if(err)
+  .get(function (req, res) {
+    Task.findById(req.params.task_id, function (err, task) {
+      if (err)
         res.send(err);
 
       res.json(task);
     })
   })
-  .put(function(req, res){
-    Task.findById(req.params.task_id, function(err, task){
-      if(err)
+  .put(function (req, res) {
+    Task.findById(req.params.task_id, function (err, task) {
+      if (err)
         res.send(err);
 
       task.isDone = req.body.isDone;
 
-      task.save(function(err){
-        if(err)
+      task.save(function (err) {
+        if (err)
           res.send(err)
-        
-        res.json({message: 'Task updated'});
+
+        res.json({ message: 'Task updated' });
       })
     })
   })
-  .delete(function(req, res){
+  .delete(function (req, res) {
     Task.remove({
       _id: req.params.task_id
-    }, function(err, task){
-      if(err)
+    }, function (err, task) {
+      if (err)
         res.send(err);
 
-      res.json({message: 'Successfully deletected'});
+      res.json({ message: 'Successfully deletected' });
     })
   });
 
 //for user
 router.route('/users')
-  .get(function(req, res){
-    User.find(function(err, tasks){
-      if(err)
+  .get(function (req, res) {
+    User.find(function (err, users) {
+      if (err)
         res.send(err);
 
-      res.json(tasks);
-    })    
+      res.json(users);
+    })
   })
-  .post(function(req, res){
+  .post(function (req, res) {
     var user = new User();
     user.fullName = req.body.fullName;
     user.email = req.body.email;
     user.username = req.body.username;
     user.password = req.body.password;
 
-    user.save(function(err){
-      if(err)
+    user.save(function (err) {
+      if (err)
         res.send(err);
 
-      res.json({message: 'User created!'});
+      res.json({ message: 'User created!' });
+    })
+  });
+
+router.route('/user/:user_id')
+  .get(function (req, res) {
+    User.findById(req.params.user_id, function (err, user) {
+      if (err)
+        res.send(err);
+
+      res.json(user);
     })
   });
 
 //for story
 router.route('/stories')
-  .get(function(req, res){
-    Story.find(function(err, stories){
-      if(err)
+  .get(function (req, res) {
+    Story.find(function (err, stories) {
+      if (err)
         res.send(err);
-      
+
       const userId = req.query.userId;
       let _stories = stories;
-      if(userId){
-        _stories = _.filter(stories, {'userId': userId});        
+      if (userId) {
+        _stories = _.filter(stories, { 'userId': userId });
       }
       res.json(_stories);
-    })    
+    })
   })
-  .post(function(req, res){
+  .post(function (req, res) {
     var story = new Story();
     story.title = req.body.title;
     story.content = req.body.content;
     story.userId = req.body.userId;
     story.date = req.body.date;
+    story.fullName = req.body.fullName;
+    story.email = req.body.email;
 
-    story.save(function(err){
-      if(err)
+    story.save(function (err) {
+      if (err)
         res.send(err);
 
-      res.json({message: 'Story created!'});
+      res.json({ message: 'Story created!' });
     })
   });
 router.route('/story/:story_id')
-  .get(function(req, res){
-    Story.findById(req.params.story_id, function(err, story){
-      if(err)
+  .get(function (req, res) {
+    Story.findById(req.params.story_id, function (err, story) {
+      if (err)
         res.send(err);
 
       res.json(story);
     })
   })
-  .put(function(req, res){
-    Story.findById(req.params.story_id, function(err, story){
-      if(err)
+  .put(function (req, res) {
+    Story.findById(req.params.story_id, function (err, story) {
+      if (err)
         res.send(err);
-
       story.title = req.body.title;
       story.content = req.body.content;
-      story.date = req.body.date;      
+      story.userId = req.body.userId;
+      story.date = req.body.date;
+      story.fullName = req.body.fullName;
+      story.email = req.body.email;
 
-      story.save(function(err){
-        if(err)
+      story.save(function (err) {
+        if (err)
           res.send(err)
-        
-        res.json({message: 'Story updated'});
+
+        res.json({ message: 'Story updated' });
       })
     })
   })
-  .delete(function(req, res){
+  .delete(function (req, res) {
     Story.remove({
       _id: req.params.story_id
-    }, function(err, task){
-      if(err)
+    }, function (err, task) {
+      if (err)
         res.send(err);
 
-      res.json({message: 'Successfully deletected'});
+      res.json({ message: 'Successfully deletected' });
     })
   });
 

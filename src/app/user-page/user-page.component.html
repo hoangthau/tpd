@@ -49,7 +49,6 @@
         <button class="btn btn-primary" (click)="createStory()">Create</button>
         <app-story-list 
             [items]="storyList" 
-            [userImg]="userImg" 
             [currentUser]="currentUser"
             (viewStory)="viewStory($event)"
             (deleteStory)="deleteStory($event)"

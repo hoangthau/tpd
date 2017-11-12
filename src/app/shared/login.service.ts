@@ -5,11 +5,13 @@ import { Observable } from 'rxjs/Observable';
 
 import { HttpConnector } from './httpConnector';
 
+import * as md5 from 'md5';
+
 @Injectable()
 export class LoginService {
     currentUser: any = {
         id: '',
-        fullName: '',
+        fullName: 'Thau Nguyen',
         username: '',
         email: ''
     };
@@ -41,13 +43,22 @@ export class LoginService {
     }
 
     getCurrentUser() {
-        var user = JSON.parse(localStorage.getItem('currentUser'));
+        const user = JSON.parse(localStorage.getItem('currentUser'));
         this.currentUser = Object.assign(this.currentUser, user);
         return  this.currentUser;
     }
 
+    getUserImage(email) {
+        return 'https://www.gravatar.com/avatar/' + md5(email) + '?s=200';
+    }
+
     getUserList() {
         const url = 'api/users';
+        return this.httpConnector.get(url);
+    }
+
+    getUserById(id) {
+        const url = 'api/user/'+ id;
         return this.httpConnector.get(url);
     }
 

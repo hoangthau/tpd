@@ -18,8 +18,6 @@ export class UserPageComponent implements OnInit {
   userList: Array<any>;
   currentUser: any;
   modifyTaskList: boolean = false;
-  gravatarUrl: string = 'https://www.gravatar.com/avatar/';
-  userImg: string = this.gravatarUrl;
   taskList: Array<any> = [
     { title: 'Review my plans, my goals, my daily schedule' },
     { title: 'Review my plans, my goals, my daily schedule' }    
@@ -42,7 +40,6 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit() {
     this.currentUser = this.loginService.getCurrentUser();
-    this.userImg = this.gravatarUrl + md5(this.currentUser.email) + '?s=200';
     this.getTaskList();
     this.getStoryList();
   }
@@ -59,6 +56,7 @@ export class UserPageComponent implements OnInit {
         const date = new Date(d.date);
         d.dateDisplay = date.toLocaleDateString();
         d.content = d.content.substring(0, 100) + '...';
+        d.userImg = this.loginService.getUserImage(d.email);        
         return d;
       });
     });

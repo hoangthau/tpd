@@ -5,7 +5,9 @@ const StorySchema = new Schema({
     title: String,
     content: String,
     userId: String,
-    date: Number
+    date: Number,
+    fullName: String,
+    email: String
 });
 
 module.exports = mongoose.model('Story', StorySchema);

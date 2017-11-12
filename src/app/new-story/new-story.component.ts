@@ -34,7 +34,9 @@ export class NewStoryComponent implements OnInit {
         title: this.title,
         content: this.content,
         userId: this.currentUser.id,
-        date: now.getTime()
+        date: now.getTime(),
+        fullName: this.currentUser.fullName,
+        email: this.currentUser.email
       };
       this.newStoryService.publishStory(data).subscribe(() => {
         const link = '/user/' + this.currentUser.username;

@@ -27,6 +27,11 @@ export class UserPageService {
         return this.httpConnector.get(url);
     }
 
+    getAllStoryList(){
+        const url = 'api/stories';
+        return this.httpConnector.get(url);
+    }
+
     deleteStory(id: string) {
         const url = 'api/story/' + id;
         return this.httpConnector.delete(url);

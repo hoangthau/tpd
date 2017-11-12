@@ -9,7 +9,9 @@
         The transformation from beach bum to millionaire did not happen overnight. It was a long, slow, at times painful roller-coaster
         process.
       </p>
-      <p><b>We create a powerful tool that you follow your DREAM and bring it come TRUE.</b></p>
+      <p>
+        <b>We create a powerful tool that you follow your DREAM and bring it come TRUE.</b>
+      </p>
       <a class="btn btn-primary" href="sign-up">Get started</a>
       <a class="btn btn-outline-secondary" href="learn-more">Learn more</a>
     </div>
@@ -17,41 +19,66 @@
     </div>
   </div>
 
+  <div class="story-list row">
+    <div class="col-md-4" *ngFor="let story of storyList">
+      <div class="story-card">
+        <img class="story-image" />
+        <div class="story-wrapper">
+          <h5 class="story-title" (click)="viewStory(story)">{{story.title}}</h5>
+          <div class="story-content" [innerHTML]="story.content"></div>
+          <div class="user-story">
+            <img class="user-image" [src]="story.userImg" />
+            <div class="story-info">
+              <p class="text-primary">{{story.fullName}}</p>
+              <span class="text-secondary">{{story.dateDisplay}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
   <div class="more-info">
     <div class="header">
-        <span class="title"><a>We have to stop procrastinating</a></span>        
+      <span class="title">
+        <a>We have to stop procrastinating</a>
+      </span>
     </div>
     <p class="text">
       And it's all because of what I've learned about beating FEAR, conquering PROCRASTINATION and doing impossible things.
     </p>
-    <p>Your payoff and your rewards and your GROWTH and your MASTERY and your SUCCESS lies when you go to the places that scares you, when you 
-      do difficult things, when you take the difficult projects on, when you read the difficult books, when you run longer than
-      you've ever run, when you try new things that STRETCH you. THAT IS HOW YOU GET MORE WILLPOWER.
+    <p>Your payoff and your rewards and your GROWTH and your MASTERY and your SUCCESS lies when you go to the places that scares
+      you, when you do difficult things, when you take the difficult projects on, when you read the difficult books, when
+      you run longer than you've ever run, when you try new things that STRETCH you. THAT IS HOW YOU GET MORE WILLPOWER.
     </p>
 
     <div class="divider"></div>
     <div class="header">
-        <span class="title"><a>Master your day, design your life</a></span>        
+      <span class="title">
+        <a>Master your day, design your life</a>
+      </span>
     </div>
     <p class="text">
       Do anything LONG ENOUGH and you will get depth of INSIGHT and UNDERSTANNDING about it. They'll call you a GURU.
     </p>
     <p>
-      For the nest 90 days, spend the FIRST 90 minutes of your workday on SIGNLE most game-changing opportunity, move 
-      the NEEDLE in your insdustry.
+      For the nest 90 days, spend the FIRST 90 minutes of your workday on SIGNLE most game-changing opportunity, move the NEEDLE
+      in your insdustry.
     </p>
 
     <div class="divider"></div>
     <div class="header">
-        <span class="title"><a>Discovery your destiny</a></span>        
+      <span class="title">
+        <a>Discovery your destiny</a>
+      </span>
     </div>
     <p class="text">
-      Be so KNOWLEDGEABLE, COMPETENT and BRILLIANT at what yo do, that firm can not run WITHOUT you.
-      Become INDISPENSABLE.      
+      Be so KNOWLEDGEABLE, COMPETENT and BRILLIANT at what yo do, that firm can not run WITHOUT you. Become INDISPENSABLE.
     </p>
     <p>
-      Each day, life will send you little windows of OPPORTUNITY. Your DESTINY will ultimately be defined
-      by how you respond to these windows of opportunity. SHRINK from them and your life will be small.
+      Each day, life will send you little windows of OPPORTUNITY. Your DESTINY will ultimately be defined by how you respond to
+      these windows of opportunity. SHRINK from them and your life will be small.
     </p>
   </div>
 </main>
