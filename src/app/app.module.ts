@@ -26,6 +26,7 @@ import { SimpleTinyComponent } from './simple-tiny/simple-tiny.component';
 import { NewStoryComponent } from './new-story/new-story.component';
 import { StoryListComponent } from './story-list/story-list.component';
 import { ViewStoryComponent } from './view-story/view-story.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ViewStoryComponent } from './view-story/view-story.component';
     SimpleTinyComponent,
     NewStoryComponent,
     StoryListComponent,
-    ViewStoryComponent
+    ViewStoryComponent,
+    UploadImageComponent
   ],
   imports: [
     BrowserModule,
