@@ -22,7 +22,7 @@ router.route('/login')
       const password = req.body.password;
       const user = _.filter(users, { username: username })[0];
       if (!user) {
-        res.json({ message: 'Incorrect username' });
+        res.json({ message: 'Incorrect username!' });
       } else if (user.password === password) {
         const currentUser = {
           _id: user._id,
@@ -32,7 +32,7 @@ router.route('/login')
         };
         res.json({ isLogined: true, currentUser: currentUser });
       } else {
-        res.json({ message: 'Incorrect password' });
+        res.json({ message: 'Incorrect password!' });
       }
     })
   });
