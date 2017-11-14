@@ -11,6 +11,32 @@ router.get('/', (req, res) => {
   res.send('api works');
 });
 
+//for login
+router.route('/login')
+  .post(function (req, res) {
+    User.find(function (err, users) {
+      if (err)
+        res.send(err);
+        
+      const username = req.body.username;
+      const password = req.body.password;
+      const user = _.filter(users, { username: username })[0];
+      if (!user) {
+        res.json({ message: 'Incorrect username' });
+      } else if (user.password === password) {
+        const currentUser = {
+          _id: user._id,
+          username: user.username,
+          email: user.email,
+          fullName: user.fullName,
+        };
+        res.json({ isLogined: true, currentUser: currentUser });
+      } else {
+        res.json({ message: 'Incorrect password' });
+      }
+    })
+  });
+
 //for task
 router.route('/tasks')
   .get(function (req, res) {

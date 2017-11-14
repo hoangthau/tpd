@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { LoginService } from '../shared/login.service';
 
@@ -11,24 +12,33 @@ export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
   msg: string = '';
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
   }
 
   login() {
-    const data = {
+    const body = {
       username: this.username,
       password: this.password
     };
-    this.loginService.login(data).subscribe((user) => {
-      if (user === true) {
+    this.loginService.login(body).subscribe((data: any) => {      
+      if (data.isLogined) {
+        const user = data.currentUser;
+        const link = '/user/' + user.username;
+        localStorage.setItem('currentUser', JSON.stringify(
+          {
+            username: user.username,
+            fullName: user.fullName,
+            email: user.email,
+            id: user._id
+          }));
+          
+        this.loginService.setCurrentUser(user);
+        this.router.navigate([link]);
         return;
-      }
-      if (user) {
-        this.msg = 'Incorrect password !';
       } else {
-        this.msg = 'Incorrect username !';
+        this.msg = data.message;
       }
     });
   }

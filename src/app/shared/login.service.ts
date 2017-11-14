@@ -19,27 +19,17 @@ export class LoginService {
     constructor(private httpConnector: HttpConnector, private router: Router) { }
 
     login(data: any) {
-        return Observable.create((observer) => {
-            this.getUserList().subscribe((userList: any) => {
-                const user = this.getUserByUserName(userList, data.username);
-                if (user && user.password === data.password) {
-                    const link = '/user/' + user.username;
-                    localStorage.setItem('currentUser', JSON.stringify({ username: user.username, fullName: user.fullName, email: user.email, id: user._id }));
-                    this.currentUser = user;
-                    this.router.navigate([link]);
-                    observer.next(true);
-                } else {
-                    observer.next(user);                    
-                }
-                observer.complete();
-            });
-        })
-        
+        const url = 'api/login';
+        return this.httpConnector.post(url, data);
     }
 
     logout() {
         localStorage.removeItem('currentUser');
         this.router.navigate(['/login']);
+    }
+
+    setCurrentUser(user: any) {
+        this.currentUser = user;
     }
 
     getCurrentUser() {
