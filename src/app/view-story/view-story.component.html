@@ -7,6 +7,7 @@
     </div>
   </div>
   <h2 class="title">{{story.title}}</h2>
+  <img *ngIf="story.imageUrl" class="story-image" [src]="story.imageUrl" />
   <hr class="section-divider">
   <div class="content" [innerHTML]="story.content"></div>
 </div>

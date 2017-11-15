@@ -28,7 +28,7 @@ export class ViewStoryComponent implements OnInit {
       'content': '<p>The simple content</p>',
       'userId': '59f97b8ef36d28236309ab9b',
       'dateDisplay': '11/11/2017'
-    }
+    };
 
     this.currentUser = this.loginService.getCurrentUser();
     this.userImg = this.loginService.getUserImage(this.currentUser.email);

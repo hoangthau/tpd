@@ -13,3 +13,8 @@
 .user-story {
     margin-top: 20px;
 }
+
+.story-image {
+    width: 100%;
+    height: 500px;
+}

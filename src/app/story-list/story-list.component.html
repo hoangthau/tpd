@@ -15,6 +15,7 @@
         </div>
     </div>    
     <h5 class="story-title" (click)="view(item)">{{ item.title }}</h5>
+    <img *ngIf="item.imageUrl" class="story-image" [src]="item.imageUrl" />
     <div [innerHTML]="item.content"></div>
   </li> 
 </ul>
