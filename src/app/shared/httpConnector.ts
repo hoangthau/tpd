@@ -17,15 +17,17 @@ export class HttpConnector {
     }
 
     public post(url: string, body: any, options?: any, extractData?: any): Observable<any> {
-        const headers = new Headers(options || { 'content-type': 'application/json' });
+        const headers = new Headers(options || { 'Content-Type': 'application/json' });
         const _options = new RequestOptions({ headers: headers });
         return this.http.post(this.handleUrl(url), body, _options)
             .map(extractData ? extractData : this.extractData)
             .catch(this.handleError);
     }
 
-    public delete(url: string) {
-        return this.http.delete(this.handleUrl(url))
+    public delete(url: string, options?: any) {
+        const headers = new Headers(options || { 'Content-Type': 'application/json' });
+        const _options = new RequestOptions({ headers: headers });
+        return this.http.delete(this.handleUrl(url), _options)
             .map(this.extractData)
             .catch(this.handleError);
     }

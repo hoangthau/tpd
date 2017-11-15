@@ -7,7 +7,8 @@ const StorySchema = new Schema({
     userId: String,
     date: Number,
     fullName: String,
-    email: String
+    email: String,
+    imageUrl: String
 });
 
 module.exports = mongoose.model('Story', StorySchema);

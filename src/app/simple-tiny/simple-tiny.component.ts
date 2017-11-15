@@ -28,6 +28,7 @@ export class SimpleTinyComponent implements AfterViewInit, OnDestroy {
   editor;
 
   ngAfterViewInit() {
+    console.log('tiny-mce', document.getElementById('my-editor-id'));
     tinymce.init({
       selector: '#' + this.elementId,
       plugins: ['link', 'paste', 'table'],

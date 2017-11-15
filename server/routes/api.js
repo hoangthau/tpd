@@ -159,6 +159,7 @@ router.route('/stories')
     story.date = req.body.date;
     story.fullName = req.body.fullName;
     story.email = req.body.email;
+    story.imageUrl = req.body.imageUrl;
 
     story.save(function (err) {
       if (err)

@@ -18,6 +18,7 @@ import { SignupService } from './shared/sign-up.service';
 import { AuthGuard } from './shared/auth-guard.service';
 import { NewStoryService } from './shared/new-story.service';
 import { ViewStoryService } from './shared/view-story.service';
+import { UploadImageService } from './shared/upload-image.service';
 
 import { UserPageComponent } from './user-page/user-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -58,7 +59,9 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
     SignupService, 
     AuthGuard, 
     NewStoryService,
-    ViewStoryService],
+    ViewStoryService,
+    UploadImageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

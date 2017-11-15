@@ -46,8 +46,9 @@ export class HomePageComponent implements OnInit {
     this.userPageService.getAllStoryList().subscribe((data) => {
       this.storyList = data.map((d) => {
         const date = new Date(d.date);
+        const content = d.content || '';
         d.dateDisplay = date.toLocaleDateString();
-        d.content = d.content.substring(0, 100) + '...';
+        d.content = content.substring(0, 100) + '...';
         d.userImg = this.loginService.getUserImage(d.email);
         return d;
       });

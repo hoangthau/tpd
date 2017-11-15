@@ -2,10 +2,10 @@
   <button class="btn btn-primary pull-right" (click)="publish()">Publish</button>    
   <h3>Title</h3>
   <input class="form-control" type="text" name="storyTitle" [(ngModel)]="title" />
+  <app-upload-image (changeFile)="changeFile($event)"></app-upload-image>  
   <app-simple-tiny
     [elementId]="'my-editor-id'"
     (onEditorKeyup)="keyupHandlerFunction($event)">
   </app-simple-tiny>
-  <app-upload-image></app-upload-image>
 </div>
 
