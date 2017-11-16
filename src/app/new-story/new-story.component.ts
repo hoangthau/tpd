@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { NewStoryService } from '../shared/new-story.service';
@@ -15,44 +15,69 @@ export class NewStoryComponent implements OnInit {
   content: string;
   currentUser: any;
   image: any;
+  allowPublish: boolean = false;
 
   constructor(
-    private newStoryService: NewStoryService, 
+    private newStoryService: NewStoryService,
     private loginService: LoginService,
     private router: Router,
-    private uploadImageService: UploadImageService ) { }
+    private uploadImageService: UploadImageService,
+    private ngZone: NgZone) { }
 
   ngOnInit() {
     this.currentUser = this.loginService.getCurrentUser();
   }
 
   keyupHandlerFunction(content: string) {
-    this.content = content;
+    this.ngZone.run(() => {
+      this.content = content;
+      this.allowPublish = this.checkToPublish();
+    });
+  }
+
+  changeTitle() {
+    this.allowPublish = this.checkToPublish();
   }
 
   publish() {
-    if (this.currentUser && this.currentUser.id && this.image) {
-      this.uploadImageService.upload(this.image).subscribe((response) => {
-        const now = new Date();
-        const data = {
-          title: this.title,
-          content: this.content,
-          userId: this.currentUser.id,
-          date: now.getTime(),
-          fullName: this.currentUser.fullName,
-          email: this.currentUser.email,
-          imageUrl: response.url
-        };
-        this.newStoryService.publishStory(data).subscribe(() => {
-          const link = '/user/' + this.currentUser.username;
-          this.router.navigate([link]);
+    if (this.currentUser && this.currentUser.id) {
+      const now = new Date();
+      const data = {
+        title: this.title,
+        content: this.content,
+        userId: this.currentUser.id,
+        date: now.getTime(),
+        fullName: this.currentUser.fullName,
+        email: this.currentUser.email,
+        imageUrl: ''
+      };
+
+      if (this.image) {
+        this.uploadImageService.upload(this.image).subscribe((response) => {
+          data.imageUrl = response.url;
+          this.publishStory(data);
         });
-      });      
+      } else {
+        this.publishStory(data);
+      }
     }
+  }
+
+  publishStory(data: any) {
+    this.newStoryService.publishStory(data).subscribe(() => {
+      const link = '/user/' + this.currentUser.username;
+      this.router.navigate([link]);
+    });
   }
 
   changeFile(file: any) {
     this.image = file;
   }
 
+  checkToPublish() {
+    if (!!this.title && !!this.content) {
+      return true;
+    }
+    return false;
+  }
 }

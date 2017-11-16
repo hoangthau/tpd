@@ -28,17 +28,17 @@ export class SimpleTinyComponent implements AfterViewInit, OnDestroy {
   editor;
 
   ngAfterViewInit() {
-    console.log('tiny-mce', tinymce);
+    const self = this;
     tinymce.init({
       selector: '#' + this.elementId,
       plugins: ['link', 'paste', 'table'],
       skin_url: 'assets/skins/lightgray',
       height : '480',
       setup: editor => {
-        this.editor = editor;
+        self.editor = editor;
         editor.on('keyup', () => {
           const content = editor.getContent();
-          this.onEditorKeyup.emit(content);
+          self.onEditorKeyup.emit(content);
         });
       },
     });

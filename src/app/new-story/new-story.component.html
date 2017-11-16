@@ -1,7 +1,9 @@
 <div class="container">
-  <button class="btn btn-primary pull-right" (click)="publish()">Publish</button>    
+  <button class="btn btn-primary pull-right" (click)="publish()" [disabled]="!allowPublish">Publish</button>    
+  <div class="clearfix"></div>
   <h3>Title</h3>
-  <input class="form-control" type="text" name="storyTitle" [(ngModel)]="title" />
+  <input class="form-control" type="text" name="storyTitle" [(ngModel)]="title" (input)="changeTitle()" />
+  <h3 class="upload-title">Upload an image</h3>  
   <app-upload-image (changeFile)="changeFile($event)"></app-upload-image>  
   <app-simple-tiny
     [elementId]="'my-editor-id'"

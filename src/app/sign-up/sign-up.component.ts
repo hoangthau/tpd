@@ -33,9 +33,9 @@ export class SignUpComponent implements OnInit {
     });
   }
 
-  isValid(){
+  isValid() {
     return this.fullName && this.email && this.username &&
-    this.password && this.password === this.confirmPassword;
+      this.password && this.password === this.confirmPassword;
   }
 
 }
