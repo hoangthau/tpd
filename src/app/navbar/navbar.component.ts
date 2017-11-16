@@ -12,7 +12,8 @@ export class NavbarComponent implements OnInit, OnChanges {
   @Input() show: boolean = true;
   @Input() logined: boolean = true;
   @Input() fullName: string = '';
-  @Input() username: string = '';  
+  @Input() username: string = '';
+  @Input() userImg: string = 'https://www.gravatar.com/avatar/user';
 
   constructor(private loginService: LoginService, private router: Router) { }
 

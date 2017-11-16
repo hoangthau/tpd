@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   fullName: string = '';
   username: string = '';
   showFooter: boolean = true;
+  userImg: string;
 
   constructor(private router: Router, private loginService: LoginService) { }
 
@@ -33,6 +34,7 @@ export class AppComponent implements OnInit {
             self.isLogined = true;
             self.fullName = currentUser.fullName;
             self.username = currentUser.username;
+            self.userImg = this.loginService.getUserImage(currentUser.email);
           }
         }
       });

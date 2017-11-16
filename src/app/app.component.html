@@ -1,6 +1,7 @@
 <div class="page-content">
     <header>
-        <app-navbar [show]="showNavbar" [logined]="isLogined" [fullName]="fullName" [username]="username"></app-navbar>
+        <app-navbar [userImg]="userImg" [show]="showNavbar" [logined]="isLogined" [fullName]="fullName" [username]="username">
+        </app-navbar>
     </header>
     <router-outlet></router-outlet>
     <footer *ngIf="showFooter">

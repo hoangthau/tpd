@@ -24,7 +24,7 @@
     <ul *ngIf="logined && fullName" class="navbar-nav my-2 my-lg-0">
       <li class="nav-item" (click)="goToUserPage()">
         <a class="nav-link" href="javascript:;">
-            <span class="fa fa-user"></span>
+            <img class="user-image" [src]="userImg"/>
             <span>{{fullName}}</span>
         </a>        
       </li>
