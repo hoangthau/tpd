@@ -28,6 +28,7 @@ import { NewStoryComponent } from './new-story/new-story.component';
 import { StoryListComponent } from './story-list/story-list.component';
 import { ViewStoryComponent } from './view-story/view-story.component';
 import { UploadImageComponent } from './upload-image/upload-image.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
     NewStoryComponent,
     StoryListComponent,
     ViewStoryComponent,
-    UploadImageComponent
+    UploadImageComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

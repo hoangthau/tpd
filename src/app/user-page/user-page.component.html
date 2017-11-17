@@ -40,7 +40,7 @@
               <input class="form-control form-control-sm" type="text" [(ngModel)]="taskTitle" name="taskTitle" />
             </div>
           </div>
-          <button class="btn btn-primary" (click)="saveTask()">Save</button> or
+          <button class="btn btn-primary" (click)="saveTask()" [disabled]="!taskTitle">Save</button> or
           <a href="javascript:;" (click)="cancelTask()">cancel</a>
         </form>
         <app-list [items]="taskList" (clickDelete)="deleteTask($event)" [modifyMode]="modifyTaskList"></app-list>

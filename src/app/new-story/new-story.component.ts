@@ -15,6 +15,7 @@ export class NewStoryComponent implements OnInit {
   content: string;
   currentUser: any;
   image: any;
+  done: boolean = true;
   allowPublish: boolean = false;
 
   constructor(
@@ -52,6 +53,7 @@ export class NewStoryComponent implements OnInit {
         imageUrl: ''
       };
 
+      this.done = false;
       if (this.image) {
         this.uploadImageService.upload(this.image).subscribe((response) => {
           data.imageUrl = response.url;
@@ -67,6 +69,7 @@ export class NewStoryComponent implements OnInit {
     this.newStoryService.publishStory(data).subscribe(() => {
       const link = '/user/' + this.currentUser.username;
       this.router.navigate([link]);
+      this.done = true;
     });
   }
 
