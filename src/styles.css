@@ -32,18 +32,21 @@ footer {
     transition: opacity 0.4s;
     color: #000;
 }
+
 .hover-icon.disabled {
     -webbkit-opacity: 0.4 !important;
     -o-opacity: 0.4 !important;
     -ms-opacity: 0.4 !important;
     opacity: 0.4 !important; 
 }
+
 .hover-icon.hover-icon:hover {
     -webbkit-opacity: 1;
     -o-opacity: 1;
     -ms-opacity: 1;
     opacity: 1; 
 }
+
 .hover-icon.active {
     opacity: 1; 
 }
@@ -154,4 +157,22 @@ hr.section-divider:before {
 .story-card .story-content {
     height: 25px;
     overflow: hidden;
+}
+
+.s-header {
+    border-bottom: 1px solid rgba(0,0,0,.15)!important;
+    padding-bottom: 18px;
+    margin-top: 20px;
+}
+
+.s-title { 
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,.54);
+    font-size: 22px;
+    font-size: 500;
+}
+
+.s-divider {
+    margin: 30px 0;
+    height: 1px;
 }
