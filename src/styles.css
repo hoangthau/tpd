@@ -132,14 +132,26 @@ hr.section-divider:before {
     height: 160px;
 }
 
-.story-card .story-image {
+.story-card .story-image-de {
     height: 100px;
     width: 100%;
     background-image: url('./assets/story.jpg');
     background-size: contain;
+    cursor: pointer;
+}
+
+.story-card .story-image-re {
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.story-card .story-image-re img {
+    width: 100%;
 }
 
 .story-card .story-content {
-    height: 20px;
+    height: 25px;
     overflow: hidden;
 }

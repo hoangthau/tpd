@@ -13,8 +13,6 @@ import * as md5 from 'md5';
 })
 export class ViewStoryComponent implements OnInit {
   story: any;
-  currentUser: any;
-  userImg: string;
 
   constructor(
     private viewStoryService: ViewStoryService, 
@@ -30,15 +28,13 @@ export class ViewStoryComponent implements OnInit {
       'dateDisplay': '11/11/2017'
     };
 
-    this.currentUser = this.loginService.getCurrentUser();
-    this.userImg = this.loginService.getUserImage(this.currentUser.email);
-
     const param = this.route.snapshot.params['story-id'];
     const id = param.split('@')[1];
     if (id) {
       this.viewStoryService.getStory(id).subscribe((data) => {
         this.story = data;
         this.story.dateDisplay = new Date(data.date).toLocaleDateString();
+        this.story.userImg = this.loginService.getUserImage(this.story.email);
       });
     }
   }

@@ -19,10 +19,18 @@
     </div>
   </div>
 
+  <div class="header">
+    <span class="title">
+      <a>Stories from your ripple</a>
+    </span>
+  </div>
   <div class="story-list row">
     <div class="col-md-4" *ngFor="let story of storyList">
       <div class="story-card">
-        <img class="story-image" />
+        <img (click)="viewStory(story)" *ngIf="!story.imageUrl" class="story-image-de" />
+        <div (click)="viewStory(story)" *ngIf="story.imageUrl" class="story-image-re">
+          <img [src]="story.imageUrl" />          
+        </div>
         <div class="story-wrapper">
           <h5 class="story-title" (click)="viewStory(story)">{{story.title}}</h5>
           <div class="story-content" [innerHTML]="story.content"></div>
