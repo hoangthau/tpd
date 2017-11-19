@@ -33,22 +33,26 @@
     </div>
     <div class="col-md-6 tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-task" role="tabpanel" aria-labelledby="pills-task-tab">
-        <a 
-          tabindex="0" 
-          href="javascript:;"
-          class="pull-right" 
-          role="button" 
-          data-toggle="popover" 
-          data-trigger="focus"
-          data-placement="top"
-          title="Why do you have tasks?" 
-          data-content="Just create simple tasks which are easy to do. Everyone can do it. 
-          For example, my task is listening English 15 minutes a day. Or 20 minutes for workout.
-          See. So easy to do. Please imagine that what happen to you if you read only 10 pages of a book for your
-          workday. Over time. You need one day, one week, one month, one year, ... You will be great achiever. 
-          See out there, all winners have discipline and commitment. You must commit yourself.">
-          Why?
-        </a>
+        <app-modal [modalTargetId]="'whyTaskModal'" [modalTitle]="'Why do you have tasks?'" [showFooter]="false">
+          <a class="rp-modal-trigger pull-right" href="javascript:;" data-toggle="modal" data-target="#whyTaskModal">
+            Why?
+          </a>
+          <div class="rp-modal-content">
+            <p>
+                Just create simple tasks which are easy to do. Everyone can do it. 
+                For example, my task is listening English 15 minutes a day. Or 20 minutes for workout.
+                See. So easy to do. Please imagine that what happen to you if you read only 10 pages of a book for your
+                workday. Over time. 
+            </p>
+            <p>
+                You need one day, one week, one month, one year, ... You will be great achiever. 
+                See out there, <b>all winners have discipline and commitment. You must commit yourself.</b>
+            </p>
+            <p>
+              Please create your simple tasks. It's time to kick off your dream. Don't procrastinate any more.
+            </p>
+          </div>
+        </app-modal>
         <button *ngIf="!showCreateInput" class="btn btn-primary btn-create" (click)="createTask()">Create</button>
         <form *ngIf="showCreateInput" class="form-create">
           <div class="form-group row">

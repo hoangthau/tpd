@@ -5,7 +5,6 @@ import { UserPageService } from '../shared/user-page.service';
 import { LoginService } from '../shared/login.service';
 
 import * as md5 from 'md5';
-declare var $:any;
 
 @Component({
   selector: 'app-user-page',
@@ -44,9 +43,7 @@ export class UserPageComponent implements OnInit {
     this.currentUser = this.loginService.getCurrentUser();
     this.userImg = this.loginService.getUserImage(this.currentUser.email);
     this.getTaskList();
-    this.getStoryList();
-    console.log($('[data-toggle="popover"]'));
-    $('[data-toggle="popover"]').popover(); 
+    this.getStoryList();    
   }
 
   getTaskList() {

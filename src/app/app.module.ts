@@ -29,6 +29,7 @@ import { StoryListComponent } from './story-list/story-list.component';
 import { ViewStoryComponent } from './view-story/view-story.component';
 import { UploadImageComponent } from './upload-image/upload-image.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     StoryListComponent,
     ViewStoryComponent,
     UploadImageComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
