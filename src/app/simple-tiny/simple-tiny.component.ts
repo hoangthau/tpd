@@ -4,7 +4,9 @@ import {
   AfterViewInit,
   EventEmitter,
   Input,
-  Output
+  Output,
+  OnChanges,
+  SimpleChanges
 } from '@angular/core';
 
 import 'tinymce';
@@ -21,7 +23,7 @@ declare var tinymce: any;
   styleUrls: ['./simple-tiny.component.css']
 
 })
-export class SimpleTinyComponent implements AfterViewInit, OnDestroy {
+export class SimpleTinyComponent implements AfterViewInit, OnDestroy, OnChanges {
   @Input() elementId: String;
   @Input() content: String;
   @Output() onEditorKeyup = new EventEmitter<any>();
@@ -48,6 +50,12 @@ export class SimpleTinyComponent implements AfterViewInit, OnDestroy {
         });
       }
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.content && this.editor) {
+      this.editor.setContent(changes.content.currentValue);
+    }
   }
 
   ngOnDestroy() {
