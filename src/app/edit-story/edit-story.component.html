@@ -5,7 +5,7 @@
   <input class="form-control" type="text" name="storyTitle" [(ngModel)]="title" (input)="changeTitle()" />  
   <app-simple-tiny
     [elementId]="'my-editor-id'"
-    [content]="content"
+    [content]="selectedStory?.content"
     (onEditorKeyup)="keyupHandlerFunction($event)">
   </app-simple-tiny>
   <app-spinner *ngIf="!done"></app-spinner>

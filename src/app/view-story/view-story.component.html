@@ -1,5 +1,7 @@
 <div class="container view-story">
   <div class="user-story">
+    <a class="pull-right" href="javascript:;" (click)="edit(story)">Edit</a>
+    <div class="clearfix"></div>
     <img class="user-image" [src]="story.userImg" />
     <div class="story-info">
       <p class="text-primary">{{story.fullName}}</p>

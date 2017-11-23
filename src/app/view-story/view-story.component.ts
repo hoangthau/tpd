@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { ViewStoryService } from '../shared/view-story.service';
 import { LoginService } from '../shared/login.service';
@@ -17,6 +17,7 @@ export class ViewStoryComponent implements OnInit {
   constructor(
     private viewStoryService: ViewStoryService, 
     private route: ActivatedRoute,
+    private router: Router,
     private loginService: LoginService) { }
 
   ngOnInit() {
@@ -37,6 +38,11 @@ export class ViewStoryComponent implements OnInit {
         this.story.userImg = this.loginService.getUserImage(this.story.email);
       });
     }
+  }
+
+  edit(story: any) {
+    const link = '/edit-story/' + story.title.toLowerCase().replace(/\s/g, '-') + '@' + story._id;
+    this.router.navigate([link]);
   }
 
 }
