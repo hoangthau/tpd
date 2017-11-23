@@ -115,7 +115,8 @@ export class UserPageComponent implements OnInit {
   }
 
   editStory(story: any) {
-
+    const link = '/edit-story/' + story.title.toLowerCase().replace(/\s/g, '-') + '@' + story._id;
+    this.router.navigate([link]);
   }
 
 }

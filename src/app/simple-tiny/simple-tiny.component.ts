@@ -19,10 +19,11 @@ declare var tinymce: any;
   selector: 'app-simple-tiny',
   template: `<div class="tiny-mce"><textarea id="{{elementId}}"></textarea></div>`,
   styleUrls: ['./simple-tiny.component.css']
-  
+
 })
 export class SimpleTinyComponent implements AfterViewInit, OnDestroy {
   @Input() elementId: String;
+  @Input() content: String;
   @Output() onEditorKeyup = new EventEmitter<any>();
 
   editor;
@@ -33,14 +34,19 @@ export class SimpleTinyComponent implements AfterViewInit, OnDestroy {
       selector: '#' + this.elementId,
       plugins: ['link', 'paste', 'table'],
       skin_url: 'assets/skins/lightgray',
-      height : '480',
+      height: '380',
       setup: editor => {
         self.editor = editor;
         editor.on('keyup', () => {
           const content = editor.getContent();
           self.onEditorKeyup.emit(content);
         });
-      },
+        editor.on('init', function () {
+          if (self.content) {
+            editor.setContent(self.content);
+          }
+        });
+      }
     });
   }
 

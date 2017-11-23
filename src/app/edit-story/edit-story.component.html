@@ -1,0 +1,13 @@
+<div class="container">
+  <button class="btn btn-primary pull-right" (click)="update()" [disabled]="!allowUpdate">Update</button>    
+  <div class="clearfix"></div>
+  <h3>Title</h3>
+  <input class="form-control" type="text" name="storyTitle" [(ngModel)]="title" (input)="changeTitle()" />  
+  <app-simple-tiny
+    [elementId]="'my-editor-id'"
+    [content]="content"
+    (onEditorKeyup)="keyupHandlerFunction($event)">
+  </app-simple-tiny>
+  <app-spinner *ngIf="!done"></app-spinner>
+</div>
+

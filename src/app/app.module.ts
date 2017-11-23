@@ -19,6 +19,7 @@ import { AuthGuard } from './shared/auth-guard.service';
 import { NewStoryService } from './shared/new-story.service';
 import { ViewStoryService } from './shared/view-story.service';
 import { UploadImageService } from './shared/upload-image.service';
+import { EditStoryService } from './shared/edit-story.service';
 
 import { UserPageComponent } from './user-page/user-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -30,6 +31,7 @@ import { ViewStoryComponent } from './view-story/view-story.component';
 import { UploadImageComponent } from './upload-image/upload-image.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ModalComponent } from './modal/modal.component';
+import { EditStoryComponent } from './edit-story/edit-story.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { ModalComponent } from './modal/modal.component';
     ViewStoryComponent,
     UploadImageComponent,
     SpinnerComponent,
-    ModalComponent
+    ModalComponent,
+    EditStoryComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,8 @@ import { ModalComponent } from './modal/modal.component';
     AuthGuard, 
     NewStoryService,
     ViewStoryService,
-    UploadImageService
+    UploadImageService,
+    EditStoryService
   ],
   bootstrap: [AppComponent]
 })

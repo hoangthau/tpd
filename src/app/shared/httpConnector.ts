@@ -24,6 +24,14 @@ export class HttpConnector {
             .catch(this.handleError);
     }
 
+    public put(url: string, body: any, options?: any, extractData?: any): Observable<any> {
+        const headers = new Headers(options || { 'Content-Type': 'application/json' });
+        const _options = new RequestOptions({ headers: headers });
+        return this.http.put(this.handleUrl(url), body, _options)
+            .map(extractData ? extractData : this.extractData)
+            .catch(this.handleError);
+    }
+
     public delete(url: string, options?: any) {
         const headers = new Headers(options || { 'Content-Type': 'application/json' });
         const _options = new RequestOptions({ headers: headers });
