@@ -1,4 +1,10 @@
 <div class="page-content">
+        <div>
+        <h2>{{ 'HOME.TITLE' | translate }}</h2>
+        <label>
+            {{ 'HOME.SELECT' | translate }}                  
+        </label>
+        </div>
     <header>
         <app-navbar [userImg]="userImg" [show]="showNavbar" [logined]="isLogined" [fullName]="fullName" [username]="username">
         </app-navbar>
@@ -6,7 +12,10 @@
     <router-outlet></router-outlet>
     <footer *ngIf="showFooter">
         <div class="container">
-            <p>Copyright &copy; Thau Nguyen - Ripple</p>
-        </div>
+            <p class="pull-left">Copyright &copy; Thau Nguyen - Ripple</p>
+            <select class="pull-right form-control lang-select" #langSelect (change)="translate.use(langSelect.value)">
+                    <option *ngFor="let lang of languages" [value]="lang.key" [selected]="lang.key === translate.currentLang">{{ lang.value }}</option>
+            </select>
+        </div>        
     </footer>
 </div>

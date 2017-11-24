@@ -21,13 +21,13 @@ export class UserPageComponent implements OnInit {
   userImg: string;
   taskList: Array<any> = [
     { title: 'Review my plans, my goals, my daily schedule' },
-    { title: 'Review my plans, my goals, my daily schedule' }    
+    { title: 'Review my plans, my goals, my daily schedule' }
   ];
   storyList: Array<any> = [
     {
       _id: '5a056f41734d1d68d42ce314',
       title: 'This is story',
-      content: '<p>This is content British airline EasyJet teamed up with Wright Electric to build aircrafts powered by batteries. So far, it has built a two-seater prototype with plans of a 120-seater plane in 10 years.</p>', 
+      content: '<p>This is content British airline EasyJet teamed up with Wright Electric to build aircrafts powered by batteries. So far, it has built a two-seater prototype with plans of a 120-seater plane in 10 years.</p>',
       date: 1510366896400
     },
   ];
@@ -43,7 +43,7 @@ export class UserPageComponent implements OnInit {
     this.currentUser = this.loginService.getCurrentUser();
     this.userImg = this.loginService.getUserImage(this.currentUser.email);
     this.getTaskList();
-    this.getStoryList();    
+    this.getStoryList();
   }
 
   getTaskList() {
@@ -59,7 +59,7 @@ export class UserPageComponent implements OnInit {
         const content = d.content || '';
         d.dateDisplay = date.toLocaleDateString();
         d.content = content.substring(0, 100) + '...';
-        d.userImg = this.loginService.getUserImage(d.email);        
+        d.userImg = this.loginService.getUserImage(d.email);
         return d;
       });
     });
@@ -86,9 +86,12 @@ export class UserPageComponent implements OnInit {
   }
 
   deleteTask(item: any) {
-    this.userPageService.deleteTask(item._id).subscribe((data) => {
-      this.getTaskList();
-    });
+    const result = confirm('Do you want to delete this task!');
+    if (result) {
+      this.userPageService.deleteTask(item._id).subscribe((data) => {
+        this.getTaskList();
+      });
+    }
   }
 
   signout() {
@@ -109,9 +112,12 @@ export class UserPageComponent implements OnInit {
   }
 
   deleteStory(story: any) {
-    this.userPageService.deleteStory(story._id).subscribe((data) => {
-      this.getStoryList();
-    });
+    const result = confirm('Do you want to delete this story!');
+    if (result) {
+      this.userPageService.deleteStory(story._id).subscribe((data) => {
+        this.getStoryList();
+      });
+    }
   }
 
   editStory(story: any) {

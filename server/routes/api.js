@@ -117,6 +117,7 @@ router.route('/users')
     user.email = req.body.email;
     user.username = req.body.username;
     user.password = req.body.password;
+    user.joinDate = req.body.joinDate;
 
     user.save(function (err) {
       if (err)
@@ -133,6 +134,25 @@ router.route('/user/:user_id')
         res.send(err);
 
       res.json(user);
+    })
+  })
+  .put(function (req, res) {
+    User.findById(req.params.user_id, function (err, user) {
+      if (err)
+        res.send(err);
+
+      user.fullName = req.body.fullName;
+      user.email = req.body.email;
+      user.username = req.body.username;
+      user.password = req.body.password;
+      user.joinDate = req.body.joinDate;
+
+      user.save(function (err) {
+        if (err)
+          res.send(err)
+
+        res.json({ message: 'User updated' });
+      })
     })
   });
 
