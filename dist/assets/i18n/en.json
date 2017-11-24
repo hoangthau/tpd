@@ -1,6 +1,47 @@
 {
-    "HOME": {
-      "TITLE": "Hello Angular with ngx-translate!",
-      "SELECT": "Change language"
-    }
+  "SHARED": {
+    "SIGNIN": "Sign in",
+    "SIGNUP":"Sign up",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "CONFIRMPASSWORD": "Confirm Password",
+    "FULLNAME": "Full Name",
+    "EMAIL": "Email",
+    "REQUIREDFIELD": "Required field",
+    "SUBMIT": "Submit",
+    "HOME": "Home",
+    "SETTING": "Settings",
+    "LOGOUT": "Logout",
+    "LEARNMORE": "Learn more",
+    "COPYRIGHT": "Copyright",
+    "CREATE": "Create",
+    "DELETE": "Delete",
+    "EDIT": "Edit",
+    "SAVE": "Save",
+    "CANCEL": "Cancel",
+    "WHY": "Why",
+    "TASKS": "Task",
+    "STORIES": "Stories",
+    "MENTORS": "Mentors" 
+  },
+  "LOGIN": {
+    "DES": "Sign in to your dream",   
+    "REMEMBERME": "Remember me",   
+    "FORGOT":"Forgot your password",
+    "DONTACCOUNT":"Don't have an account"
+  },
+  "SIGNUP": {
+    "TITLE": "Fill information to become member",
+    "SUBTITLE": "Give it a try. Always free",
+    "DES": "We absolutely provide free and insight tools which help you create a stunning and desirable lifestyle.",
+    "CONGRA": "Congratulation",
+    "PLEASELOGIN": "Please login"
+  },
+  "HOME": {
+    "ALLSTORIES": "Stories from your ripple"
+  },
+  "USER": {
+
   }
+
+}

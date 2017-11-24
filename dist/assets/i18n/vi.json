@@ -1,6 +1,43 @@
 {
-    "HOME": {
-      "TITLE": "Xin chao",
-      "SELECT": "Change language"
-    }
+  "SHARED": {
+    "SIGNIN": "Đăng nhập",
+    "SIGNUP":"Đăng ký",
+    "USERNAME": "Tên đăng nhập",
+    "PASSWORD": "Mật khẩu",
+    "CONFIRMPASSWORD": "Xác nhận mật khẩu",
+    "FULLNAME": "Tên và họ",
+    "EMAIL": "Thư điện tử",
+    "REQUIREDFIELD": "Trường bắt buộc",
+    "SUBMIT": "Đăng ký",
+    "HOME": "Trang chủ",
+    "SETTING": "Cài đặt",
+    "LOGOUT": "Đăng xuất",
+    "LEARNMORE": "Tìm hiểu thêm",
+    "COPYRIGHT": "Bản quyền",
+    "CREATE": "Tạo mới",
+    "DELETE": "Xóa",
+    "EDIT": "Sửa",
+    "SAVE": "Lưu",
+    "CANCEL": "Hủy",
+    "WHY": "Tại sao",
+    "TASKS": "Nhiệm vụ",
+    "STORIES": "Câu chuyện",
+    "MENTORS": "Thầy"    
+  },
+  "LOGIN": {
+    "DES": "Hãy biến giấc mơ của bạn thành hiện thực",
+    "REMEMBERME": "Lưu thông tin",   
+    "FORGOT":"Quên mật khẩu",
+    "DONTACCOUNT":"Chưa có tài khoản"
+  },
+  "SIGNUP": {
+    "TITLE": "Điền thông tin để trở thành thành viên",
+    "SUBTITLE": "Bạn hãy thử, vì nó luôn luôn miễn phí",
+    "DES": "Chúng tôi cung cấp một công cụ miễn phí và tuyệt vời để giúp bạn theo đuổi một cuộc sống đẹp và rực rỡ.",
+    "CONGRA": "Chúc mừng bạn",
+    "PLEASELOGIN": "Hãy đăng nhập ngay"
+  },
+  "HOME": {
+    "ALLSTORIES": "Những câu chuyện của Ripple"
   }
+}

@@ -1,54 +1,54 @@
 <div class="signup-wrapper container">
   <div *ngIf="!signupSuccess">
-      <h3 class="green text-center">Fill information to become member</h3>
-      <p class="text-center"><b>Give it a try. Always free</b>.</p>  
-      <p class="text-center">We absolutely provide free and insight tools which help you create a stunning and desirable lifestyle.</p> 
+      <h3 class="green text-center">{{'SIGNUP.TITLE' | translate}}</h3>
+      <p class="text-center"><b>{{'SIGNUP.SUBTITLE' | translate}}</b>.</p>  
+      <p class="text-center">{{'SIGNUP.DES' | translate}}</p> 
       <hr/>
       <form class="">
         <div class="form-group form-group-lg">
-          <label class="control-label" for="email">Full Name*</label>
+          <label class="control-label" for="email">{{'SHARED.FULLNAME' | translate}}*</label>
           <div class="">
-            <input type="text" class="form-control" name="fullname" [(ngModel)]="fullName" placeholder="Full Name">
+            <input type="text" class="form-control" name="fullname" [(ngModel)]="fullName" placeholder="{{'SHARED.FULLNAME' | translate}}">
           </div>
         </div>    
         <div class="form-group form-group-lg">
-          <label class="control-label" for="pwd">Email*</label>
+          <label class="control-label" for="pwd">{{'SHARED.EMAIL' | translate}}*</label>
           <div class=""> 
-            <input type="email" class="form-control" name="email" [(ngModel)]="email" placeholder="Email">
+            <input type="email" class="form-control" name="email" [(ngModel)]="email" placeholder="{{'SHARED.EMAIL' | translate}}">
           </div>
         </div>
         <div class="form-group form-group-lg">
-          <label class="control-label " for="pwd">Username*</label>
+          <label class="control-label " for="pwd">{{'SHARED.USERNAME' | translate}}*</label>
           <div class=""> 
-            <input type="text" class="form-control" name="username" [(ngModel)]="username" placeholder="Username">
+            <input type="text" class="form-control" name="username" [(ngModel)]="username" placeholder="{{'SHARED.USERNAME' | translate}}">
           </div>
         </div>
         <div class="form-group form-group-lg">
-          <label class="control-label " for="pwd">Password*</label>
+          <label class="control-label " for="pwd">{{'SHARED.PASSWORD' | translate}}*</label>
           <div class=""> 
-            <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Password">
+            <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="{{'SHARED.PASSWORD' | translate}}">
           </div>
         </div>
         <div class="form-group form-group-lg">
-          <label class="control-label " for="pwd">Confirm Password*</label>
+          <label class="control-label " for="pwd">{{'SHARED.CONFIRMPASSWORD' | translate}}*</label>
           <div class=""> 
-            <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Confirm Password">
+            <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="{{'SHARED.CONFIRMPASSWORD' | translate}}">
           </div>
         </div>
         <div class="form-group form-group-lg">
-          <span>(*) Required field</span>      
+          <span>(*) {{'SHARED.REQUIREDFIELD' | translate}}</span>      
         </div>
         <div class="form-group form-group-lg"> 
           <div class="">
-            <button type="submit" class="btn btn-primary btn-lg submit" [disabled]="!isValid()" (click)="register()">Submit</button>
+            <button type="submit" class="btn btn-primary btn-lg submit" [disabled]="!isValid()" (click)="register()">{{'SHARED.SUBMIT' | translate}}</button>
           </div>
         </div>
       </form>
   </div>
   
   <div *ngIf="signupSuccess">
-    <h2 class="text-success">Congratulation!</h2>
-    <a href="login">Please login</a>
+    <h2 class="text-success">{{'SIGNUP.CONGRA' | translate}}!</h2>
+    <a href="login">{{'SIGNUP.PLEASELOGIN' | translate}}</a>
   </div>  
 </div>
 

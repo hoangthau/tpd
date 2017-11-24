@@ -1,6 +1,6 @@
 <div class="login-wrapper container">
   <h1 class="green text-center">Ripple</h1>
-  <p class="text-center"><strong>Sign in to your dream</strong></p>
+  <p class="text-center"><strong>{{'LOGIN.DES' | translate}}</strong></p>
   <hr/>
   <div *ngIf="msg" class="alert alert-danger" role="alert">
     {{msg}}
@@ -10,7 +10,7 @@
       <div class="col-sm-12">
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-user"></i></span>
-          <input type="text" class="form-control" name="usernmae" [(ngModel)]="username" placeholder="Username" />
+          <input type="text" class="form-control" name="usernmae" [(ngModel)]="username" placeholder="{{'SHARED.USERNAME' | translate}}" />
         </div>
       </div>
     </div>
@@ -18,22 +18,22 @@
       <div class="col-sm-12">
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-          <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Password" />
+          <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="{{'SHARED.PASSWORD' | translate}}" />
         </div>
       </div>
     </div>
     <div class="form-group">
       <div class="col-sm-12">
-        <div class="checkbox"><label><input type="checkbox">Remember me</label></div>
+        <div class="checkbox"><label><input type="checkbox">{{'LOGIN.REMEMBERME' | translate}}</label></div>
       </div>
     </div>
     <div class="form-group"> 
       <div class="col-sm-12">
-        <button type="submit" class="btn btn-primary submit" (click)="login()">Sign in</button>
+        <button type="submit" class="btn btn-primary submit" (click)="login()">{{'SHARED.SIGNIN' | translate}}</button>
       </div>
     </div>
   </form>
   <hr/>
-  <p class="text-center"><a>Forgot your password ?</a></p>
-  <p class="text-center">Don't have an account ? <a href="sign-up">Sign up</a></p>
+  <p class="text-center"><a href="javascript:;">{{'LOGIN.FORGOT' | translate}}?</a></p>
+  <p class="text-center">{{'LOGIN.DONTACCOUNT' | translate}}? <a href="sign-up">{{'SHARED.SIGNUP' | translate}}</a></p>
 </div>

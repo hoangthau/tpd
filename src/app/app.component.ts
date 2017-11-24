@@ -26,7 +26,8 @@ export class AppComponent implements OnInit {
     translate.addLangs(['en', 'vi']);
     translate.setDefaultLang('en');
 
-    const browserLang = translate.getBrowserLang();
+    const yourLang = localStorage.getItem('language')    
+    const browserLang = yourLang || translate.getBrowserLang();    
     translate.use(browserLang.match(/en|vi/) ? browserLang : 'en');
   }
 
@@ -49,6 +50,11 @@ export class AppComponent implements OnInit {
           }
         }
       });
+  }
+
+  changeLanguage(value) {
+    this.translate.use(value);
+    localStorage.setItem('language', value);
   }
 
 }
