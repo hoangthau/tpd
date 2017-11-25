@@ -29,6 +29,7 @@ router.route('/login')
           username: user.username,
           email: user.email,
           fullName: user.fullName,
+          joinDate: user.joinDate
         };
         res.json({ isLogined: true, currentUser: currentUser });
       } else {

@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
             username: user.username,
             fullName: user.fullName,
             email: user.email,
-            id: user._id
+            id: user._id,
+            joinDate: user.joinDate
           }));
           
         this.loginService.setCurrentUser(user);

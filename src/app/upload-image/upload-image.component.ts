@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Headers, RequestOptions } from '@angular/http';
 
-import { HttpConnector } from '../shared/httpConnector';
+import { HttpConnector } from '../shared/http-connector';
 
 @Component({
   selector: 'app-upload-image',

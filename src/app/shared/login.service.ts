@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
-import { HttpConnector } from './httpConnector';
+import { HttpConnector } from './http-connector';
 
 import * as md5 from 'md5';
 

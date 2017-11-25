@@ -1,8 +1,8 @@
 <div class="container">
-  <button class="btn btn-primary pull-right" (click)="update()" [disabled]="!allowUpdate">Update</button>    
+  <button class="btn btn-primary pull-right" (click)="update()" [disabled]="!allowUpdate">{{'SHARED.UPDATE' | translate}}</button>    
   <div class="clearfix"></div>
-  <h3>Title</h3>
-  <input class="form-control" type="text" name="storyTitle" [(ngModel)]="title" (input)="changeTitle()" />  
+  <h3>{{'SHARED.TITLE' | translate}}</h3>
+  <input class="form-control" type="text" name="storyTitle" [(ngModel)]="title" (input)="changeTitle()" placeholder="{{'SHARED.TITLE' | translate}}" />  
   <app-simple-tiny
     [elementId]="'my-editor-id'"
     [content]="selectedStory?.content"

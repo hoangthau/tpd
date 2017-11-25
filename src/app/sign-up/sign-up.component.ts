@@ -25,7 +25,8 @@ export class SignUpComponent implements OnInit {
       fullName: this.fullName,
       email: this.email,
       username: this.username,
-      password: this.password
+      password: this.password,
+      joinDate: new Date().getTime()
     };
 
     this.signupService.register(data).subscribe(() => {

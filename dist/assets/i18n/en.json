@@ -1,7 +1,7 @@
 {
   "SHARED": {
     "SIGNIN": "Sign in",
-    "SIGNUP":"Sign up",
+    "SIGNUP": "Sign up",
     "USERNAME": "Username",
     "PASSWORD": "Password",
     "CONFIRMPASSWORD": "Confirm Password",
@@ -19,16 +19,22 @@
     "EDIT": "Edit",
     "SAVE": "Save",
     "CANCEL": "Cancel",
+    "UPDATE": "Update",    
     "WHY": "Why",
     "TASKS": "Task",
     "STORIES": "Stories",
-    "MENTORS": "Mentors" 
+    "MENTORS": "Mentors",
+    "JOINED": "Joined",
+    "TITLE": "Title",
+    "UPLOADIMAGE": "Upload an image",
+    "SELECTIMAGE": "Select an image",
+    "PUBLISH": "Publish"
   },
   "LOGIN": {
-    "DES": "Sign in to your dream",   
-    "REMEMBERME": "Remember me",   
-    "FORGOT":"Forgot your password",
-    "DONTACCOUNT":"Don't have an account"
+    "DES": "Sign in to your dream",
+    "REMEMBERME": "Remember me",
+    "FORGOT": "Forgot your password",
+    "DONTACCOUNT": "Don't have an account"
   },
   "SIGNUP": {
     "TITLE": "Fill information to become member",
@@ -38,10 +44,9 @@
     "PLEASELOGIN": "Please login"
   },
   "HOME": {
+    "TITLE": "As you live your days, so you LIVE YOUR LIFE",
+    "DES": "",
     "ALLSTORIES": "Stories from your ripple"
   },
-  "USER": {
-
-  }
-
+  "USER": {}
 }

@@ -1,7 +1,7 @@
 {
   "SHARED": {
     "SIGNIN": "Đăng nhập",
-    "SIGNUP":"Đăng ký",
+    "SIGNUP": "Đăng ký",
     "USERNAME": "Tên đăng nhập",
     "PASSWORD": "Mật khẩu",
     "CONFIRMPASSWORD": "Xác nhận mật khẩu",
@@ -19,16 +19,22 @@
     "EDIT": "Sửa",
     "SAVE": "Lưu",
     "CANCEL": "Hủy",
+    "UPDATE": "Cập nhật",
     "WHY": "Tại sao",
     "TASKS": "Nhiệm vụ",
     "STORIES": "Câu chuyện",
-    "MENTORS": "Thầy"    
+    "MENTORS": "Cố vấn",
+    "JOINED": "Tham gia",
+    "TITLE": "Tiêu đề",
+    "UPLOADIMAGE": "Tải lên một hình",
+    "SELECTIMAGE": "Chọn một hình",
+    "PUBLISH": "Tạo mới"
   },
   "LOGIN": {
     "DES": "Hãy biến giấc mơ của bạn thành hiện thực",
-    "REMEMBERME": "Lưu thông tin",   
-    "FORGOT":"Quên mật khẩu",
-    "DONTACCOUNT":"Chưa có tài khoản"
+    "REMEMBERME": "Lưu thông tin",
+    "FORGOT": "Quên mật khẩu",
+    "DONTACCOUNT": "Chưa có tài khoản"
   },
   "SIGNUP": {
     "TITLE": "Điền thông tin để trở thành thành viên",
@@ -38,6 +44,9 @@
     "PLEASELOGIN": "Hãy đăng nhập ngay"
   },
   "HOME": {
+    "TITLE": "As you live your days, so you LIVE YOUR LIFE",
+    "DES": "",
     "ALLSTORIES": "Những câu chuyện của Ripple"
-  }
+  },
+  "USER": {}
 }

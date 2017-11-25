@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { UserPageService } from '../shared/user-page.service';
 import { LoginService } from '../shared/login.service';
+import { CommonService } from '../shared/common.service';
 
 import * as md5 from 'md5';
 
@@ -19,6 +20,7 @@ export class UserPageComponent implements OnInit {
   currentUser: any;
   modifyTaskList: boolean = false;
   userImg: string;
+  joinDate: string;
   taskList: Array<any> = [
     { title: 'Review my plans, my goals, my daily schedule' },
     { title: 'Review my plans, my goals, my daily schedule' }
@@ -36,14 +38,19 @@ export class UserPageComponent implements OnInit {
   constructor(
     private userPageService: UserPageService,
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
+    private commonService: CommonService
   ) { }
 
   ngOnInit() {
-    this.currentUser = this.loginService.getCurrentUser();
+    this.currentUser = this.loginService.getCurrentUser();    
     this.userImg = this.loginService.getUserImage(this.currentUser.email);
     this.getTaskList();
     this.getStoryList();
+    if(this.currentUser && this.currentUser.joinDate) {
+      const date = new Date(this.currentUser.joinDate);
+      this.joinDate = this.commonService.getMonthLabel(date) + ' ' + date.getFullYear();
+    }
   }
 
   getTaskList() {
