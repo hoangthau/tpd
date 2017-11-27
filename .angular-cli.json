@@ -21,6 +21,7 @@
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../node_modules/cropperjs/dist/cropper.min.css",        
         "assets/skins/lightgray/skin.min.css",
         "styles.css"
       ],
@@ -33,7 +34,8 @@
         "../node_modules/tinymce/themes/modern/theme.js",
         "../node_modules/tinymce/plugins/link/plugin.js",
         "../node_modules/tinymce/plugins/paste/plugin.js",
-        "../node_modules/tinymce/plugins/table/plugin.js"
+        "../node_modules/tinymce/plugins/table/plugin.js",
+        "../node_modules/cropperjs/dist/cropper.min.js"      
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

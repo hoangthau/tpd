@@ -18,7 +18,6 @@ export class UserPageComponent implements OnInit {
   taskTitle: string;
   userList: Array<any>;
   currentUser: any;
-  modifyTaskList: boolean = false;
   userImg: string;
   joinDate: string;
   taskList: Array<any> = [
@@ -43,11 +42,11 @@ export class UserPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.currentUser = this.loginService.getCurrentUser();    
+    this.currentUser = this.loginService.getCurrentUser();
     this.userImg = this.loginService.getUserImage(this.currentUser.email);
     this.getTaskList();
     this.getStoryList();
-    if(this.currentUser && this.currentUser.joinDate) {
+    if (this.currentUser && this.currentUser.joinDate) {
       const date = new Date(this.currentUser.joinDate);
       this.joinDate = this.commonService.getMonthLabel(date) + ' ' + date.getFullYear();
     }
@@ -56,6 +55,10 @@ export class UserPageComponent implements OnInit {
   getTaskList() {
     this.userPageService.getTaskList(this.currentUser.id).subscribe((data) => {
       this.taskList = data;
+      this.taskList.sort((a, b) => {
+        return a.sortOrder - b.sortOrder;
+      });
+      console.log(this.taskList);
     });
   }
 
@@ -101,12 +104,12 @@ export class UserPageComponent implements OnInit {
     }
   }
 
-  signout() {
-    this.loginService.logout();
+  sortTasks(taskList: Array<any>) {
+    this.userPageService.sortTasks(taskList).subscribe();
   }
 
-  enableEditMode() {
-    this.modifyTaskList = !this.modifyTaskList;
+  signout() {
+    this.loginService.logout();
   }
 
   createStory() {
@@ -131,5 +134,7 @@ export class UserPageComponent implements OnInit {
     const link = '/edit-story/' + story.title.toLowerCase().replace(/\s/g, '-') + '@' + story._id;
     this.router.navigate([link]);
   }
+
+
 
 }

@@ -4,8 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SortablejsModule } from 'angular-sortablejs';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -69,19 +70,20 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
-          provide: TranslateLoader,
-          useFactory: createTranslateLoader,
-          deps: [HttpClient]
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
       }
-  })
+    }),
+    SortablejsModule.forRoot({ animation: 150 })
   ],
   providers: [
-    HttpConnector, 
-    HomePageService, 
-    UserPageService, 
-    LoginService, 
-    SignupService, 
-    AuthGuard, 
+    HttpConnector,
+    HomePageService,
+    UserPageService,
+    LoginService,
+    SignupService,
+    AuthGuard,
     NewStoryService,
     ViewStoryService,
     UploadImageService,

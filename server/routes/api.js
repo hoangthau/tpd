@@ -102,6 +102,18 @@ router.route('/task/:task_id')
     })
   });
 
+router.route('/tasks/sort')
+  .post(function(req, res) {
+    let task;
+    const taskList = req.body.taskList || [];
+    debugger;
+    for(let i = 0, len = taskList.length; i < len; i++){
+      task = taskList[i];
+      Task.update({ _id: task._id }, { $set: { sortOrder: task.sortOrder }}).exec();
+    }
+    res.json({ message: 'Successfully updated sort order'});
+  });
+
 //for user
 router.route('/users')
   .get(function (req, res) {

@@ -22,6 +22,15 @@ export class UserPageService {
         return this.httpConnector.delete(url);
     }
 
+    sortTasks(taskList: Array<any>) {
+        const url = 'api/tasks/sort';
+        taskList.forEach((item, index) => {
+            item.sortOrder = index;
+        });
+        console.log(taskList);
+        return this.httpConnector.post(url, { taskList: taskList});
+    }
+
     getStoryList(userId) {
         const url = 'api/stories?userId=' + userId;
         return this.httpConnector.get(url);

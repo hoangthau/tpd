@@ -80,7 +80,7 @@
           <button class="btn btn-primary" (click)="saveTask()" [disabled]="!taskTitle">{{'SHARED.SAVE' | translate}}</button> or
           <a href="javascript:;" (click)="cancelTask()">{{'SHARED.CANCEL' | translate}}</a>
         </form>
-        <app-task-list [items]="taskList" (clickDelete)="deleteTask($event)" [modifyMode]="modifyTaskList"></app-task-list>
+        <app-task-list [items]="taskList" (clickDelete)="deleteTask($event)" (sortTasks)="sortTasks($event)"></app-task-list>
       </div>
       <div class="tab-pane fade" id="pills-story" role="tabpanel" aria-labelledby="pills-story-tab">
         <button class="btn btn-primary" (click)="createStory()">{{'SHARED.CREATE' | translate}}</button>

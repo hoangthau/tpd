@@ -6,20 +6,29 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit {
-  @Input() items : Array<any>;
-  @Input() modifyMode: boolean = false;
+  @Input() items: Array<any>;
+
   @Output() clickDelete = new EventEmitter();
-  
+  @Output() sortTasks = new EventEmitter();
+
+  options: any;
+
   constructor() { }
 
   ngOnInit() {
+    this.options = {
+      handle: '.sort-icon',
+      onUpdate: (event: any) => {
+        this.sortTasks.emit(this.items);
+      }
+    };
   }
 
-  complete(item){
+  complete(item) {
     item.done = !item.done;
   }
 
-  delete(item){
+  delete(item) {
     this.clickDelete.emit(item);
   }
 
