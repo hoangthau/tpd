@@ -1,0 +1,8 @@
+{
+    "/api/*": {
+      "target": "https://tpdthau.herokuapp.com",
+      "secure": true, 
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }

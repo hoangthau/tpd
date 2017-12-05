@@ -46,7 +46,8 @@ export class HttpConnector {
     }
 
     private handleUrl(url: string) {
-        return url;
+        const host = 'https://tpdthau.herokuapp.com/';
+        return host + url;
     }
 
     private handleError(error: Response | any) {
