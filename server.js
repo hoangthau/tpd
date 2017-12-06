@@ -13,6 +13,14 @@ const app = express();
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://usertpd:usertpd@ds237735.mlab.com:37735/tpd');
 
+//cors
+app.all('*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
