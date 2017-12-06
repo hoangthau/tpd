@@ -12,20 +12,25 @@ import { ViewStoryComponent } from './view-story/view-story.component';
 import { EditStoryComponent } from './edit-story/edit-story.component';
 
 const routes: Routes = [
-    { path: '', component: HomePageComponent },    
-    { path: 'user/:username', component: UserPageComponent, canActivate: [AuthGuard] },
-    { path: 'sign-up', component: SignUpComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'learn-more', component: LearnMoreComponent },
-    { path: 'new-story', component: NewStoryComponent },
-    { path: 'view-story/:story-id', component: ViewStoryComponent },
-    { path: 'edit-story/:story-id', component: EditStoryComponent }      
-    
+  { path: '', component: HomePageComponent },
+  {
+    path: 'user/:username',
+    component: UserPageComponent,
+    canActivate: [AuthGuard]
+  },
+  { path: 'sign-up', component: SignUpComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'learn-more', component: LearnMoreComponent },
+  { path: 'new-story', component: NewStoryComponent },
+  { path: 'view-story/:story-id', component: ViewStoryComponent },
+  {
+    path: 'edit-story/:story-id',
+    component: EditStoryComponent
+  }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, { useHash: false })],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule]
 })
-
-export class AppRoutes { }
+export class AppRoutes {}

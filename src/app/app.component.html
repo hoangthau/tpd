@@ -1,4 +1,4 @@
-<div class="page-content">      
+<div class="page-content">
     <header>
         <app-navbar [userImg]="userImg" [show]="showNavbar" [logined]="isLogined" [fullName]="fullName" [username]="username">
         </app-navbar>
@@ -8,8 +8,8 @@
         <div class="container">
             <p *ngIf="showFooter" class="pull-left">{{'SHARED.COPYRIGHT' | translate}} &copy; Thau Nguyen - Ripple</p>
             <select class="pull-right form-control lang-select" #langSelect (change)="changeLanguage(langSelect.value)">
-                    <option *ngFor="let lang of languages" [value]="lang.key" [selected]="lang.key === translate.currentLang">{{ lang.value }}</option>
+                <option *ngFor="let lang of languages" [value]="lang.key" [selected]="lang.key === translate.currentLang">{{ lang.value }}</option>
             </select>
-        </div>        
+        </div>
     </footer>
 </div>
