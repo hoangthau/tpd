@@ -65,8 +65,12 @@ export class HttpConnector {
   }
 
   private handleUrl(url: string) {
+    const isLocalHost = window.location.host.indexOf('localhost') >= 0;
     const host = 'https://tpdthau.herokuapp.com/';
-    return host + url;
+    if (isLocalHost) {
+      return host + url;
+    }
+    return url;
   }
 
   private handleError(error: Response | any) {

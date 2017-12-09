@@ -42,7 +42,7 @@
           <h5 class="story-title" (click)="viewStory(story)">{{story.title}}</h5>
           <div class="story-content" [innerHTML]="story.content"></div>
           <div class="user-story">
-            <img class="user-image" [src]="story.userImg" />
+            <img class="user-image" *ngIf="story.userImg" [src]="story.userImg" />
             <div class="story-info">
               <p class="text-primary">{{story.fullName}}</p>
               <span class="text-secondary">{{story.dateDisplay}}</span>

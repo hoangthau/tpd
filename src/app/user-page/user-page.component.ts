@@ -13,33 +13,21 @@ import * as md5 from 'md5';
   styleUrls: ['./user-page.component.css']
 })
 export class UserPageComponent implements OnInit {
-
-  showCreateInput = false;
+  showCreateInput: boolean = false;
   taskTitle: string;
   userList: Array<any>;
   currentUser: any;
   userImg: string;
   joinDate: string;
-  taskList: Array<any> = [
-    { title: 'Review my plans, my goals, my daily schedule' },
-    { title: 'Review my plans, my goals, my daily schedule' }
-  ];
-  storyList: Array<any> = [
-    {
-      _id: '5a056f41734d1d68d42ce314',
-      title: 'This is story',
-      content: '<p>This is content British airline EasyJet teamed up with Wright Electric to build aircrafts powered by batteries. So far, it has built a two-seater prototype with plans of a 120-seater plane in 10 years.</p>',
-      date: 1510366896400
-    },
-  ];
-
+  taskList: Array<any> = [];
+  storyList: Array<any> = [];
 
   constructor(
     private userPageService: UserPageService,
     private loginService: LoginService,
     private router: Router,
     private commonService: CommonService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.currentUser = this.loginService.getCurrentUser();
@@ -48,23 +36,23 @@ export class UserPageComponent implements OnInit {
     this.getStoryList();
     if (this.currentUser && this.currentUser.joinDate) {
       const date = new Date(this.currentUser.joinDate);
-      this.joinDate = this.commonService.getMonthLabel(date) + ' ' + date.getFullYear();
+      this.joinDate =
+        this.commonService.getMonthLabel(date) + ' ' + date.getFullYear();
     }
   }
 
   getTaskList() {
-    this.userPageService.getTaskList(this.currentUser.id).subscribe((data) => {
+    this.userPageService.getTaskList(this.currentUser.id).subscribe(data => {
       this.taskList = data;
       this.taskList.sort((a, b) => {
         return a.sortOrder - b.sortOrder;
       });
-      console.log(this.taskList);
     });
   }
 
   getStoryList() {
-    this.userPageService.getStoryList(this.currentUser.id).subscribe((data) => {
-      this.storyList = data.map((d) => {
+    this.userPageService.getStoryList(this.currentUser.id).subscribe(data => {
+      this.storyList = data.map(d => {
         const date = new Date(d.date);
         const content = d.content || '';
         d.dateDisplay = date.toLocaleDateString();
@@ -91,6 +79,10 @@ export class UserPageComponent implements OnInit {
     });
   }
 
+  completeTask(task: any) {
+    this.userPageService.completeTask(task).subscribe();
+  }
+
   cancelTask() {
     this.showCreateInput = false;
   }
@@ -98,7 +90,7 @@ export class UserPageComponent implements OnInit {
   deleteTask(item: any) {
     const result = confirm('Do you want to delete this task!');
     if (result) {
-      this.userPageService.deleteTask(item._id).subscribe((data) => {
+      this.userPageService.deleteTask(item._id).subscribe(data => {
         this.getTaskList();
       });
     }
@@ -106,6 +98,14 @@ export class UserPageComponent implements OnInit {
 
   sortTasks(taskList: Array<any>) {
     this.userPageService.sortTasks(taskList).subscribe();
+  }
+
+  resetTasks() {
+    this.userPageService.resetTasks(this.taskList).subscribe(() => {
+      this.taskList.forEach(function(item){
+        item.isDone = false;
+      });
+    });
   }
 
   signout() {
@@ -117,24 +117,29 @@ export class UserPageComponent implements OnInit {
   }
 
   viewStory(story: any) {
-    const link = '/view-story/' + story.title.toLowerCase().replace(/\s/g, '-') + '@' + story._id;
+    const link =
+      '/view-story/' +
+      story.title.toLowerCase().replace(/\s/g, '-') +
+      '@' +
+      story._id;
     this.router.navigate([link]);
   }
 
   deleteStory(story: any) {
     const result = confirm('Do you want to delete this story!');
     if (result) {
-      this.userPageService.deleteStory(story._id).subscribe((data) => {
+      this.userPageService.deleteStory(story._id).subscribe(data => {
         this.getStoryList();
       });
     }
   }
 
   editStory(story: any) {
-    const link = '/edit-story/' + story.title.toLowerCase().replace(/\s/g, '-') + '@' + story._id;
+    const link =
+      '/edit-story/' +
+      story.title.toLowerCase().replace(/\s/g, '-') +
+      '@' +
+      story._id;
     this.router.navigate([link]);
   }
-
-
-
 }

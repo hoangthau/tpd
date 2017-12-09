@@ -17,6 +17,11 @@ export class UserPageService {
         return this.httpConnector.post(url, data);
     }
 
+    completeTask(task: any) {
+        const url = 'api/task/' + task._id;
+        return this.httpConnector.put(url, task);
+    }
+
     deleteTask(id: string) {
         const url = 'api/task/' + id;
         return this.httpConnector.delete(url);
@@ -27,7 +32,11 @@ export class UserPageService {
         taskList.forEach((item, index) => {
             item.sortOrder = index;
         });
-        console.log(taskList);
+        return this.httpConnector.post(url, { taskList: taskList});
+    }
+
+    resetTasks(taskList: Array<any>) {
+        const url = 'api/tasks/reset';
         return this.httpConnector.post(url, { taskList: taskList});
     }
 

@@ -6,7 +6,7 @@
             <a class="dropdown-item" href="javascript:;" (click)="delete(item)">{{'SHARED.DELETE'| translate}}</a>
         </div>
     </div>        
-    <h5 class="task-title" (click)="complete(item)" [ngClass]="{'text-success': item.done}">
+    <h5 class="task-title" (click)="complete(item)" [ngClass]="{'text-success': item.isDone}">
         <i class="fa fa-arrows-v sort-icon hover-icon"></i>
         <span>{{ i + 1}}. {{ item.title}}</span>
     </h5>

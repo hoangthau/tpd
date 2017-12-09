@@ -10,6 +10,7 @@ export class TaskListComponent implements OnInit {
 
   @Output() clickDelete = new EventEmitter();
   @Output() sortTasks = new EventEmitter();
+  @Output() completeTask = new EventEmitter();
 
   options: any;
 
@@ -25,7 +26,8 @@ export class TaskListComponent implements OnInit {
   }
 
   complete(item) {
-    item.done = !item.done;
+    item.isDone = !item.isDone;
+    this.completeTask.emit(item);
   }
 
   delete(item) {
