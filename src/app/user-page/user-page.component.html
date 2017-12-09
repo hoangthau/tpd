@@ -69,8 +69,10 @@
             </p>
           </div>
         </app-modal>
-        <button *ngIf="!showCreateInput" class="btn btn-primary btn-create" (click)="createTask()">{{'SHARED.CREATE'| translate}}</button>
-        <a href="javascript:;" (click)="resetTasks()">{{'SHARED.RESET'| translate}}</a>
+        <div *ngIf="!showCreateInput">
+          <button class="btn btn-primary btn-create" (click)="createTask()">{{'SHARED.CREATE'| translate}}</button>
+          <a href="javascript:;" (click)="resetTasks()">{{'SHARED.RESET'| translate}}</a>
+        </div>        
         <form *ngIf="showCreateInput" class="form-create">
           <div class="form-group row">
             <div class="col-sm-12">
