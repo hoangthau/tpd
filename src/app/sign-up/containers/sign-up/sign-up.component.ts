@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SignupService } from '../shared/sign-up.service';
+import { SignupService } from 'app/shared/sign-up.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,10 +15,9 @@ export class SignUpComponent implements OnInit {
   confirmPassword: string = '';
   signupSuccess: boolean = false;
 
-  constructor(private signupService: SignupService) { }
+  constructor(private signupService: SignupService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   register() {
     const data = {
@@ -35,8 +34,12 @@ export class SignUpComponent implements OnInit {
   }
 
   isValid() {
-    return this.fullName && this.email && this.username &&
-      this.password && this.password === this.confirmPassword;
+    return (
+      this.fullName &&
+      this.email &&
+      this.username &&
+      this.password &&
+      this.password === this.confirmPassword
+    );
   }
-
 }
