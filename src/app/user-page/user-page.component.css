@@ -10,10 +10,15 @@
 .cover-img {
   height: 150px;
   overflow: hidden;
+  transition: opacity 0.5s;
 }
 
 .cover-img img {
   width: 100%;
+}
+
+.cover-img.is-edit {
+  opacity: 0.3;
 }
 
 .profile-img {
@@ -39,6 +44,21 @@
 .nav {
   justify-content: center;
   background: #fff;
+}
+
+.nav-first-item {
+  flex: 1;
+}
+
+.edit-profile-btn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.edit-profile-btn > * {
+  align-self: center;
+  margin-right: 5px;
 }
 
 .tab-content {
@@ -71,12 +91,11 @@
   display: none;
 }
 
-.edit-profile-btn button {
-  height: 100%;
-}
-
 .change-cover-btn {
   position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
 }
 
 @media (min-width: 768px) {

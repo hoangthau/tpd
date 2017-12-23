@@ -24,6 +24,7 @@ export class UserPageComponent implements OnInit {
   taskList: Array<any> = [];
   storyList: Array<any> = [];
   coverFile: any;
+  done: boolean = true;
 
   constructor(
     private userPageService: UserPageService,
@@ -48,6 +49,7 @@ export class UserPageComponent implements OnInit {
 
   getUser() {
     this.userPageService.getUser(this.currentUser.id).subscribe((data: any) => {
+      this.done = true;
       this.currentUser.coverImg = data.coverImg;
     });
   }
@@ -162,7 +164,7 @@ export class UserPageComponent implements OnInit {
     this.coverFile = $event;
   }
 
-  saveCoverImg() {
+  saveChanges() {
     if (this.currentUser && this.currentUser.id) {
       const data = {
         fullName: this.currentUser.fullName,
@@ -170,6 +172,7 @@ export class UserPageComponent implements OnInit {
       };
 
       if (this.coverFile) {
+        this.done = false;
         this.uploadImageService.upload(this.coverFile).subscribe(response => {
           data.coverImg = response.url;
           this.updateUser(this.currentUser.id, data);
@@ -179,7 +182,9 @@ export class UserPageComponent implements OnInit {
   }
 
   updateUser(userId: string, data) {
-    console.log(data);
-    this.userPageService.updateUser(userId, data).subscribe();
+    this.userPageService.updateUser(userId, data).subscribe(() => {
+      this.isEditProfile = false;
+      this.getUser();
+    });
   }
 }

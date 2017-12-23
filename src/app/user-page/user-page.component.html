@@ -1,13 +1,13 @@
 <div class="user-page">
 
   <div class="cover">
-    <app-modal [modalTargetId]="'coverModal'" [modalTitle]="'Change your cover'" (submit)="saveCoverImg()">
+    <app-modal [modalTargetId]="'coverModal'" [modalTitle]="'Change your cover'">
       <button class="rp-modal-trigger btn btn-default change-cover-btn" data-toggle="modal" data-target="#coverModal" *ngIf="isEditProfile">Change your cover</button>
       <div class="rp-modal-content">
         <app-upload-image (changeFile)="changeFile($event)" [allowCrop]="true"></app-upload-image>
       </div>
     </app-modal>
-    <div class="cover-img">
+    <div class="cover-img" [ngClass]="{'is-edit': isEditProfile}">
       <img *ngIf="!currentUser.coverImg" [src]="'assets/cover.jpg'" />
       <img *ngIf="currentUser.coverImg" [src]="currentUser.coverImg" />
     </div>
@@ -19,6 +19,7 @@
       <p>@{{currentUser.username}}</p>
     </div>
     <ul class="nav nav-pills mb-3 box-shadow" id="pills-tab" role="tablist">
+      <li class="nav-first-item"></li>
       <li class="nav-item">
         <a class="nav-link active" id="pills-task-tab" data-toggle="pill" href="#pills-task" role="tab" aria-controls="pills-task"
           aria-selected="true">{{'SHARED.TASKS' | translate}}</a>
@@ -32,10 +33,11 @@
           aria-selected="false">{{'SHARED.MENTORS' | translate}}</a>
       </li>
       <li class="nav-item edit-profile-btn">
-        <button class="btn btn-default" (click)="editProfile()">
+        <button class="btn btn-sm btn-default" (click)="editProfile()">
           <span [hidden]="isEditProfile">{{'SHARED.EDITPROFILE' | translate}}</span>
-          <span [hidden]="!isEditProfile">{{'SHARED.QUITEDIT' | translate}}</span>
+          <span [hidden]="!isEditProfile">{{'SHARED.CANCEL' | translate}}</span>
         </button>
+        <button *ngIf="isEditProfile" class="btn btn-sm btn-primary" (click)="saveChanges()">Save Changes</button>
       </li>
     </ul>
   </div>
@@ -110,5 +112,7 @@
     <div class="col-md-3">
     </div>
   </div>
+
+  <app-spinner *ngIf="!done"></app-spinner>
 
 </div>
