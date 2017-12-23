@@ -1,7 +1,16 @@
 <div class="user-page">
 
   <div class="cover">
-    <div class="cover-img"></div>
+    <app-modal [modalTargetId]="'coverModal'" [modalTitle]="'Change your cover'" (submit)="saveCoverImg()">
+      <button class="rp-modal-trigger btn btn-default change-cover-btn" data-toggle="modal" data-target="#coverModal" *ngIf="isEditProfile">Change your cover</button>
+      <div class="rp-modal-content">
+        <app-upload-image (changeFile)="changeFile($event)" [allowCrop]="true"></app-upload-image>
+      </div>
+    </app-modal>
+    <div class="cover-img">
+      <img *ngIf="!currentUser.coverImg" [src]="'assets/cover.jpg'" />
+      <img *ngIf="currentUser.coverImg" [src]="currentUser.coverImg" />
+    </div>
     <div class="profile-img">
       <img src="{{userImg}}" />
     </div>
@@ -21,6 +30,12 @@
       <li class="nav-item">
         <a class="nav-link" id="pills-mentor-tab" data-toggle="pill" href="#pills-mentor" role="tab" aria-controls="pills-mentor"
           aria-selected="false">{{'SHARED.MENTORS' | translate}}</a>
+      </li>
+      <li class="nav-item edit-profile-btn">
+        <button class="btn btn-default" (click)="editProfile()">
+          <span [hidden]="isEditProfile">{{'SHARED.EDITPROFILE' | translate}}</span>
+          <span [hidden]="!isEditProfile">{{'SHARED.QUITEDIT' | translate}}</span>
+        </button>
       </li>
     </ul>
   </div>
@@ -48,8 +63,8 @@
               At the begining of this journey, maybe in your first, second week you dive into your motions. You don't see any changes in
               your life. And you keep going but after three, four weeks you still in the same in your progress of mountaintop.
               <b>
-              You will be impatient guy. You quit.</b> You will be unsuccessful person. But the thing is that you need more
-              time. At least 90 days.
+                You will be impatient guy. You quit.</b> You will be unsuccessful person. But the thing is that you need
+              more time. At least 90 days.
             </p>
             <p>
               I reflect a lot about our perseverance. I realize that we must follow our philosophy. "In your journey, you have to believe
@@ -72,7 +87,7 @@
         <div *ngIf="!showCreateInput">
           <button class="btn btn-primary btn-create" (click)="createTask()">{{'SHARED.CREATE'| translate}}</button>
           <a href="javascript:;" (click)="resetTasks()">{{'SHARED.RESET'| translate}}</a>
-        </div>        
+        </div>
         <form *ngIf="showCreateInput" class="form-create">
           <div class="form-group row">
             <div class="col-sm-12">
@@ -95,6 +110,5 @@
     <div class="col-md-3">
     </div>
   </div>
-
 
 </div>

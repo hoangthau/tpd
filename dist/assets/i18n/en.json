@@ -20,11 +20,13 @@
     "SAVE": "Save",
     "RESET": "Reset",
     "CANCEL": "Cancel",
-    "UPDATE": "Update",    
+    "UPDATE": "Update",
     "WHY": "Why",
     "TASKS": "Tasks",
     "STORIES": "Stories",
     "MENTORS": "Mentors",
+    "EDITPROFILE": "Edit Profile",
+    "QUITEDIT": "Quit Edit",
     "JOINED": "Joined",
     "TITLE": "Title",
     "UPLOADIMAGE": "Upload an image",
@@ -40,7 +42,8 @@
   "SIGNUP": {
     "TITLE": "Fill information to become member",
     "SUBTITLE": "Give it a try. Always free",
-    "DES": "We absolutely provide free and insight tools which help you create a stunning and desirable lifestyle.",
+    "DES":
+      "We absolutely provide free and insight tools which help you create a stunning and desirable lifestyle.",
     "CONGRA": "Congratulation",
     "PLEASELOGIN": "Please login"
   },

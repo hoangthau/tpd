@@ -18,13 +18,15 @@
     "DELETE": "Xóa",
     "EDIT": "Sửa",
     "SAVE": "Lưu",
-    "RESET": "Làm mới", 
+    "RESET": "Làm mới",
     "CANCEL": "Hủy",
     "UPDATE": "Cập nhật",
     "WHY": "Tại sao",
     "TASKS": "Nhiệm vụ",
     "STORIES": "Câu chuyện",
     "MENTORS": "Cố vấn",
+    "EDITPROFILE": "Sửa hồ sơ",
+    "QUITEDIT": "Thoát sửa",
     "JOINED": "Tham gia",
     "TITLE": "Tiêu đề",
     "UPLOADIMAGE": "Tải lên một hình",
@@ -40,7 +42,8 @@
   "SIGNUP": {
     "TITLE": "Điền thông tin để trở thành thành viên",
     "SUBTITLE": "Bạn hãy thử, vì nó luôn luôn miễn phí",
-    "DES": "Chúng tôi cung cấp một công cụ miễn phí và tuyệt vời để giúp bạn theo đuổi một cuộc sống đẹp và rực rỡ.",
+    "DES":
+      "Chúng tôi cung cấp một công cụ miễn phí và tuyệt vời để giúp bạn theo đuổi một cuộc sống đẹp và rực rỡ.",
     "CONGRA": "Chúc mừng bạn",
     "PLEASELOGIN": "Hãy đăng nhập ngay"
   },

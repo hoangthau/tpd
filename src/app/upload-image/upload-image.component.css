@@ -1,7 +1,11 @@
 .upload-form {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 #gallery {
-    margin-top: 10px;  
+  margin-top: 10px;
+}
+
+img {
+  max-width: 100%;
 }

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserPageService } from '../shared/user-page.service';
 import { LoginService } from '../shared/login.service';
 import { CommonService } from '../shared/common.service';
+import { UploadImageService } from '../shared/upload-image.service';
 
 import * as md5 from 'md5';
 
@@ -14,6 +15,7 @@ import * as md5 from 'md5';
 })
 export class UserPageComponent implements OnInit {
   showCreateInput: boolean = false;
+  isEditProfile: boolean = false;
   taskTitle: string;
   userList: Array<any>;
   currentUser: any;
@@ -21,17 +23,20 @@ export class UserPageComponent implements OnInit {
   joinDate: string;
   taskList: Array<any> = [];
   storyList: Array<any> = [];
+  coverFile: any;
 
   constructor(
     private userPageService: UserPageService,
     private loginService: LoginService,
     private router: Router,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private uploadImageService: UploadImageService
   ) {}
 
   ngOnInit() {
     this.currentUser = this.loginService.getCurrentUser();
     this.userImg = this.loginService.getUserImage(this.currentUser.email);
+    this.getUser();
     this.getTaskList();
     this.getStoryList();
     if (this.currentUser && this.currentUser.joinDate) {
@@ -39,6 +44,12 @@ export class UserPageComponent implements OnInit {
       this.joinDate =
         this.commonService.getMonthLabel(date) + ' ' + date.getFullYear();
     }
+  }
+
+  getUser() {
+    this.userPageService.getUser(this.currentUser.id).subscribe((data: any) => {
+      this.currentUser.coverImg = data.coverImg;
+    });
   }
 
   getTaskList() {
@@ -102,7 +113,7 @@ export class UserPageComponent implements OnInit {
 
   resetTasks() {
     this.userPageService.resetTasks(this.taskList).subscribe(() => {
-      this.taskList.forEach(function(item){
+      this.taskList.forEach(function(item) {
         item.isDone = false;
       });
     });
@@ -141,5 +152,34 @@ export class UserPageComponent implements OnInit {
       '@' +
       story._id;
     this.router.navigate([link]);
+  }
+
+  editProfile() {
+    this.isEditProfile = !this.isEditProfile;
+  }
+
+  changeFile($event: any) {
+    this.coverFile = $event;
+  }
+
+  saveCoverImg() {
+    if (this.currentUser && this.currentUser.id) {
+      const data = {
+        fullName: this.currentUser.fullName,
+        coverImg: ''
+      };
+
+      if (this.coverFile) {
+        this.uploadImageService.upload(this.coverFile).subscribe(response => {
+          data.coverImg = response.url;
+          this.updateUser(this.currentUser.id, data);
+        });
+      }
+    }
+  }
+
+  updateUser(userId: string, data) {
+    console.log(data);
+    this.userPageService.updateUser(userId, data).subscribe();
   }
 }

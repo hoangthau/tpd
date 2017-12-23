@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -8,11 +8,20 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ModalComponent implements OnInit {
   @Input() modalTargetId: string;
   @Input() modalTitle: string;
-  @Input() showFooter: boolean;
+  @Input() showFooter: boolean = true;
 
-  constructor() { }
+  @Output() cancel = new EventEmitter();
+  @Output() submit = new EventEmitter();
 
-  ngOnInit() {
+  constructor() {}
+
+  ngOnInit() {}
+
+  onSubmit() {
+    this.submit.emit();
   }
 
+  onCancel() {
+    this.cancel.emit();
+  }
 }
