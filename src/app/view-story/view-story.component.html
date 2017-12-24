@@ -2,7 +2,7 @@
   <div class="user-story">
     <a *ngIf="allowEdit" class="pull-right" href="javascript:;" (click)="edit(story)">{{'SHARED.EDIT' | translate}}</a>
     <div class="clearfix"></div>
-    <img class="user-image" [src]="story.userImg" />
+    <img *ngIf="story.userImg" class="user-image" [src]="story.userImg" />
     <div class="story-info">
       <p class="text-primary">{{story.fullName}}</p>
       <span class="text-secondary">{{story.dateDisplay}}</span>

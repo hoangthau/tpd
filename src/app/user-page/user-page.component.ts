@@ -24,6 +24,7 @@ export class UserPageComponent implements OnInit {
   taskList: Array<any> = [];
   storyList: Array<any> = [];
   coverFile: any;
+  coverImg: any;
   done: boolean = true;
 
   constructor(
@@ -140,6 +141,7 @@ export class UserPageComponent implements OnInit {
 
   deleteStory(story: any) {
     const result = confirm('Do you want to delete this story!');
+
     if (result) {
       this.userPageService.deleteStory(story._id).subscribe(data => {
         this.getStoryList();
@@ -164,14 +166,19 @@ export class UserPageComponent implements OnInit {
     this.coverFile = $event;
   }
 
+  acceptCoverImg() {
+    this.coverImg = this.coverFile;
+  }
+
   saveChanges() {
+    this.isEditProfile = false;
     if (this.currentUser && this.currentUser.id) {
       const data = {
         fullName: this.currentUser.fullName,
         coverImg: ''
       };
 
-      if (this.coverFile) {
+      if (this.coverImg) {
         this.done = false;
         this.uploadImageService.upload(this.coverFile).subscribe(response => {
           data.coverImg = response.url;
@@ -183,7 +190,6 @@ export class UserPageComponent implements OnInit {
 
   updateUser(userId: string, data) {
     this.userPageService.updateUser(userId, data).subscribe(() => {
-      this.isEditProfile = false;
       this.getUser();
     });
   }

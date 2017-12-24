@@ -200,7 +200,7 @@ router
     story.save(function(err) {
       if (err) res.send(err);
 
-      res.json({ message: 'Story created!' });
+      res.json({ story: story, message: 'Story created!' });
     });
   });
 router

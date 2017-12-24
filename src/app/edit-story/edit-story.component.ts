@@ -11,7 +11,7 @@ import { ViewStoryService } from '../shared/view-story.service';
   styleUrls: ['./edit-story.component.css']
 })
 export class EditStoryComponent implements OnInit {
-  selectedStory: any;  
+  selectedStory: any;
   title: string;
   content: string;
   currentUser: any;
@@ -24,14 +24,15 @@ export class EditStoryComponent implements OnInit {
     private loginService: LoginService,
     private route: ActivatedRoute,
     private router: Router,
-    private ngZone: NgZone) { }
+    private ngZone: NgZone
+  ) {}
 
   ngOnInit() {
     this.currentUser = this.loginService.getCurrentUser();
     const param = this.route.snapshot.params['story-id'];
     const id = param.split('@')[1];
     if (id) {
-      this.viewStoryService.getStory(id).subscribe((data) => {
+      this.viewStoryService.getStory(id).subscribe(data => {
         this.selectedStory = data;
         this.title = this.selectedStory.title;
         this.content = this.selectedStory.content;
@@ -70,11 +71,16 @@ export class EditStoryComponent implements OnInit {
 
   updateStory(data: any, id: string) {
     this.editStoryService.updateStory(data, id).subscribe(() => {
-      const link = '/user/' + this.currentUser.username;
+      const link =
+        '/view-story/' +
+        data.title.toLowerCase().replace(/\s/g, '-') +
+        '@' +
+        id;
+
       this.router.navigate([link]);
       this.done = true;
     });
-  }  
+  }
 
   checkToUpdate() {
     if (!!this.title && !!this.content) {

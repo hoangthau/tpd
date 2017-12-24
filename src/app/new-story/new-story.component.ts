@@ -23,7 +23,8 @@ export class NewStoryComponent implements OnInit {
     private loginService: LoginService,
     private router: Router,
     private uploadImageService: UploadImageService,
-    private ngZone: NgZone) { }
+    private ngZone: NgZone
+  ) {}
 
   ngOnInit() {
     this.currentUser = this.loginService.getCurrentUser();
@@ -55,7 +56,7 @@ export class NewStoryComponent implements OnInit {
 
       this.done = false;
       if (this.image) {
-        this.uploadImageService.upload(this.image).subscribe((response) => {
+        this.uploadImageService.upload(this.image).subscribe(response => {
           data.imageUrl = response.url;
           this.publishStory(data);
         });
@@ -66,8 +67,13 @@ export class NewStoryComponent implements OnInit {
   }
 
   publishStory(data: any) {
-    this.newStoryService.publishStory(data).subscribe(() => {
-      const link = '/user/' + this.currentUser.username;
+    this.newStoryService.publishStory(data).subscribe((res: any) => {
+      const story = res.story;
+      const link =
+        '/view-story/' +
+        story.title.toLowerCase().replace(/\s/g, '-') +
+        '@' +
+        story._id;
       this.router.navigate([link]);
       this.done = true;
     });

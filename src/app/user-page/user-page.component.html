@@ -1,7 +1,7 @@
 <div class="user-page">
 
   <div class="cover">
-    <app-modal [modalTargetId]="'coverModal'" [modalTitle]="'Change your cover'">
+    <app-modal [modalTargetId]="'coverModal'" [modalTitle]="'Change your cover'" (submit)="acceptCoverImg()">
       <button class="rp-modal-trigger btn btn-default change-cover-btn" data-toggle="modal" data-target="#coverModal" *ngIf="isEditProfile">Change your cover</button>
       <div class="rp-modal-content">
         <app-upload-image (changeFile)="changeFile($event)" [allowCrop]="true"></app-upload-image>
