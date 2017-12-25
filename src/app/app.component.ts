@@ -41,6 +41,7 @@ export class AppComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         self.showNavbar = true;
         self.showFooter = true;
+        window.scrollTo(0, 0);
         if (event.url === '/login' || event.url === '/sign-up') {
           self.showNavbar = false;
           self.showFooter = false;
