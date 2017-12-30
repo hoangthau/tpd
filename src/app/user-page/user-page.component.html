@@ -52,7 +52,7 @@
     </div>
     <div class="col-md-6 tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-task" role="tabpanel" aria-labelledby="pills-task-tab">
-        <app-modal [modalTargetId]="'whyTaskModal'" [modalTitle]="'Why do you have tasks?'" [showFooter]="false">
+        <app-modal [modalTargetId]="'whyTaskModal'" [modalTitle]="'Why should you have tasks?'" [showFooter]="false">
           <a class="rp-modal-trigger pull-right" href="javascript:;" data-toggle="modal" data-target="#whyTaskModal">
             {{'SHARED.WHY' | translate}}?
           </a>
@@ -99,10 +99,42 @@
           <button class="btn btn-primary" (click)="saveTask()" [disabled]="!taskTitle">{{'SHARED.SAVE' | translate}}</button> or
           <a href="javascript:;" (click)="cancelTask()">{{'SHARED.CANCEL' | translate}}</a>
         </form>
+        <blockquote class="blockquote">
+          <p class="mb-0">Your days are your life in miniature. You will be a great achiever or you can be a victim. You can't be both.</p>
+          <div class="blockquote-footer">Robin Sharma
+            <cite title="Source Title">Lead without title</cite>
+          </div>
+        </blockquote>
         <app-task-list [items]="taskList" (clickDelete)="deleteTask($event)" (sortTasks)="sortTasks($event)" (completeTask)="completeTask($event)"></app-task-list>
       </div>
       <div class="tab-pane fade" id="pills-story" role="tabpanel" aria-labelledby="pills-story-tab">
+        <app-modal [modalTargetId]="'whyStoryModal'" [modalTitle]="'Why should you have stories?'" [showFooter]="false">
+          <a class="rp-modal-trigger pull-right" href="javascript:;" data-toggle="modal" data-target="#whyStoryModal">
+            {{'SHARED.WHY' | translate}}?
+          </a>
+          <div class="rp-modal-content">
+            <p>You know, every things in your life come from your philosophy.</p>
+            <p>Yes, you have to know the winning how-to actions, and you have to possess the winning attitudes- but what generates
+              all that and keeps it all in place is your philosophy. Your philosophy is what you know, how you hold it, and
+              how it affects what you do. How do you think about simple, everyday things. </p>
+            <p>A positive philosophy turns into a positive attitude, which turns into positive actions, which turns into positive
+              results, which turns into positive lifestyle. A positive life.</p>
+
+            <p>More than likely, I see writing the stories can help us live with gratitudes and blessings that make us happy
+              and fulfilled.</p>
+
+            <p>
+              <b>You change your philosophy. You will change your life.</b>
+            </p>
+          </div>
+        </app-modal>
         <button class="btn btn-primary" (click)="createStory()">{{'SHARED.CREATE' | translate}}</button>
+        <blockquote class="blockquote">
+          <p class="mb-0">Journaling allows you to repeat and relive your favorite experiences.</p>
+          <div class="blockquote-footer">Robin Sharma
+            <cite title="Source Title">The Greatness Guide</cite>
+          </div>
+        </blockquote>
         <app-story-list [items]="storyList" [currentUser]="currentUser" (viewStory)="viewStory($event)" (deleteStory)="deleteStory($event)"
           (editStory)="editStory($event)">
         </app-story-list>
