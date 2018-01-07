@@ -1,14 +1,18 @@
 .list-group-item {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .task-title {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .sort-icon {
-    cursor: move;
-    font-size: 1rem;
-    position: relative;
-    top: -2px;
+  cursor: move;
+  font-size: 1rem;
+  position: relative;
+  top: -2px;
+}
+
+.form-edit input {
+  margin-bottom: 10px;
 }

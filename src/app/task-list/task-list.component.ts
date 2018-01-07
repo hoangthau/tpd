@@ -8,13 +8,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class TaskListComponent implements OnInit {
   @Input() items: Array<any>;
 
+  @Output() clickEdit = new EventEmitter();
   @Output() clickDelete = new EventEmitter();
   @Output() sortTasks = new EventEmitter();
   @Output() completeTask = new EventEmitter();
 
   options: any;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.options = {
@@ -34,4 +35,18 @@ export class TaskListComponent implements OnInit {
     this.clickDelete.emit(item);
   }
 
+  edit(item) {
+    item.showEditing = false;
+    item.title = item.titleEditing;
+    this.clickEdit.emit(item);
+  }
+
+  openEdit(item) {
+    item.showEditing = true;
+    item.titleEditing = item.title;
+  }
+
+  cancelEditing(item) {
+    item.showEditing = false;
+  }
 }

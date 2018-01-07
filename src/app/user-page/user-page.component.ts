@@ -101,6 +101,10 @@ export class UserPageComponent implements OnInit {
     this.showCreateInput = false;
   }
 
+  editTask(task: any) {
+    this.userPageService.updateTask(task).subscribe();
+  }
+
   deleteTask(item: any) {
     const result = confirm('Do you want to delete this task!');
     if (result) {
@@ -115,11 +119,13 @@ export class UserPageComponent implements OnInit {
   }
 
   resetTasks() {
-    this.userPageService.resetTasks(this.taskList).subscribe(() => {
+    const result = confirm('Do you want to reset all tasks!');
+    if (result) {
       this.taskList.forEach(function(item) {
         item.isDone = false;
       });
-    });
+      this.userPageService.resetTasks(this.taskList).subscribe();
+    }
   }
 
   signout() {

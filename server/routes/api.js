@@ -78,6 +78,7 @@ router
       if (err) res.send(err);
 
       task.isDone = req.body.isDone;
+      task.title = req.body.title;
 
       task.save(function(err) {
         if (err) res.send(err);

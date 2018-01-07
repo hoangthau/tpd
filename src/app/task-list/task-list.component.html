@@ -1,14 +1,20 @@
 <ul class="list-group" [sortablejs]="items" [sortablejsOptions]="options">
-  <li class="list-group-item" *ngFor="let item of items; let i = index">
-    <div class="actions pull-right">
-        <i class="fa fa-ellipsis-h hover-icon icon" data-toggle="dropdown"></i>      
-        <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="javascript:;" (click)="delete(item)">{{'SHARED.DELETE'| translate}}</a>
+    <li class="list-group-item" *ngFor="let item of items; let i = index">
+        <div *ngIf="!item.showEditing" class="actions pull-right">
+            <i class="fa fa-ellipsis-h hover-icon icon" data-toggle="dropdown"></i>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="javascript:;" (click)="openEdit(item)">{{'SHARED.EDIT'| translate}}</a>
+                <a class="dropdown-item" href="javascript:;" (click)="delete(item)">{{'SHARED.DELETE'| translate}}</a>
+            </div>
         </div>
-    </div>        
-    <h5 class="task-title" (click)="complete(item)" [ngClass]="{'text-success': item.isDone}">
-        <i class="fa fa-arrows-v sort-icon hover-icon"></i>
-        <span>{{ i + 1}}. {{ item.title}}</span>
-    </h5>
-  </li> 
+        <h5 *ngIf="!item.showEditing" class="task-title" (click)="complete(item)" [ngClass]="{'text-success': item.isDone}">
+            <i class="fa fa-arrows-v sort-icon hover-icon"></i>
+            <span>{{ i + 1}}. {{ item.title}}</span>
+        </h5>
+        <div class="form-edit" *ngIf="item.showEditing">
+            <input class="form-control form-control-sm" type="text" [(ngModel)]="item.titleEditing" name="title" />
+            <button class="btn btn-primary" (click)="edit(item)" [disabled]="!item.title">{{'SHARED.UPDATE' | translate}}</button> or
+            <a href="javascript:;" (click)="cancelEditing(item)">{{'SHARED.CANCEL' | translate}}</a>
+        </div>
+    </li>
 </ul>
