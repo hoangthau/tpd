@@ -84,9 +84,15 @@ export class UserPageComponent implements OnInit {
 
   saveTask() {
     this.showCreateInput = false;
+    let sortOrder = this.taskList.length;
+    const lastTask = this.taskList[this.taskList.length - 1];
+    if (lastTask) {
+      sortOrder = lastTask.sortOrder + 1;
+    }
     const data = {
       title: this.taskTitle,
-      userId: this.currentUser.id
+      userId: this.currentUser.id,
+      sortOrder: sortOrder
     };
     this.userPageService.saveTask(data).subscribe(() => {
       this.getTaskList();

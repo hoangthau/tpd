@@ -56,6 +56,7 @@ router
     task.title = req.body.title;
     task.isDone = false;
     task.userId = req.body.userId;
+    task.sortOrder = req.body.sortOrder;
 
     task.save(function(err) {
       if (err) res.send(err);

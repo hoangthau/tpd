@@ -22,6 +22,11 @@ export class UserPageService {
     return this.httpConnector.put(url, task);
   }
 
+  updateTask(task: any) {
+    const url = 'api/task/' + task._id;
+    return this.httpConnector.put(url, task);
+  }
+
   deleteTask(id: string) {
     const url = 'api/task/' + id;
     return this.httpConnector.delete(url);
