@@ -69,4 +69,9 @@ export class UserPageService {
     const url = 'api/user/' + userId;
     return this.httpConnector.put(url, data);
   }
+
+  saveMentor(data: any) {
+    const url = 'api/mentors';
+    return this.httpConnector.post(url, data);
+  }
 }

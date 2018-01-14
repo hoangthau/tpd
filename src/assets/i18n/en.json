@@ -20,6 +20,7 @@
     "SAVE": "Save",
     "RESET": "Reset",
     "CANCEL": "Cancel",
+    "OK": "OK",
     "UPDATE": "Update",
     "WHY": "Why",
     "TASKS": "Tasks",
@@ -31,7 +32,8 @@
     "TITLE": "Title",
     "UPLOADIMAGE": "Upload an image",
     "SELECTIMAGE": "Select an image",
-    "PUBLISH": "Publish"
+    "PUBLISH": "Publish",
+    "SAVECHANGES": "Save changes"
   },
   "LOGIN": {
     "DES": "Sign in to your dream",
@@ -52,5 +54,7 @@
     "DES": "",
     "ALLSTORIES": "Stories from your ripple"
   },
-  "USER": {}
+  "USER": {
+    "CHANGEYOURCOVER": "Change your cover"
+  }
 }

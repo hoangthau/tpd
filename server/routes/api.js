@@ -3,6 +3,7 @@ const router = express.Router();
 const Task = require('../models/task');
 const User = require('../models/user');
 const Story = require('../models/story');
+const Mentor = require('../models/mentor');
 
 const _ = require('lodash');
 
@@ -237,6 +238,76 @@ router
         _id: req.params.story_id
       },
       function(err, task) {
+        if (err) res.send(err);
+
+        res.json({ message: 'Successfully deletected' });
+      }
+    );
+  });
+
+//mentor
+router
+  .route('/mentors')
+  .get(function(req, res) {
+    Mentor.find(function(err, mentors) {
+      if (err) res.send(err);
+
+      const userId = req.query.userId;
+      let _mentors = mentors;
+      if (userId) {
+        _mentors = _.filter(mentors, { userId: userId });
+      }
+      res.json(_mentors);
+    });
+  })
+  .post(function(req, res) {
+    var mentor = new Mentor();
+    mentor.fullName = req.body.fullName;
+    mentor.occupation = req.body.occupation;
+    mentor.language = req.body.language;
+    mentor.nationality = req.body.nationality;
+    mentor.works = req.body.works;
+    mentor.imageUrl = req.body.imageUrl;
+
+    mentor.save(function(err) {
+      if (err) res.send(err);
+
+      res.json({ mentor: mentor, message: 'Mentor created!' });
+    });
+  });
+
+router
+  .route('/mentor/:mentor_id')
+  .get(function(req, res) {
+    Mentor.findById(req.params.mentor_id, function(err, mentor) {
+      if (err) res.send(err);
+
+      res.json(mentor);
+    });
+  })
+  .put(function(req, res) {
+    Mentor.findById(req.params.mentor_id, function(err, mentor) {
+      if (err) res.send(err);
+      mentor.fullName = req.body.fullName;
+      mentor.occupation = req.body.occupation;
+      mentor.language = req.body.language;
+      mentor.nationality = req.body.nationality;
+      mentor.works = req.body.works;
+      mentor.imageUrl = req.body.imageUrl;
+
+      mentor.save(function(err) {
+        if (err) res.send(err);
+
+        res.json({ message: 'Mentor updated' });
+      });
+    });
+  })
+  .delete(function(req, res) {
+    Mentor.remove(
+      {
+        _id: req.params.mentor_id
+      },
+      function(err, mentor) {
         if (err) res.send(err);
 
         res.json({ message: 'Successfully deletected' });

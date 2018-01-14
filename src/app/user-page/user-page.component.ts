@@ -26,6 +26,13 @@ export class UserPageComponent implements OnInit {
   coverFile: any;
   coverImg: any;
   done: boolean = true;
+  creatingMentor: any = {
+    fullName: '',
+    occupation: '',
+    language: '',
+    nationality: '',
+    works: ''
+  };
 
   constructor(
     private userPageService: UserPageService,
@@ -204,5 +211,10 @@ export class UserPageComponent implements OnInit {
     this.userPageService.updateUser(userId, data).subscribe(() => {
       this.getUser();
     });
+  }
+
+  createMentor() {
+    const data = this.creatingMentor;
+    this.userPageService.saveMentor(data).subscribe(() => {});
   }
 }

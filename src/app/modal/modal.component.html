@@ -14,8 +14,8 @@
         <ng-content select=".rp-modal-content"></ng-content>
       </div>
       <div class="modal-footer" *ngIf="showFooter">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCancel()">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmit()">OK</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCancel()">{{'SHARED.CANCEL' | translate}}</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmit()">{{'SHARED.OK' | translate}}</button>
       </div>
     </div>
   </div>
