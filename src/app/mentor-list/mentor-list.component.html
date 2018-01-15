@@ -1,13 +1,12 @@
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let item of items">
     <div class="actions pull-right">
-        <i class="fa fa-ellipsis-h hover-icon icon" data-toggle="dropdown"></i>      
-        <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="javascript:;" (click)="delete(item)">{{'SHARED.DELETE'| translate}}</a>
-            <a class="dropdown-item" href="javascript:;" (click)="edit(item)">{{'SHARED.EDIT'| translate}}</a>                       
-        </div>
+      <i class="fa fa-ellipsis-h hover-icon icon" data-toggle="dropdown"></i>
+      <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="javascript:;" (click)="edit(item)">{{'SHARED.EDIT'| translate}}</a>
+        <a class="dropdown-item" href="javascript:;" (click)="delete(item)">{{'SHARED.DELETE'| translate}}</a>
+      </div>
     </div>
     <p>{{item.fullName}}</p>
-  </li> 
+  </li>
 </ul>
-

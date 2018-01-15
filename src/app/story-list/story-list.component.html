@@ -1,23 +1,23 @@
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let item of items">
-    <div class="actions pull-right">
-        <i class="fa fa-ellipsis-h hover-icon icon" data-toggle="dropdown"></i>      
-        <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="javascript:;" (click)="delete(item)">{{'SHARED.DELETE'| translate}}</a>
-            <a class="dropdown-item" href="javascript:;" (click)="edit(item)">{{'SHARED.EDIT'| translate}}</a>                       
+    <li class="list-group-item" *ngFor="let item of items">
+        <div class="actions pull-right">
+            <i class="fa fa-ellipsis-h hover-icon icon" data-toggle="dropdown"></i>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="javascript:;" (click)="edit(item)">{{'SHARED.EDIT'| translate}}</a>
+                <a class="dropdown-item" href="javascript:;" (click)="delete(item)">{{'SHARED.DELETE'| translate}}</a>
+            </div>
         </div>
-    </div>
-    <div class="user-story">
-        <img class="user-image" [src]="item.userImg" />
-        <div class="story-info">
-          <p class="text-primary">{{item.fullName}}</p>
-          <span class="text-secondary">{{item.dateDisplay || ""}}</span>
+        <div class="user-story">
+            <img class="user-image" [src]="item.userImg" />
+            <div class="story-info">
+                <p class="text-primary">{{item.fullName}}</p>
+                <span class="text-secondary">{{item.dateDisplay || ""}}</span>
+            </div>
         </div>
-    </div>    
-    <h5 class="story-title" (click)="view(item)">{{ item.title }}</h5>
-    <div *ngIf="item.imageUrl" class="story-image" (click)="view(item)">
-        <img [src]="item.imageUrl" />        
-    </div>
-    <div [innerHTML]="item.content"></div>
-  </li> 
+        <h5 class="story-title" (click)="view(item)">{{ item.title }}</h5>
+        <div *ngIf="item.imageUrl" class="story-image" (click)="view(item)">
+            <img [src]="item.imageUrl" />
+        </div>
+        <div [innerHTML]="item.content"></div>
+    </li>
 </ul>
