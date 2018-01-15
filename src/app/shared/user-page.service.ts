@@ -70,6 +70,11 @@ export class UserPageService {
     return this.httpConnector.put(url, data);
   }
 
+  getMentorList(userId) {
+    const url = 'api/mentors?userId=' + userId;
+    return this.httpConnector.get(url);
+  }
+
   saveMentor(data: any) {
     const url = 'api/mentors';
     return this.httpConnector.post(url, data);

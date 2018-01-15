@@ -7,7 +7,8 @@ const MentorSchema = new Schema({
   language: String,
   nationality: String,
   works: String,
-  imageUrl: String
+  imageUrl: String,
+  userId: String  
 });
 
 module.exports = mongoose.model('Mentor', MentorSchema);

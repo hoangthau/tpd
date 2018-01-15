@@ -268,6 +268,7 @@ router
     mentor.nationality = req.body.nationality;
     mentor.works = req.body.works;
     mentor.imageUrl = req.body.imageUrl;
+    mentor.userId = req.body.userId;
 
     mentor.save(function(err) {
       if (err) res.send(err);
@@ -294,6 +295,7 @@ router
       mentor.nationality = req.body.nationality;
       mentor.works = req.body.works;
       mentor.imageUrl = req.body.imageUrl;
+      mentor.userId = req.body.userId;      
 
       mentor.save(function(err) {
         if (err) res.send(err);

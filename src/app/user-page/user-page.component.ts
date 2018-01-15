@@ -23,6 +23,7 @@ export class UserPageComponent implements OnInit {
   joinDate: string;
   taskList: Array<any> = [];
   storyList: Array<any> = [];
+  mentorList: Array<any> = [];
   coverFile: any;
   coverImg: any;
   done: boolean = true;
@@ -48,6 +49,7 @@ export class UserPageComponent implements OnInit {
     this.getUser();
     this.getTaskList();
     this.getStoryList();
+    this.getMentorList();
     if (this.currentUser && this.currentUser.joinDate) {
       const date = new Date(this.currentUser.joinDate);
       this.joinDate =
@@ -213,8 +215,17 @@ export class UserPageComponent implements OnInit {
     });
   }
 
+  getMentorList() {
+    this.userPageService.getMentorList(this.currentUser.id).subscribe(data => {
+      this.mentorList = data; 
+    });
+  }
+
   createMentor() {
     const data = this.creatingMentor;
-    this.userPageService.saveMentor(data).subscribe(() => {});
+    data.userId = this.currentUser.id;    
+    this.userPageService.saveMentor(data).subscribe(() => {
+      this.getMentorList();
+    });
   }
 }

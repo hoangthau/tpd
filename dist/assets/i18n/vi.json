@@ -20,6 +20,7 @@
     "SAVE": "Lưu",
     "RESET": "Làm mới",
     "CANCEL": "Hủy",
+    "OK": "Đồng ý",
     "UPDATE": "Cập nhật",
     "WHY": "Tại sao",
     "TASKS": "Nhiệm vụ",
@@ -31,7 +32,8 @@
     "TITLE": "Tiêu đề",
     "UPLOADIMAGE": "Tải lên một hình",
     "SELECTIMAGE": "Chọn một hình",
-    "PUBLISH": "Tạo mới"
+    "PUBLISH": "Tạo mới",
+    "SAVECHANGES": "Lưu thay đổi"
   },
   "LOGIN": {
     "DES": "Hãy biến giấc mơ của bạn thành hiện thực",
@@ -52,5 +54,7 @@
     "DES": "",
     "ALLSTORIES": "Những câu chuyện của Ripple"
   },
-  "USER": {}
+  "USER": {
+    "CHANGEYOURCOVER": "Thay đổi bìa"
+  }
 }

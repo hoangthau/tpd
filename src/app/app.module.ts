@@ -35,6 +35,7 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ModalComponent } from './modal/modal.component';
 import { EditStoryComponent } from './edit-story/edit-story.component';
+import { MentorListComponent } from './mentor-list/mentor-list.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -54,7 +55,8 @@ export function createTranslateLoader(http: HttpClient) {
     UploadImageComponent,
     SpinnerComponent,
     ModalComponent,
-    EditStoryComponent
+    EditStoryComponent,
+    MentorListComponent
   ],
   imports: [
     BrowserModule,
