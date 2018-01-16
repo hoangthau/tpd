@@ -1,0 +1,18 @@
+.mentor-info {
+    display: flex;
+  }
+  
+  .image img {
+    width: 200px;
+    height: 200px;
+    background: #eee;
+    border-radius: 50%;
+  }
+  
+  .mentor-info h3 {
+    margin-top: 0;
+  }
+  
+  .info {
+    padding-left: 20px;
+  }

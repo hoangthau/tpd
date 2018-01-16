@@ -79,4 +79,14 @@ export class UserPageService {
     const url = 'api/mentors';
     return this.httpConnector.post(url, data);
   }
+
+  deleteMentor(id: string) {
+    const url = 'api/mentor/' + id;
+    return this.httpConnector.delete(url);
+  }
+
+  updateMentor(data: any, id: string) {
+    const url = 'api/mentor/' + id;
+    return this.httpConnector.put(url, data);
+  }
 }

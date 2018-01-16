@@ -7,6 +7,17 @@
         <a class="dropdown-item" href="javascript:;" (click)="delete(item)">{{'SHARED.DELETE'| translate}}</a>
       </div>
     </div>
-    <p>{{item.fullName}}</p>
+    <div class="mentor-info">
+      <div class="image">
+        <img src="https://www.wonderplugin.com/videos/demo-image0.jpg" />
+      </div>
+      <div class="info">
+        <h3>{{item.fullName}}</h3>
+        <p>{{item.nationality}}</p>
+        <p>{{item.language}}</p>
+        <p>{{item.occupation}}</p>
+        <p>{{item.works}}</p>
+      </div>
+    </div>
   </li>
 </ul>

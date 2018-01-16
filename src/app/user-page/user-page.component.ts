@@ -228,4 +228,17 @@ export class UserPageComponent implements OnInit {
       this.getMentorList();
     });
   }
+
+  deleteMentor(mentor) {
+    const result = confirm('Do you want to delete this mentor!');    
+    if (result) {
+      this.userPageService.deleteMentor(mentor._id).subscribe(data => {
+        this.getMentorList();
+      });
+    }
+  }
+
+  editMentor(mentor) {
+
+  }
 }
