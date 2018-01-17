@@ -26,6 +26,7 @@ export class UserPageComponent implements OnInit {
   mentorList: Array<any> = [];
   coverFile: any;
   coverImg: any;
+  mentorImg: any;
   done: boolean = true;
   creatingMentor: any = {
     fullName: '',
@@ -223,10 +224,24 @@ export class UserPageComponent implements OnInit {
 
   createMentor() {
     const data = this.creatingMentor;
-    data.userId = this.currentUser.id;    
-    this.userPageService.saveMentor(data).subscribe(() => {
-      this.getMentorList();
-    });
+    data.userId = this.currentUser.id;
+    data.imageUrl = '';
+
+    if (this.mentorImg) {
+      this.done = false;
+      this.uploadImageService.upload(this.mentorImg).subscribe(response => {
+        data.imageUrl = response.url;
+        this.userPageService.saveMentor(data).subscribe(() => {
+          this.getMentorList();
+          this.done = true;
+        });
+      });
+    } else {
+      this.userPageService.saveMentor(data).subscribe(() => {
+        this.getMentorList();
+      });
+    }     
+
   }
 
   deleteMentor(mentor) {
@@ -240,5 +255,9 @@ export class UserPageComponent implements OnInit {
 
   editMentor(mentor) {
 
+  }
+
+  changeMentorImg(image) {
+    this.mentorImg = image;
   }
 }

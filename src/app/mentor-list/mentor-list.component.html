@@ -9,7 +9,8 @@
     </div>
     <div class="mentor-info">
       <div class="image">
-        <img src="https://www.wonderplugin.com/videos/demo-image0.jpg" />
+        <img *ngIf="item.imageUrl" [src]="item.imageUrl" alt="Mentor Image"/>
+        <div class="no-img" *ngIf="!item.imageUrl"></div>        
       </div>
       <div class="info">
         <h3>{{item.fullName}}</h3>

@@ -67,7 +67,8 @@ export class HttpConnector {
   private handleUrl(url: string) {
     const isLocalHost = window.location.host.indexOf('localhost:4200') >= 0;
     const host = 'https://tpdthau.herokuapp.com/';
-    if (isLocalHost) {
+    const isCloudinary = url.indexOf('api.cloudinary.com') >= 0;
+    if (isLocalHost && !isCloudinary) {
       return host + url;
     }
     return url;
