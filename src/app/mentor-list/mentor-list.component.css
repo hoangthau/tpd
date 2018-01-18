@@ -10,15 +10,23 @@
 }
   
 .mentor-info h3 {
-  margin-top: 0;
+  margin: 0
 }
   
 .info {
   padding-left: 20px;
 }
 
+.info p {
+  margin: 0;
+}
+
+.info .occupation {
+  font-style: italic;
+}
+
 .minor-info {
-  margin-top: 20px;
+  margin-top: 10px;
 }
   
 .caption {
