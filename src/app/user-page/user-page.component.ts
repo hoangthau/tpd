@@ -7,6 +7,7 @@ import { CommonService } from '../shared/common.service';
 import { UploadImageService } from '../shared/upload-image.service';
 
 import * as md5 from 'md5';
+declare var $: any;
 
 @Component({
   selector: 'app-user-page',
@@ -35,6 +36,8 @@ export class UserPageComponent implements OnInit {
     nationality: '',
     works: ''
   };
+  isCreatingMentor: boolean = false;
+  isEditingMentor: boolean = false;
 
   constructor(
     private userPageService: UserPageService,
@@ -218,8 +221,38 @@ export class UserPageComponent implements OnInit {
 
   getMentorList() {
     this.userPageService.getMentorList(this.currentUser.id).subscribe(data => {
-      this.mentorList = data; 
+      this.mentorList = data;
     });
+  }
+
+  openCreateMentorPopup() {
+    this.isCreatingMentor = true;
+    this.isEditingMentor = false;
+    this.creatingMentor = {
+      fullName: '',
+      occupation: '',
+      language: '',
+      nationality: '',
+      works: ''
+    };
+  }
+
+  allowCreateMentor() {
+    const allow =
+      this.creatingMentor.fullName &&
+      this.creatingMentor.occupation &&
+      this.creatingMentor.language &&
+      this.creatingMentor.nationality &&
+      this.creatingMentor.works;
+    return allow;
+  }
+
+  submitMentor() {
+    if (this.isCreatingMentor) {
+      this.createMentor();
+    } else {
+      this.updateMentor();
+    }
   }
 
   createMentor() {
@@ -240,12 +273,19 @@ export class UserPageComponent implements OnInit {
       this.userPageService.saveMentor(data).subscribe(() => {
         this.getMentorList();
       });
-    }     
+    }
+  }
 
+  updateMentor() {
+    const data = this.creatingMentor;
+    const mentorId = data._id;
+    this.userPageService.updateMentor(data, mentorId).subscribe(() => {
+      this.getMentorList();
+    });
   }
 
   deleteMentor(mentor) {
-    const result = confirm('Do you want to delete this mentor!');    
+    const result = confirm('Do you want to delete this mentor!');
     if (result) {
       this.userPageService.deleteMentor(mentor._id).subscribe(data => {
         this.getMentorList();
@@ -254,7 +294,11 @@ export class UserPageComponent implements OnInit {
   }
 
   editMentor(mentor) {
-
+    const createMentorModal = $('#createMentorModal');
+    this.isCreatingMentor = false;
+    this.isEditingMentor = true;
+    this.creatingMentor = { ...mentor };
+    createMentorModal.modal();
   }
 
   changeMentorImg(image) {

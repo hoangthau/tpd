@@ -1,183 +1,183 @@
 <div class="user-page">
 
-  <div class="cover">
-    <app-modal [modalTargetId]="'coverModal'" [modalTitle]="'USER.CHANGEYOURCOVER' | translate" (submit)="acceptCoverImg()">
-      <button class="rp-modal-trigger btn btn-default change-cover-btn" data-toggle="modal" data-target="#coverModal" *ngIf="isEditProfile">{{'USER.CHANGEYOURCOVER' | translate}}</button>
-      <div class="rp-modal-content">
-        <app-upload-image (changeFile)="changeFile($event)" [allowCrop]="true" *ngIf="isEditProfile"></app-upload-image>
-      </div>
-    </app-modal>
-    <div class="cover-img" [ngClass]="{'is-edit': isEditProfile}">
-      <img *ngIf="!currentUser.coverImg" [src]="'assets/cover.jpg'" />
-      <img *ngIf="currentUser.coverImg" [src]="currentUser.coverImg" />
-    </div>
-    <div class="profile-img">
-      <img src="{{userImg}}" />
-    </div>
-    <div class="m-info">
-      <h5>{{currentUser.fullName}}</h5>
-      <p>@{{currentUser.username}}</p>
-    </div>
-    <ul class="nav nav-pills mb-3 box-shadow" id="pills-tab" role="tablist">
-      <li class="nav-first-item"></li>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-task-tab" data-toggle="pill" href="#pills-task" role="tab" aria-controls="pills-task" aria-selected="true">{{'SHARED.TASKS' | translate}}</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-story-tab" data-toggle="pill" href="#pills-story" role="tab" aria-controls="pills-story" aria-selected="false">
-          {{'SHARED.STORIES' | translate}}</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" id="pills-mentor-tab" data-toggle="pill" href="#pills-mentor" role="tab" aria-controls="pills-mentor"
-          aria-selected="false">{{'SHARED.MENTORS' | translate}}</a>
-      </li>
-      <li class="nav-item edit-profile-btn">
-        <button class="btn btn-sm btn-default" (click)="editProfile()">
-          <span [hidden]="isEditProfile">{{'SHARED.EDITPROFILE' | translate}}</span>
-          <span [hidden]="!isEditProfile">{{'SHARED.CANCEL' | translate}}</span>
-        </button>
-        <button *ngIf="isEditProfile" class="btn btn-sm btn-primary" (click)="saveChanges()">{{'SHARED.SAVECHANGES' | translate}}</button>
-      </li>
-    </ul>
-  </div>
+	<div class="cover">
+		<app-modal [modalTargetId]="'coverModal'" [modalTitle]="'USER.CHANGEYOURCOVER' | translate" (submit)="acceptCoverImg()">
+			<button class="rp-modal-trigger btn btn-default change-cover-btn" data-toggle="modal" data-target="#coverModal" *ngIf="isEditProfile">{{'USER.CHANGEYOURCOVER' | translate}}</button>
+			<div class="rp-modal-content">
+				<app-upload-image (changeFile)="changeFile($event)" [allowCrop]="true" *ngIf="isEditProfile"></app-upload-image>
+			</div>
+		</app-modal>
+		<div class="cover-img" [ngClass]="{'is-edit': isEditProfile}">
+			<img *ngIf="!currentUser.coverImg" [src]="'assets/cover.jpg'" />
+			<img *ngIf="currentUser.coverImg" [src]="currentUser.coverImg" />
+		</div>
+		<div class="profile-img">
+			<img src="{{userImg}}" />
+		</div>
+		<div class="m-info">
+			<h5>{{currentUser.fullName}}</h5>
+			<p>@{{currentUser.username}}</p>
+		</div>
+		<ul class="nav nav-pills mb-3 box-shadow" id="pills-tab" role="tablist">
+			<li class="nav-first-item"></li>
+			<li class="nav-item">
+				<a class="nav-link" id="pills-task-tab" data-toggle="pill" href="#pills-task" role="tab" aria-controls="pills-task" aria-selected="true">{{'SHARED.TASKS' | translate}}</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="pills-story-tab" data-toggle="pill" href="#pills-story" role="tab" aria-controls="pills-story" aria-selected="false">
+					{{'SHARED.STORIES' | translate}}</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link active" id="pills-mentor-tab" data-toggle="pill" href="#pills-mentor" role="tab" aria-controls="pills-mentor"
+				 aria-selected="false">{{'SHARED.MENTORS' | translate}}</a>
+			</li>
+			<li class="nav-item edit-profile-btn">
+				<button class="btn btn-sm btn-default" (click)="editProfile()">
+					<span [hidden]="isEditProfile">{{'SHARED.EDITPROFILE' | translate}}</span>
+					<span [hidden]="!isEditProfile">{{'SHARED.CANCEL' | translate}}</span>
+				</button>
+				<button *ngIf="isEditProfile" class="btn btn-sm btn-primary" (click)="saveChanges()">{{'SHARED.SAVECHANGES' | translate}}</button>
+			</li>
+		</ul>
+	</div>
 
-  <div class="row content">
-    <div class="offset-md-1 col-md-2 info">
-      <h5>{{currentUser.fullName}}</h5>
-      <p>@{{currentUser.username}}</p>
-      <span [hidden]="!joinDate">
-        <i class="fa fa-calendar"></i>{{'SHARED.JOINED' | translate}} {{joinDate}}
-      </span>
-    </div>
-    <div class="col-md-6 tab-content" id="pills-tabContent">
-      <div class="tab-pane fade" id="pills-task" role="tabpanel" aria-labelledby="pills-task-tab">
-        <app-modal [modalTargetId]="'whyTaskModal'" [modalTitle]="'Why should you have tasks?'" [showFooter]="false">
-          <a class="rp-modal-trigger pull-right" href="javascript:;" data-toggle="modal" data-target="#whyTaskModal">
-            {{'SHARED.WHY' | translate}}?
-          </a>
-          <div class="rp-modal-content">
-            <p>Most of us ignore easy things. But, as you know, most of achievers do easy things. Actually, as you do trivial
-              things overtime you can accomplish stunning results. The important thing is time. Successful people are willing
-              to do the things that unsuccessful people are not willing to do. You sustain your tasks, you will win.
-            </p>
-            <p>
-              At the begining of this journey, maybe in your first, second week you dive into your motions. You don't see any changes in
-              your life. And you keep going but after three, four weeks you still in the same in your progress of mountaintop.
-              <b>
-                You will be impatient guy. You quit.</b> You will be unsuccessful person. But the thing is that you need
-              more time. At least 90 days.
-            </p>
-            <p>
-              I reflect a lot about our perseverance. I realize that we must follow our philosophy. "In your journey, you have to believe
-              what you know. Don't mind what you see."
-            </p>
-            <p>
-              Just create simple tasks which are easy to do. Everyone can do it. For example, my task is listening English 15 minutes a
-              day. Or 20 minutes for workout. See. So easy to do. Please imagine that what happen to you if you read only
-              10 pages of a good book for your workday. Overtime. Thousands of books.
-            </p>
-            <p>
-              You need one day, one week, one month, one year, ... You will be great achiever. See out there,
-              <b>all winners have discipline and commitment. You must commit yourself.</b>
-            </p>
-            <p>
-              Please create your simple tasks. It's time to kick off your dream. Don't procrastinate anymore.
-            </p>
-          </div>
-        </app-modal>
-        <div *ngIf="!showCreateInput">
-          <button class="btn btn-primary btn-create" (click)="createTask()">{{'SHARED.CREATE'| translate}}</button>
-          <a href="javascript:;" (click)="resetTasks()">{{'SHARED.RESET'| translate}}</a>
-        </div>
-        <form *ngIf="showCreateInput" class="form-create" novalidate>
-          <div class="form-group row">
-            <div class="col-sm-12">
-              <input class="form-control form-control-sm" type="text" [(ngModel)]="taskTitle" name="taskTitle" />
-            </div>
-          </div>
-          <button class="btn btn-primary" (click)="saveTask()" [disabled]="!taskTitle">{{'SHARED.SAVE' | translate}}</button> or
-          <a href="javascript:;" (click)="cancelTask()">{{'SHARED.CANCEL' | translate}}</a>
-        </form>
-        <blockquote class="blockquote">
-          <p class="mb-0">Your days are your life in miniature. You can be a leader or you can be a victim. You can't be both.</p>
-          <div class="blockquote-footer">Robin Sharma
-            <cite title="Source Title">Lead without title</cite>
-          </div>
-        </blockquote>
-        <app-task-list [items]="taskList" (clickEdit)="editTask($event)" (clickDelete)="deleteTask($event)" (sortTasks)="sortTasks($event)"
-          (completeTask)="completeTask($event)"></app-task-list>
-      </div>
-      <div class="tab-pane fade" id="pills-story" role="tabpanel" aria-labelledby="pills-story-tab">
-        <app-modal [modalTargetId]="'whyStoryModal'" [modalTitle]="'Why should you have stories?'" [showFooter]="false">
-          <a class="rp-modal-trigger pull-right" href="javascript:;" data-toggle="modal" data-target="#whyStoryModal">
-            {{'SHARED.WHY' | translate}}?
-          </a>
-          <div class="rp-modal-content">
-            <p>You know, every things in your life come from your philosophy.</p>
-            <p>Yes, you have to know the winning how-to actions, and you have to possess the winning attitudes- but what generates
-              all that and keeps it all in place is your philosophy. Your philosophy is what you know, how you hold it, and
-              how it affects what you do. How do you think about simple, everyday things. </p>
-            <p>A positive philosophy turns into a positive attitude, which turns into positive actions, which turns into positive
-              results, which turns into positive lifestyle. A positive life.</p>
+	<div class="row content">
+		<div class="offset-md-1 col-md-2 info">
+			<h5>{{currentUser.fullName}}</h5>
+			<p>@{{currentUser.username}}</p>
+			<span [hidden]="!joinDate">
+				<i class="fa fa-calendar"></i>{{'SHARED.JOINED' | translate}} {{joinDate}}
+			</span>
+		</div>
+		<div class="col-md-6 tab-content" id="pills-tabContent">
+			<div class="tab-pane fade" id="pills-task" role="tabpanel" aria-labelledby="pills-task-tab">
+				<app-modal [modalTargetId]="'whyTaskModal'" [modalTitle]="'Why should you have tasks?'" [showFooter]="false">
+					<a class="rp-modal-trigger pull-right" href="javascript:;" data-toggle="modal" data-target="#whyTaskModal">
+						{{'SHARED.WHY' | translate}}?
+					</a>
+					<div class="rp-modal-content">
+						<p>Most of us ignore easy things. But, as you know, most of achievers do easy things. Actually, as you do trivial things
+							overtime you can accomplish stunning results. The important thing is time. Successful people are willing to do the
+							things that unsuccessful people are not willing to do. You sustain your tasks, you will win.
+						</p>
+						<p>
+							At the begining of this journey, maybe in your first, second week you dive into your motions. You don't see any changes in
+							your life. And you keep going but after three, four weeks you still in the same in your progress of mountaintop.
+							<b>
+								You will be impatient guy. You quit.</b> You will be unsuccessful person. But the thing is that you need more time.
+							At least 90 days.
+						</p>
+						<p>
+							I reflect a lot about our perseverance. I realize that we must follow our philosophy. "In your journey, you have to believe
+							what you know. Don't mind what you see."
+						</p>
+						<p>
+							Just create simple tasks which are easy to do. Everyone can do it. For example, my task is listening English 15 minutes a
+							day. Or 20 minutes for workout. See. So easy to do. Please imagine that what happen to you if you read only 10 pages
+							of a good book for your workday. Overtime. Thousands of books.
+						</p>
+						<p>
+							You need one day, one week, one month, one year, ... You will be great achiever. See out there,
+							<b>all winners have discipline and commitment. You must commit yourself.</b>
+						</p>
+						<p>
+							Please create your simple tasks. It's time to kick off your dream. Don't procrastinate anymore.
+						</p>
+					</div>
+				</app-modal>
+				<div *ngIf="!showCreateInput">
+					<button class="btn btn-primary btn-create" (click)="createTask()">{{'SHARED.CREATE'| translate}}</button>
+					<a href="javascript:;" (click)="resetTasks()">{{'SHARED.RESET'| translate}}</a>
+				</div>
+				<form *ngIf="showCreateInput" class="form-create" novalidate>
+					<div class="form-group row">
+						<div class="col-sm-12">
+							<input class="form-control form-control-sm" type="text" [(ngModel)]="taskTitle" name="taskTitle" />
+						</div>
+					</div>
+					<button class="btn btn-primary" (click)="saveTask()" [disabled]="!taskTitle">{{'SHARED.SAVE' | translate}}</button> or
+					<a href="javascript:;" (click)="cancelTask()">{{'SHARED.CANCEL' | translate}}</a>
+				</form>
+				<blockquote class="blockquote">
+					<p class="mb-0">Your days are your life in miniature. You can be a leader or you can be a victim. You can't be both.</p>
+					<div class="blockquote-footer">Robin Sharma
+						<cite title="Source Title">Lead without title</cite>
+					</div>
+				</blockquote>
+				<app-task-list [items]="taskList" (clickEdit)="editTask($event)" (clickDelete)="deleteTask($event)" (sortTasks)="sortTasks($event)"
+				 (completeTask)="completeTask($event)"></app-task-list>
+			</div>
+			<div class="tab-pane fade" id="pills-story" role="tabpanel" aria-labelledby="pills-story-tab">
+				<app-modal [modalTargetId]="'whyStoryModal'" [modalTitle]="'Why should you have stories?'" [showFooter]="false">
+					<a class="rp-modal-trigger pull-right" href="javascript:;" data-toggle="modal" data-target="#whyStoryModal">
+						{{'SHARED.WHY' | translate}}?
+					</a>
+					<div class="rp-modal-content">
+						<p>You know, every things in your life come from your philosophy.</p>
+						<p>Yes, you have to know the winning how-to actions, and you have to possess the winning attitudes- but what generates
+							all that and keeps it all in place is your philosophy. Your philosophy is what you know, how you hold it, and how
+							it affects what you do. How do you think about simple, everyday things. </p>
+						<p>A positive philosophy turns into a positive attitude, which turns into positive actions, which turns into positive
+							results, which turns into positive lifestyle. A positive life.</p>
 
-            <p>More than likely, I see writing the stories can help us live with gratitudes and blessings that make us happy
-              and fulfilled.</p>
+						<p>More than likely, I see writing the stories can help us live with gratitudes and blessings that make us happy and fulfilled.</p>
 
-            <p>
-              <b>You change your philosophy. You will change your life.</b>
-            </p>
-          </div>
-        </app-modal>
-        <button class="btn btn-primary btn-create" (click)="createStory()">{{'SHARED.CREATE' | translate}}</button>
-        <blockquote class="blockquote">
-          <p class="mb-0">Journaling allows you to repeat and relive your favorite experiences.</p>
-          <div class="blockquote-footer">Robin Sharma
-            <cite title="Source Title">The Greatness Guide</cite>
-          </div>
-        </blockquote>
-        <app-story-list [items]="storyList" [currentUser]="currentUser" (viewStory)="viewStory($event)" (deleteStory)="deleteStory($event)"
-          (editStory)="editStory($event)">
-        </app-story-list>
-      </div>
-      <div class="tab-pane fade show active" id="pills-mentor" role="tabpanel" aria-labelledby="pills-mentor-tab">
-        <app-modal [modalTargetId]="'createMentorModal'" [modalTitle]="'Create Mentor'" (submit)="createMentor()">
-          <button class="rp-modal-trigger btn btn-primary btn-create" data-toggle="modal" data-target="#createMentorModal">{{'SHARED.CREATE' | translate}}</button>
-          <div class="rp-modal-content">
-            <form name="createMentor" novalidate>
-              <div class="row form-group">
-                <label class="col-sm-3 col-form-label">Full Name</label>
-                <input type="text" class="form-control col-sm-8" name="fullName" [(ngModel)]="creatingMentor.fullName" placeholder="Full Name">
-              </div>
-              <div class="row form-group">
-                <label class="col-sm-3 col-form-label">Occupation</label>
-                <input type="text" class="form-control col-sm-8" name="occupation" [(ngModel)]="creatingMentor.occupation" placeholder="Occupation">
-              </div>
-              <div class="row form-group">
-                <label class="col-sm-3 col-form-label">Language</label>
-                <input type="text" class="form-control col-sm-8" name="language" [(ngModel)]="creatingMentor.language" placeholder="Language">
-              </div>
-              <div class="row form-group">
-                <label class="col-sm-3 col-form-label">Nationality</label>
-                <input type="text" class="form-control col-sm-8" name="nationality" [(ngModel)]="creatingMentor.nationality" placeholder="Nationality">
-              </div>
-              <div class="row form-group">
-                <label class="col-sm-3 col-form-label">Notable Works</label>
-                <textarea type="text" class="form-control col-sm-8" name="works" [(ngModel)]="creatingMentor.works" placeholder="Notable Works"></textarea>
-              </div>
-              <div class="row form-group">
-                <app-upload-image class="offset-sm-3" (changeFile)="changeMentorImg($event)"></app-upload-image>
-              </div>
-            </form>
-          </div>
-        </app-modal>
+						<p>
+							<b>You change your philosophy. You will change your life.</b>
+						</p>
+					</div>
+				</app-modal>
+				<button class="btn btn-primary btn-create" (click)="createStory()">{{'SHARED.CREATE' | translate}}</button>
+				<blockquote class="blockquote">
+					<p class="mb-0">Journaling allows you to repeat and relive your favorite experiences.</p>
+					<div class="blockquote-footer">Robin Sharma
+						<cite title="Source Title">The Greatness Guide</cite>
+					</div>
+				</blockquote>
+				<app-story-list [items]="storyList" [currentUser]="currentUser" (viewStory)="viewStory($event)" (deleteStory)="deleteStory($event)"
+				 (editStory)="editStory($event)">
+				</app-story-list>
+			</div>
+			<div class="tab-pane fade show active" id="pills-mentor" role="tabpanel" aria-labelledby="pills-mentor-tab">
+				<app-modal [modalTargetId]="'createMentorModal'" [modalTitle]="'Create Mentor'" (submit)="submitMentor()" [enableSubmit]="allowCreateMentor()">
+					<button id="create-mentor-modal" class="rp-modal-trigger btn btn-primary btn-create" (click)="openCreateMentorPopup()" data-toggle="modal"
+					 data-target="#createMentorModal">{{'SHARED.CREATE' | translate}}</button>
+					<div class="rp-modal-content">
+						<form name="createMentor" novalidate>
+							<div class="row form-group">
+								<label class="col-sm-3 col-form-label">Full Name</label>
+								<input type="text" class="form-control col-sm-8" name="fullName" [(ngModel)]="creatingMentor.fullName" placeholder="Full Name">
+							</div>
+							<div class="row form-group">
+								<label class="col-sm-3 col-form-label">Occupation</label>
+								<input type="text" class="form-control col-sm-8" name="occupation" [(ngModel)]="creatingMentor.occupation" placeholder="Occupation">
+							</div>
+							<div class="row form-group">
+								<label class="col-sm-3 col-form-label">Language</label>
+								<input type="text" class="form-control col-sm-8" name="language" [(ngModel)]="creatingMentor.language" placeholder="Language">
+							</div>
+							<div class="row form-group">
+								<label class="col-sm-3 col-form-label">Nationality</label>
+								<input type="text" class="form-control col-sm-8" name="nationality" [(ngModel)]="creatingMentor.nationality" placeholder="Nationality">
+							</div>
+							<div class="row form-group">
+								<label class="col-sm-3 col-form-label">Notable Works</label>
+								<textarea type="text" class="form-control col-sm-8" name="works" [(ngModel)]="creatingMentor.works" placeholder="Notable Works"></textarea>
+							</div>
+							<div class="row form-group">
+								<app-upload-image class="offset-sm-3" (changeFile)="changeMentorImg($event)" [options]="{'previewImgWidth': 150, 'previewImgHeight': 150}"></app-upload-image>
+							</div>
+						</form>
+					</div>
+				</app-modal>
 
-        <app-mentor-list [items]="mentorList" (editMentor)="editMentor($event)" (deleteMentor)="deleteMentor($event)"></app-mentor-list>
-      </div>
-    </div>
-    <div class="col-md-3">
-    </div>
-  </div>
+				<app-mentor-list [items]="mentorList" (editMentor)="editMentor($event)" (deleteMentor)="deleteMentor($event)"></app-mentor-list>
+			</div>
+		</div>
+		<div class="col-md-3">
+		</div>
+	</div>
 
-  <app-spinner *ngIf="!done"></app-spinner>
+	<app-spinner *ngIf="!done"></app-spinner>
 
 </div>

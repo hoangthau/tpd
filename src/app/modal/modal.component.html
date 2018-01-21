@@ -15,7 +15,7 @@
       </div>
       <div class="modal-footer" *ngIf="showFooter">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCancel()">{{'SHARED.CANCEL' | translate}}</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmit()">{{'SHARED.OK' | translate}}</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmit()" [disabled]="!enableSubmit">{{'SHARED.OK' | translate}}</button>
       </div>
     </div>
   </div>

@@ -12,6 +12,8 @@ import Cropper from 'cropperjs';
 })
 export class UploadImageComponent implements OnInit {
   @Input() allowCrop: boolean = false;
+  @Input() options: any = {};
+
   @Output() changeFile: EventEmitter<any> = new EventEmitter();
 
   constructor(private httpConnector: HttpConnector) {}
@@ -50,8 +52,8 @@ export class UploadImageComponent implements OnInit {
         this.changeFile.emit(file);
         this.setCropper(img);
       } else {
-        img.width = 200;
-        img.height = 100;
+        img.width = this.options.previewImgWidth || 200;
+        img.height = this.options.previewImgHeight || 100;
         this.changeFile.emit(file);
       }
     }

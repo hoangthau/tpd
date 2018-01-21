@@ -9,13 +9,14 @@ export class ModalComponent implements OnInit {
   @Input() modalTargetId: string;
   @Input() modalTitle: string;
   @Input() showFooter: boolean = true;
+  @Input() enableSubmit: boolean = true;
 
   @Output() cancel = new EventEmitter();
   @Output() submit = new EventEmitter();
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   onSubmit() {
     this.submit.emit();
